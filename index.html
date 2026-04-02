@@ -53,12 +53,62 @@
       --blue-light: #38BDF8;
       --obsidian: #0B1221;
       --r-sm:10px;--r-md:14px;--r-lg:20px;--r-xl:28px;
+      --banner-h: 44px;
     }
     html{scroll-behavior:smooth}
-    body{font-family:'Plus Jakarta Sans', sans-serif;background:var(--frost);color:var(--obs);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    body{font-family:'Plus Jakarta Sans', sans-serif;background:var(--frost);color:var(--obs);overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-top:var(--banner-h)}
 
-    /* HEADER */
-    #hdr{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s}
+    /* =============================================
+       🚨 EMERGENCY ALERT BANNER
+    ============================================= */
+    .emergency-banner{
+      position:fixed;
+      top:0;left:0;width:100%;
+      height:var(--banner-h);
+      overflow:hidden;
+      background:linear-gradient(90deg,#7f1d1d,#B91C1C,#DC2626,#EF4444,#DC2626,#B91C1C,#7f1d1d);
+      box-shadow:0 2px 20px rgba(220,38,38,.55),0 0 40px rgba(220,38,38,.2);
+      border-bottom:1px solid rgba(255,255,255,.12);
+      z-index:9999;
+    }
+    /* Left + right edge fade-out vignettes */
+    .emergency-banner::before,.emergency-banner::after{
+      content:'';position:absolute;top:0;width:80px;height:100%;z-index:2;pointer-events:none;
+    }
+    .emergency-banner::before{left:0;background:linear-gradient(to right,#991b1b,transparent)}
+    .emergency-banner::after{right:0;background:linear-gradient(to left,#991b1b,transparent)}
+    .banner-track{
+      display:flex;
+      width:max-content;
+      height:100%;
+      align-items:center;
+      animation:banner-scroll 22s linear infinite;
+    }
+    .banner-track span{
+      padding:0 3.5rem;
+      white-space:nowrap;
+      font-family:'Barlow Condensed',sans-serif;
+      font-size:1.05rem;
+      font-weight:800;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      color:#fff;
+      text-shadow:0 0 8px rgba(255,255,255,.7),0 0 18px rgba(255,100,100,.8),0 0 32px rgba(220,38,38,.6);
+    }
+    /* Separator dots between segments */
+    .banner-track span::after{
+      content:' ◆ ';
+      opacity:.5;
+      font-size:.7rem;
+    }
+    .banner-track span:last-child::after{content:''}
+    @keyframes banner-scroll{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-50%)}
+    }
+
+    /* HEADER — offset by banner height */
+    #hdr{position:fixed;top:var(--banner-h);left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s}
     #hdr.on{background:rgba(11,18,33,.93);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.07)}
     .logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
     .logo-badge{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--blue-d));display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.4rem;color:#fff;box-shadow:0 4px 16px rgba(14,165,233,.4)}
@@ -78,7 +128,7 @@
     .mclose{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,.4);font-size:1.8rem;cursor:pointer;transition:color .2s;line-height:1}
     .mclose:hover{color:#fff}
 
-    /* HERO (PRESERVED EXACTLY) */
+    /* HERO */
     #hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;cursor:crosshair;user-select:none;isolation:isolate;font-family:'Plus Jakarta Sans', sans-serif;}
     #hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,6,23,0.72) 0%,rgba(2,6,23,0.58) 34%,rgba(2,6,23,0.2) 58%,rgba(2,6,23,0.06) 100%);z-index:9;pointer-events:none}
     .hero-cold-bg,.hero-warm-bg{position:absolute;inset:0;overflow:hidden}
@@ -109,7 +159,7 @@
     .hero-h1 .line3{display:block;font-size:clamp(3rem, 9vw, 8rem);background:linear-gradient(90deg,#38bdf8,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
     .hero-p{position:relative;z-index:1;margin:1.25rem auto 0;color:rgba(255,255,255,0.96);font-size:1.08rem;max-width:620px;line-height:1.75;text-shadow:0 6px 22px rgba(0,0,0,0.52)}
     .hero-btns{position:relative;z-index:1;display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;justify-content:center}
-    .btn-primary{display:inline-flex;align-items:center;justify-content:center;background:var(--blue);color:#fff;padding:1rem 2rem;border-radius:12px;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;transition:background 0.3s,transform 0.2s,box-shadow 0.3s;box-shadow:0 8px 30px rgba(14,165,233,0.3)}
+    .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--blue);color:#fff;padding:1rem 2rem;border-radius:12px;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;transition:background 0.3s,transform 0.2s,box-shadow 0.3s;box-shadow:0 8px 30px rgba(14,165,233,0.3)}
     .btn-primary:hover{background:#38BDF8;transform:translateY(-2px);box-shadow:0 12px 40px rgba(14,165,233,0.45)}
     .btn-outline{display:inline-flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.2);color:#fff;padding:1rem 2rem;border-radius:12px;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;transition:border-color 0.3s,color 0.3s}
     .btn-outline:hover{border-color:rgba(14,165,233,0.6);color:var(--blue)}
@@ -130,16 +180,23 @@
     .sh2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.8rem);text-transform:uppercase;color:var(--obs);line-height:1;margin-top:.4rem}
     .sdesc{font-size:1rem;color:var(--muted);line-height:1.75;max-width:560px;margin-top:.75rem}
 
-    /* Services intro: text left, image right */
+    /* Services intro: text left, image right — NO box/border/shadow */
     .svc-intro{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;max-width:1200px;margin:0 auto 4rem}
-    .svc-intro-text{}
     .svc-intro-text .sdesc{max-width:100%}
-    .svc-intro-img{position:relative;border-radius:var(--r-xl);overflow:hidden;box-shadow:0 32px 80px rgba(11,18,33,.14),0 0 0 1px rgba(0,0,0,.06)}
-    .svc-intro-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-    .svc-intro-img:hover img{transform:scale(1.03)}
-    .svc-intro-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(14,165,233,.08) 0%,rgba(245,158,11,.06) 100%);pointer-events:none}
+    .svc-intro-img{position:relative;display:flex;align-items:center;justify-content:center}
+    .svc-intro-img img{
+      width:100%;
+      height:auto;
+      display:block;
+      object-fit:contain;
+      /* No border, no radius, no shadow — transparent PNG shows clean */
+      border:none;
+      background:transparent;
+      transition:transform .5s ease;
+    }
+    .svc-intro-img:hover img{transform:scale(1.04)}
     /* Fire/ice badge overlay */
-    .svc-img-badge{position:absolute;bottom:1.25rem;left:1.25rem;right:1.25rem;display:flex;justify-content:space-between;pointer-events:none}
+    .svc-img-badge{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;pointer-events:none}
     .svc-img-badge span{background:rgba(11,18,33,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:100px;padding:.4rem 1rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.12)}
     .svc-img-badge .cool-tag{border-color:rgba(56,189,248,.35);color:var(--blue-l)}
     .svc-img-badge .warm-tag{border-color:rgba(245,158,11,.35);color:var(--amber-l)}
@@ -280,7 +337,6 @@
       .cgrid{grid-template-columns:1fr}
       .sgrid{grid-template-columns:repeat(2,1fr)}
       .svc-intro{grid-template-columns:1fr;gap:2.5rem}
-      .svc-intro-img{max-height:420px}
     }
     @media(max-width:768px){
       nav{display:none}
@@ -300,6 +356,7 @@
       .mw{max-width:260px}
       .svc-intro{grid-template-columns:1fr;gap:2rem}
       .svc-img-badge{display:none}
+      .banner-track span{font-size:.9rem;padding:0 2rem}
     }
     @media(max-width:480px){
       .hero-h1 .line1,.hero-h1 .line2,.hero-h1 .line3{font-size:clamp(2rem,12vw,3.5rem)}
@@ -309,6 +366,16 @@
   </style>
 </head>
 <body>
+
+<!-- 🚨 EMERGENCY ALERT BANNER -->
+<div class="emergency-banner" role="marquee" aria-label="Emergency HVAC service alert">
+  <div class="banner-track">
+    <span>🚨 24/7 Emergency HVAC Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; Fast &nbsp;•&nbsp; Reliable &nbsp;•&nbsp; Local 🔧</span>
+    <span>🔥 Heating &amp; Cooling Emergencies &nbsp;•&nbsp; Same&#8209;Day Service &nbsp;•&nbsp; Licensed &amp; Insured ⚡</span>
+    <span>🚨 24/7 Emergency HVAC Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; Fast &nbsp;•&nbsp; Reliable &nbsp;•&nbsp; Local 🔧</span>
+    <span>🔥 Heating &amp; Cooling Emergencies &nbsp;•&nbsp; Same&#8209;Day Service &nbsp;•&nbsp; Licensed &amp; Insured ⚡</span>
+  </div>
+</div>
 
 <!-- HEADER -->
 <header id="hdr" class="on">
@@ -411,7 +478,7 @@
 <!-- SERVICES -->
 <section id="services">
 
-  <!-- Intro row: text left, image right -->
+  <!-- Intro row: text left, image right — clean PNG, no box -->
   <div class="svc-intro">
     <div class="svc-intro-text">
       <div class="sl">What We Do</div>
@@ -525,30 +592,9 @@
         <button class="fbtn" id="fcold" onclick="setF('cold')">❄️ Too Cold</button>
         <button class="fbtn" id="ffix" onclick="setF('fix')">🔧 Repair</button>
       </div>
-      <!-- 
-        IMPORTANT: To send form submissions to both emails (jacolby@fullwoodsreliableservice.com AND fullwoodsreliableservice@gmail.com):
-        
-        Option 1 - Formspree (Recommended):
-        1. Sign up at https://formspree.io/
-        2. Create a new form
-        3. Add BOTH emails as recipients in the form settings
-        4. Replace the action URL below with your form endpoint
-        
-        Option 2 - Netlify Forms:
-        1. Deploy to Netlify
-        2. Add data-netlify="true" to this form tag
-        3. Configure notification emails in Netlify dashboard to go to both addresses
-        
-        Option 3 - Basin:
-        1. Sign up at https://usebasin.com/
-        2. Create a form and add both emails as recipients
-        3. Replace action URL with Basin endpoint
-      -->
       <form id="cform" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
         <input type="hidden" id="fval" name="feeling" value="">
-        <!-- Add reply-to for the customer's email -->
         <input type="hidden" name="_replyto" value="jacolby@fullwoodsreliableservice.com">
-        
         <div class="frow">
           <div class="fg"><label for="fn">Your Name *</label><input type="text" id="fn" name="name" placeholder="Full Name" required></div>
           <div class="fg"><label for="fp">Phone Number *</label><input type="tel" id="fp" name="phone" placeholder="(985) 000-0000" required></div>
@@ -726,36 +772,21 @@
     document.getElementById(map[cls]).classList.add(cls);
   }
 
-  // Form handling - Updated for Formspree
+  // Form handling
   const form = document.getElementById('cform');
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
-    
     const n = document.getElementById('fn').value.trim();
     const p = document.getElementById('fp').value.trim();
-    if (!n || !p) { 
-      alert('Please fill in your name and phone number.'); 
-      return; 
-    }
-    
+    if (!n || !p) { alert('Please fill in your name and phone number.'); return; }
     const formData = new FormData(form);
     const action = form.action;
-    
-    // Check if user has replaced the placeholder
     if (action.includes('YOUR_FORM_ID_HERE')) {
-      alert('Please configure your form endpoint. See the HTML comment above the form for instructions on setting up Formspree to send to both email addresses.');
+      alert('Please configure your form endpoint.');
       return;
     }
-    
     try {
-      const response = await fetch(action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
-      
+      const response = await fetch(action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
       if (response.ok) {
         document.getElementById('fwrap').innerHTML = `
           <div class="sscr">
@@ -767,10 +798,10 @@
             </a>
           </div>`;
       } else {
-        alert('Oops! There was a problem submitting your form. Please call us directly at 985-300-3712.');
+        alert('Oops! There was a problem. Please call us directly at 985-300-3712.');
       }
     } catch (error) {
-      alert('Oops! There was a problem submitting your form. Please call us directly at 985-300-3712.');
+      alert('Oops! There was a problem. Please call us directly at 985-300-3712.');
     }
   });
 
@@ -794,7 +825,6 @@
     aos.observe(el);
   });
 
-  // Wave fade keyframe injection
   const s = document.createElement('style');
   s.textContent = '@keyframes wf{0%,100%{opacity:0;transform:scaleX(.95)}50%{opacity:.35;transform:scaleX(1.05)}}';
   document.head.appendChild(s);

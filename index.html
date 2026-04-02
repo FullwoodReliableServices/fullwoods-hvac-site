@@ -58,52 +58,16 @@
     html{scroll-behavior:smooth}
     body{font-family:'Plus Jakarta Sans', sans-serif;background:var(--frost);color:var(--obs);overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-top:var(--banner-h)}
 
-    /* =============================================
-       🚨 EMERGENCY ALERT BANNER
-    ============================================= */
-    .emergency-banner{
-      position:fixed;
-      top:0;left:0;width:100%;
-      height:var(--banner-h);
-      overflow:hidden;
-      background:linear-gradient(90deg,#7f1d1d,#B91C1C,#DC2626,#EF4444,#DC2626,#B91C1C,#7f1d1d);
-      box-shadow:0 2px 20px rgba(220,38,38,.55),0 0 40px rgba(220,38,38,.2);
-      border-bottom:1px solid rgba(255,255,255,.12);
-      z-index:9999;
-    }
-    .emergency-banner::before,.emergency-banner::after{
-      content:'';position:absolute;top:0;width:80px;height:100%;z-index:2;pointer-events:none;
-    }
+    /* EMERGENCY ALERT BANNER */
+    .emergency-banner{position:fixed;top:0;left:0;width:100%;height:var(--banner-h);overflow:hidden;background:linear-gradient(90deg,#7f1d1d,#B91C1C,#DC2626,#EF4444,#DC2626,#B91C1C,#7f1d1d);box-shadow:0 2px 20px rgba(220,38,38,.55),0 0 40px rgba(220,38,38,.2);border-bottom:1px solid rgba(255,255,255,.12);z-index:9999;}
+    .emergency-banner::before,.emergency-banner::after{content:'';position:absolute;top:0;width:80px;height:100%;z-index:2;pointer-events:none;}
     .emergency-banner::before{left:0;background:linear-gradient(to right,#991b1b,transparent)}
     .emergency-banner::after{right:0;background:linear-gradient(to left,#991b1b,transparent)}
-    .banner-track{
-      display:flex;
-      width:max-content;
-      height:100%;
-      align-items:center;
-      animation:banner-scroll 22s linear infinite;
-    }
-    .banner-track span{
-      padding:0 3.5rem;
-      white-space:nowrap;
-      font-family:'Barlow Condensed',sans-serif;
-      font-size:1.05rem;
-      font-weight:800;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      color:#fff;
-      text-shadow:0 0 8px rgba(255,255,255,.7),0 0 18px rgba(255,100,100,.8),0 0 32px rgba(220,38,38,.6);
-    }
-    .banner-track span::after{
-      content:' ◆ ';
-      opacity:.5;
-      font-size:.7rem;
-    }
+    .banner-track{display:flex;width:max-content;height:100%;align-items:center;animation:banner-scroll 22s linear infinite;}
+    .banner-track span{padding:0 3.5rem;white-space:nowrap;font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;text-shadow:0 0 8px rgba(255,255,255,.7),0 0 18px rgba(255,100,100,.8),0 0 32px rgba(220,38,38,.6);}
+    .banner-track span::after{content:' ◆ ';opacity:.5;font-size:.7rem;}
     .banner-track span:last-child::after{content:''}
-    @keyframes banner-scroll{
-      0%{transform:translateX(0)}
-      100%{transform:translateX(-50%)}
-    }
+    @keyframes banner-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
     /* HEADER */
     #hdr{position:fixed;top:var(--banner-h);left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s}
@@ -149,36 +113,12 @@
     .snowflake{position:absolute;color:rgba(147,210,255,0.7);font-size:1rem;animation:snow-fall linear infinite;pointer-events:none;top:-5%}
     .heat-wave{position:absolute;right:0;width:50%;pointer-events:none;animation:wave-fade 3s ease-in-out infinite}
     .heat-particle{position:absolute;border-radius:50%;pointer-events:none;animation:heat-rise ease-in-out infinite}
-    .hero-content{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:1.25rem 2rem 1.25rem;width:100%}
-    .hero-eyebrow{display:flex;align-items:center;gap:0.5rem;margin-bottom:.5rem}
-    .hero-eyebrow span{color:var(--blue-light);font-weight:600;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase}
+    .hero-content{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:1.25rem 2rem;width:100%}
 
-    /* ── HERO TITLE ── */
-    .hero-h1{
-      font-family:'Inter Tight', sans-serif;
-      font-weight:800;
-      letter-spacing:-0.02em;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:0;
-      line-height:1.05;
-      text-align:center;
-    }
-    .hero-h1 .line1,
-    .hero-h1 .line2{
-      display:block;
-      color:#fff;
-      font-size:clamp(3rem, 9vw, 8rem);
-    }
-    .hero-h1 .line3{
-      display:block;
-      font-size:clamp(3rem, 9vw, 8rem);
-      background:linear-gradient(90deg,#38bdf8,#f59e0b);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      background-clip:text;
-    }
+    /* HERO TITLE */
+    .hero-h1{font-family:'Inter Tight', sans-serif;font-weight:800;letter-spacing:-0.02em;display:flex;flex-direction:column;align-items:center;gap:0;line-height:1.05;text-align:center;}
+    .hero-h1 .line1,.hero-h1 .line2{display:block;color:#fff;font-size:clamp(3rem, 9vw, 8rem);}
+    .hero-h1 .line3{display:block;font-size:clamp(3rem, 9vw, 8rem);background:linear-gradient(90deg,#38bdf8,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
     .hero-p{position:relative;z-index:1;margin:.75rem auto 0;color:rgba(255,255,255,0.96);font-size:1.08rem;max-width:620px;line-height:1.75;text-shadow:0 6px 22px rgba(0,0,0,0.52)}
     .hero-btns{position:relative;z-index:1;display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;justify-content:center}
@@ -186,14 +126,25 @@
     .btn-primary:hover{background:#38BDF8;transform:translateY(-2px);box-shadow:0 12px 40px rgba(14,165,233,0.45)}
     .btn-outline{display:inline-flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.2);color:#fff;padding:1rem 2rem;border-radius:12px;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;transition:border-color 0.3s,color 0.3s}
     .btn-outline:hover{border-color:rgba(14,165,233,0.6);color:var(--blue)}
-    .hero-indicators{position:relative;z-index:1;display:flex;gap:2rem;margin-top:1rem;justify-content:center;flex-wrap:wrap}
-    .indicator{display:flex;align-items:center;gap:0.5rem}
-    .indicator-dot{width:10px;height:10px;border-radius:50%}
-    .indicator-dot.cold{background:var(--blue);box-shadow:0 0 10px rgba(14,165,233,0.6)}
-    .indicator-dot.warm{background:var(--amber);box-shadow:0 0 10px rgba(245,158,11,0.6)}
-    .indicator span{font-size:0.85rem;font-weight:500}
-    .indicator span.cold{color:rgba(147,210,255,0.92)}
-    .indicator span.warm{color:rgba(255,210,122,0.92)}
+
+    /* HERO INDICATORS — pill badges with background */
+    .hero-indicators{position:relative;z-index:1;display:flex;gap:.65rem;margin-top:1rem;justify-content:center;flex-wrap:wrap}
+    .indicator{
+      display:flex;align-items:center;gap:.45rem;
+      background:rgba(0,0,0,0.45);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:100px;
+      padding:.42rem .9rem;
+    }
+    .indicator-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+    .indicator-dot.cold{background:var(--blue);box-shadow:0 0 8px rgba(14,165,233,0.7)}
+    .indicator-dot.warm{background:var(--amber);box-shadow:0 0 8px rgba(245,158,11,0.7)}
+    .indicator span{font-size:0.82rem;font-weight:600;white-space:nowrap}
+    .indicator span.cold{color:rgba(147,210,255,0.95)}
+    .indicator span.warm{color:rgba(255,210,122,0.95)}
+
     .scroll-hint{position:absolute;bottom:1.25rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.3);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;animation:bounce-hint 2s ease-in-out infinite;z-index:10}
 
     /* SERVICES */
@@ -230,33 +181,15 @@
     .sc2 h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.4rem;text-transform:uppercase;color:var(--obs);margin-bottom:.6rem;letter-spacing:.02em}
     .sc2 p{color:var(--muted);line-height:1.7;font-size:.9rem}
 
-    /* REVIEWS */
+    /* REVIEWS — DESKTOP: 2-col (image left, feed right) */
     #reviews{background:var(--obs2);padding:6rem 2.5rem;position:relative;overflow:hidden}
     #reviews::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 15% 50%,rgba(14,165,233,.09),transparent),radial-gradient(ellipse 40% 50% at 88% 20%,rgba(245,158,11,.07),transparent);pointer-events:none}
-
-    /* 2-col grid: image panel LEFT, reviews feed RIGHT */
-    .rl{
-      max-width:1200px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:minmax(240px,380px) 1fr;
-      gap:3.5rem;
-      align-items:center;
-      position:relative;
-      z-index:1;
-    }
-    /* Left panel — label, heading, desc, then mascot image */
-    .rv-left{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:2rem;
-    }
+    .rl{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:3.5rem;align-items:center;position:relative;z-index:1;}
+    .rv-left{display:flex;flex-direction:column;align-items:center;gap:2rem;}
     .rv-left .sh2{color:#fff;text-align:center}
     .rv-left .sdesc{color:rgba(255,255,255,.4);text-align:center}
     .mw{position:relative;display:flex;justify-content:center;width:100%}
     .mw img{width:100%;max-width:340px;height:auto;object-fit:contain;filter:drop-shadow(0 24px 48px rgba(0,0,0,.5));border-radius:var(--r-lg)}
-    /* Right panel — scrolling review feed */
     .rf{position:relative;height:540px;overflow:hidden;mask-image:linear-gradient(to bottom,transparent,black 12%,black 88%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,black 12%,black 88%,transparent)}
     .rt{display:flex;flex-direction:column;gap:1rem;padding:.5rem 0;animation:rs 32s linear infinite}
     .rf:hover .rt{animation-play-state:paused}
@@ -353,7 +286,7 @@
     @keyframes heat-rise{0%,100%{transform:translateY(0) scale(1);opacity:0}50%{transform:translateY(-50px) scale(1.3);opacity:0.7}}
     @keyframes bounce-hint{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
 
-    /* RESPONSIVE */
+    /* RESPONSIVE — tablet */
     @media(max-width:1024px){
       .rl{grid-template-columns:1fr}
       .rv-left{flex-direction:row;align-items:flex-start;gap:2rem;flex-wrap:wrap}
@@ -363,37 +296,61 @@
       .sgrid{grid-template-columns:repeat(2,1fr)}
       .svc-intro{grid-template-columns:1fr;gap:2.5rem}
     }
+
+    /* RESPONSIVE — mobile */
     @media(max-width:768px){
       nav{display:none}
       .mbtn{display:block}
       #hdr{padding:1rem 1.5rem}
-      #hero{min-height:55vh}
-      .hero-content{padding:3.5rem 1.5rem 2rem}
-      .hero-h1 .line1,.hero-h1 .line2,.hero-h1 .line3{font-size:clamp(2.5rem,10vw,4rem)}
+      #hero{min-height:60vh}
+      .hero-content{padding:3rem 1.25rem 1.5rem}
+
+      /* Mobile hero title: shrink all lines, keep brand name readable */
+      .hero-h1 .line1,.hero-h1 .line2{font-size:clamp(2.2rem,9vw,3.2rem);}
+      .hero-h1 .line3{font-size:clamp(2.2rem,9vw,3.2rem);}
+
+      .hero-p{font-size:.95rem}
       .hero-btns{flex-direction:column;align-items:center}
+      .hero-indicators{gap:.45rem}
+      .indicator{padding:.35rem .75rem}
+      .indicator span{font-size:.75rem}
+
       .sgrid{grid-template-columns:1fr}
       .fgrid{grid-template-columns:1fr;gap:2rem}
       #services,#reviews,#contact{padding:4rem 1.5rem}
       .frow{grid-template-columns:1fr}
       .frow-btns{flex-wrap:wrap}
       .fbtn{min-width:calc(50% - .375rem)}
-      .rl{gap:2.5rem}
-      .rv-left{flex-direction:column;align-items:center;text-align:center}
+
+      /* MOBILE REVIEWS: single column, reviews stacked BELOW image/title */
+      .rl{
+        grid-template-columns:1fr;
+        gap:2rem;
+      }
+      .rv-left{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+      }
       .mw{max-width:260px}
+      /* Reviews feed: reduce height slightly for mobile */
+      .rf{height:420px}
+
       .svc-intro{grid-template-columns:1fr;gap:2rem}
       .svc-img-badge{display:none}
       .banner-track span{font-size:.9rem;padding:0 2rem}
     }
+
     @media(max-width:480px){
-      .hero-h1 .line1,.hero-h1 .line2,.hero-h1 .line3{font-size:clamp(2rem,12vw,3.5rem)}
+      .hero-h1 .line1,.hero-h1 .line2{font-size:clamp(1.9rem,10vw,2.8rem);}
+      .hero-h1 .line3{font-size:clamp(1.9rem,10vw,2.8rem);}
       .btn-primary,.btn-outline{width:100%;justify-content:center}
-      .hero-indicators{flex-direction:column;gap:0.75rem}
     }
   </style>
 </head>
 <body>
 
-<!-- 🚨 EMERGENCY ALERT BANNER -->
+<!-- EMERGENCY ALERT BANNER -->
 <div class="emergency-banner" role="marquee" aria-label="Emergency HVAC service alert">
   <div class="banner-track">
     <span>🚨 24/7 Emergency HVAC Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; Fast &nbsp;•&nbsp; Reliable &nbsp;•&nbsp; Local 🔧</span>
@@ -462,14 +419,11 @@
   </div>
   <div class="cold-glow"></div>
   <div id="snowflakes"></div>
-  <div class="divider-line" id="divider-line" style="left: 50%;"></div>
-  <div class="divider-badge" id="divider-badge" style="left: 50%;">🌡</div>
+  <div class="divider-line" id="divider-line" style="left:50%;"></div>
+  <div class="divider-badge" id="divider-badge" style="left:50%;">🌡</div>
 
   <div class="hero-content">
-    <div class="hero-eyebrow">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-      <span>Patterson, Louisiana · Licensed &amp; Insured</span>
-    </div>
+    <!-- eyebrow REMOVED -->
     <h1 class="hero-h1">
       <span class="line1 fade-up" style="animation-delay:0s">Fullwood's</span>
       <span class="line2 fade-up" style="animation-delay:0.1s">Reliable</span>
@@ -486,10 +440,11 @@
         Call 985-300-3712
       </a>
     </div>
+    <!-- Indicator pills with background for visibility -->
     <div class="hero-indicators fade-up" style="animation-delay:0.75s">
       <div class="indicator"><div class="indicator-dot cold"></div><span class="cold">AC &amp; Cooling</span></div>
       <div class="indicator"><div class="indicator-dot warm"></div><span class="warm">Heating Systems</span></div>
-      <div class="indicator"><div class="indicator-dot cold" style="background:#22c55e;box-shadow:0 0 10px #22c55e"></div><span style="color:rgba(255,255,255,0.7)">24/7 Emergency</span></div>
+      <div class="indicator"><div class="indicator-dot" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.7);flex-shrink:0;width:9px;height:9px;border-radius:50%;"></div><span style="color:rgba(255,255,255,.92);font-size:.82rem;font-weight:600;">24/7 Emergency</span></div>
       <div class="indicator"><div class="indicator-dot cold"></div><span class="cold">Free Estimates</span></div>
     </div>
   </div>
@@ -517,7 +472,6 @@
       </div>
     </div>
   </div>
-
   <div class="sgrid">
     <div class="sc2 cool"><div class="si cool">❄️</div><h3>AC Installation</h3><p>High-efficiency cooling systems sized and installed precisely for your space — done right the first time.</p></div>
     <div class="sc2 warm"><div class="si warm">🔥</div><h3>Heating Systems</h3><p>Furnace and heat pump installation, repair, and replacement. Stay warm all winter long.</p></div>
@@ -533,7 +487,7 @@
 <section id="reviews">
   <div class="rl">
 
-    <!-- LEFT: heading + mascot image -->
+    <!-- LEFT (desktop) / TOP (mobile): heading + mascot image -->
     <div class="rv-left">
       <div>
         <div class="sl" style="color:var(--blue-l);text-align:center">Customer Reviews</div>
@@ -545,7 +499,7 @@
       </div>
     </div>
 
-    <!-- RIGHT: scrolling reviews feed -->
+    <!-- RIGHT (desktop) / BELOW (mobile): scrolling reviews feed -->
     <div class="rf" aria-label="Customer reviews">
       <div class="rt">
         <article class="rc" tabindex="0"><div class="rch"><div class="rcn">Angela M.</div><div class="rcs">★★★★★</div></div><p class="rct">Jacolby showed up on time, explained everything clearly, and had our air back on faster than we expected. Honest and professional from start to finish.</p></article>
@@ -558,7 +512,7 @@
         <article class="rc" tabindex="0"><div class="rch"><div class="rcn">Kelvin D.</div><div class="rcs">★★★★★</div></div><p class="rct">Reliable is the right name. Prompt, fair, and the quality of work was excellent. Would absolutely recommend to family and friends.</p></article>
         <article class="rc" tabindex="0"><div class="rch"><div class="rcn">Tasha W.</div><div class="rcs">★★★★★</div></div><p class="rct">Great communication and even better service. He made a stressful problem feel manageable and handled everything with confidence.</p></article>
         <article class="rc" tabindex="0"><div class="rch"><div class="rcn">Bryan C.</div><div class="rcs">★★★★★</div></div><p class="rct">From the first call to the finished repair, everything felt professional and smooth. You can tell customer service truly matters here.</p></article>
-        <!-- Seamless loop duplicates -->
+        <!-- Loop duplicates -->
         <article class="rc" tabindex="-1" aria-hidden="true"><div class="rch"><div class="rcn">Angela M.</div><div class="rcs">★★★★★</div></div><p class="rct">Jacolby showed up on time, explained everything clearly, and had our air back on faster than we expected. Honest and professional from start to finish.</p></article>
         <article class="rc" tabindex="-1" aria-hidden="true"><div class="rch"><div class="rcn">Derrick P.</div><div class="rcs">★★★★★</div></div><p class="rct">Very respectful, very clean work, and no pressure at all. He made the repair simple to understand and the house was cooling again that same visit.</p></article>
         <article class="rc" tabindex="-1" aria-hidden="true"><div class="rch"><div class="rcn">Monique R.</div><div class="rcs">★★★★★</div></div><p class="rct">Appreciated how straightforward he was. Told us what actually needed fixing — no upsells, no pressure. Exactly what you want.</p></article>
@@ -615,7 +569,6 @@
         </button>
       </form>
     </div>
-
     <div class="cside">
       <a href="tel:9853003712" class="ccrd">
         <div class="cin">

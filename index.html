@@ -1,0 +1,1071 @@
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fullwood's Reliable Service – HVAC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #0EA5E9;
+      --blue-light: #38BDF8;
+      --amber: #F59E0B;
+      --obsidian: #0F172A;
+      --frost: #F8FAFC;
+      --muted: #64748B;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--frost); color: var(--obsidian); overflow-x: hidden; }
+    h1,h2,h3,h4,h5 { font-family: 'Inter Tight', sans-serif; }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.5s, backdrop-filter 0.5s, box-shadow 0.5s;
+    }
+    header.scrolled {
+      background: rgba(15,23,42,0.85); backdrop-filter: blur(20px);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+    .logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .logo-icon {
+      width: 40px; height: 40px; border-radius: 10px; background: var(--blue);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff;
+    }
+    .logo-text { color: #fff; font-weight: 700; font-size: 0.95rem; line-height: 1.2; }
+    .logo-sub { color: var(--blue); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; }
+    nav { display: flex; align-items: center; gap: 2rem; }
+    nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+    nav a:hover { color: var(--blue); }
+    .nav-cta {
+      display: flex; align-items: center; gap: 0.5rem; background: var(--blue);
+      color: #fff; padding: 0.6rem 1.2rem; border-radius: 10px; font-weight: 700;
+      font-size: 0.9rem; text-decoration: none; transition: background 0.3s, transform 0.2s;
+    }
+    .nav-cta:hover { background: #38BDF8; transform: translateY(-1px); }
+    .menu-toggle { display: none; background: none; border: none; cursor: pointer; color: #fff; }
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 99;
+      background: rgba(15,23,42,0.97); backdrop-filter: blur(20px);
+      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { color: #fff; font-family: 'Inter Tight', sans-serif; font-size: 2rem; font-weight: 800; text-decoration: none; transition: color 0.3s; }
+    .mobile-menu a:hover { color: var(--blue); }
+    .mobile-close { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; color: #fff; cursor: pointer; font-size: 2rem; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      overflow: hidden; cursor: crosshair; user-select: none;
+      isolation: isolate;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(2,6,23,0.72) 0%, rgba(2,6,23,0.58) 34%, rgba(2,6,23,0.2) 58%, rgba(2,6,23,0.06) 100%);
+      z-index: 9;
+      pointer-events: none;
+    }
+    .hero-cold-bg,
+    .hero-warm-bg {
+      position: absolute; inset: 0;
+      overflow: hidden;
+    }
+    .hero-cold-bg {
+      background: linear-gradient(135deg, #02101d 0%, #0b213f 50%, #0f172a 100%);
+    }
+    .hero-warm-bg {
+      background: linear-gradient(135deg, #431407 0%, #78350f 50%, #450a0a 100%);
+      clip-path: inset(0 0 0 50%);
+      transition: clip-path 0.08s ease-out;
+    }
+    .hero-house-img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      transform: scale(1.02);
+    }
+    .hero-cold-bg .hero-house-img { filter: saturate(0.8) brightness(0.82) contrast(1.05) hue-rotate(185deg); }
+    .hero-warm-bg .hero-house-img { filter: saturate(1.1) brightness(0.88) contrast(1.04) hue-rotate(-10deg); }
+    .hero-cold-overlay,
+    .hero-warm-overlay {
+      position: absolute; inset: 0;
+    }
+    .hero-cold-overlay {
+      background:
+        linear-gradient(135deg, rgba(2,6,23,0.82) 0%, rgba(8,47,73,0.56) 45%, rgba(14,165,233,0.12) 100%),
+        radial-gradient(circle at 18% 25%, rgba(147,210,255,0.14), transparent 24%),
+        radial-gradient(circle at 70% 80%, rgba(56,189,248,0.08), transparent 28%);
+      mix-blend-mode: screen;
+    }
+    .hero-warm-overlay {
+      background:
+        linear-gradient(135deg, rgba(69,10,10,0.8) 0%, rgba(120,53,15,0.54) 50%, rgba(245,158,11,0.12) 100%),
+        radial-gradient(circle at 84% 18%, rgba(251,191,36,0.2), transparent 22%),
+        radial-gradient(circle at 65% 70%, rgba(239,68,68,0.08), transparent 28%);
+      mix-blend-mode: screen;
+    }
+    .hero-frost-edge,
+    .hero-heat-edge {
+      position: absolute;
+      inset: auto auto 8% 0;
+      width: 100%;
+      height: 32%;
+      pointer-events: none;
+    }
+    .hero-frost-edge {
+      background: linear-gradient(to top, rgba(226,244,255,0.32), transparent 60%);
+      clip-path: polygon(0 100%, 8% 86%, 14% 92%, 21% 78%, 32% 88%, 44% 74%, 56% 84%, 68% 70%, 80% 80%, 92% 68%, 100% 76%, 100% 100%);
+      opacity: 0.9;
+    }
+    .hero-heat-edge {
+      background: linear-gradient(to top, rgba(255,184,77,0.2), transparent 65%);
+      clip-path: polygon(0 100%, 10% 95%, 20% 100%, 28% 90%, 40% 97%, 52% 88%, 62% 95%, 74% 86%, 84% 93%, 94% 84%, 100% 90%, 100% 100%);
+      opacity: 0.8;
+    }
+    .divider-line {
+      position: absolute; top: 0; bottom: 0; width: 2px; left: 50%;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.6), transparent);
+      pointer-events: none; transition: left 0.08s ease-out; z-index: 20;
+    }
+    .divider-badge {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,0.15); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; color: #fff; pointer-events: none; z-index: 21;
+      transition: left 0.08s ease-out;
+    }
+    .sun-glow {
+      position: absolute; top: 5%; right: 5%; width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(251,191,36,0.24) 0%, rgba(245,158,11,0.08) 50%, transparent 72%);
+      animation: pulse-glow 4s ease-in-out infinite; pointer-events: none;
+    }
+    .sun-ring {
+      position: absolute; border-radius: 50%; border: 1px solid rgba(251,191,36,0.2);
+      animation: ring-expand 3s ease-out infinite; pointer-events: none;
+    }
+    .cold-glow {
+      position: absolute; top: 10%; left: 5%; width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(14,165,233,0.16) 0%, rgba(56,189,248,0.05) 60%, transparent 82%);
+      animation: cold-pulse 5s ease-in-out infinite; pointer-events: none;
+    }
+    .snowflake {
+      position: absolute; color: rgba(147,210,255,0.7); font-size: 1rem;
+      animation: snow-fall linear infinite; pointer-events: none;
+      top: -5%;
+    }
+    .heat-wave {
+      position: absolute; right: 0; width: 50%; pointer-events: none;
+      animation: wave-fade 3s ease-in-out infinite;
+    }
+    .heat-particle {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      animation: heat-rise ease-in-out infinite;
+    }
+    .hero-content { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; padding: 8rem 2rem 6rem; width: 100%; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .hero-eyebrow span { color: var(--blue-light); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .hero-h1 { font-family: 'Inter Tight', sans-serif; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+    .hero-h1 .line1, .hero-h1 .line2 { display: block; color: #fff; font-size: clamp(3rem, 9vw, 8rem); }
+    .hero-h1 .line3 {
+      display: block; font-size: clamp(3rem, 9vw, 8rem);
+      background: linear-gradient(90deg, #38bdf8, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-p { position: relative; z-index: 1; margin: 1.25rem auto 0; color: rgba(255,255,255,0.96); font-size: 1.08rem; max-width: 620px; line-height: 1.75; text-shadow: 0 6px 22px rgba(0,0,0,0.52); }
+    .hero-btns { position: relative; z-index: 1; display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: var(--blue); color: #fff; padding: 1rem 2rem; border-radius: 12px;
+      font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 1.05rem;
+      text-decoration: none; transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 8px 30px rgba(14,165,233,0.3);
+    }
+    .btn-primary:hover { background: #38BDF8; transform: translateY(-2px); box-shadow: 0 12px 40px rgba(14,165,233,0.45); }
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 2px solid rgba(255,255,255,0.2); color: #fff; padding: 1rem 2rem;
+      border-radius: 12px; font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 1.05rem;
+      text-decoration: none; transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-outline:hover { border-color: rgba(14,165,233,0.6); color: var(--blue); }
+    .hero-indicators { position: relative; z-index: 1; display: flex; gap: 2rem; margin-top: 2.25rem; justify-content: center; flex-wrap: wrap; }
+    .indicator { display: flex; align-items: center; gap: 0.5rem; }
+    .indicator-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .indicator-dot.cold { background: var(--blue); box-shadow: 0 0 10px rgba(14,165,233,0.6); }
+    .indicator-dot.warm { background: var(--amber); box-shadow: 0 0 10px rgba(245,158,11,0.6); }
+    .indicator span { font-size: 0.85rem; font-weight: 500; }
+    .indicator span.cold { color: rgba(147,210,255,0.92); }
+    .indicator span.warm { color: rgba(255,210,122,0.92); }
+    .scroll-hint {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.3); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      animation: bounce-hint 2s ease-in-out infinite; z-index: 10;
+    }
+
+    /* ── SERVICES ── */
+    #services { padding: 6rem 2rem; background: var(--frost); position: relative; overflow: hidden; }
+    .section-eyebrow { color: var(--blue); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .section-title { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: clamp(2rem, 4vw, 3.5rem); color: var(--obsidian); margin-top: 0.5rem; }
+    .section-sub { margin-top: 1rem; color: var(--muted); font-size: 1.05rem; max-width: 600px; line-height: 1.7; }
+    .section-header { text-align: center; margin-bottom: 4rem; }
+    .section-header .section-sub { margin: 1rem auto 0; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 1200px; margin: 0 auto; }
+    .service-card {
+      padding: 2rem; border-radius: 1.25rem; background: #fff;
+      border: 1px solid rgba(0,0,0,0.07); position: relative; overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease; cursor: default;
+    }
+    .service-card:hover { transform: translateY(-10px); }
+    .service-card.cool:hover { box-shadow: 0 20px 60px rgba(14,165,233,0.15), 0 0 80px rgba(14,165,233,0.05); }
+    .service-card.warm:hover { box-shadow: 0 20px 60px rgba(245,158,11,0.15), 0 0 80px rgba(245,158,11,0.05); }
+    .service-icon {
+      width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 1.5rem; transition: background 0.3s;
+    }
+    .service-icon.cool { background: rgba(14,165,233,0.1); }
+    .service-icon.warm { background: rgba(245,158,11,0.1); }
+    .service-card:hover .service-icon.cool { background: rgba(14,165,233,0.2); }
+    .service-card:hover .service-icon.warm { background: rgba(245,158,11,0.2); }
+    .service-card h3 { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--obsidian); margin-bottom: 0.75rem; }
+    .service-card p { color: var(--muted); line-height: 1.7; font-size: 0.95rem; }
+    .service-underline { height: 2px; width: 0; border-radius: 2px; margin-top: 1.5rem; transition: width 0.5s ease; }
+    .service-card:hover .service-underline { width: 100%; }
+    .service-underline.cool { background: var(--blue); }
+    .service-underline.warm { background: var(--amber); }
+    .float-particles { position: absolute; top: 0; right: 0; pointer-events: none; }
+
+    /* ── TOOLS ── */
+    #tools { padding: 6rem 2rem; background: var(--obsidian); position: relative; overflow: hidden; }
+    .grid-bg {
+      position: absolute; inset: 0; opacity: 0.04;
+      background-image: linear-gradient(rgba(14,165,233,0.5) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(14,165,233,0.5) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    #tools .section-title { color: #fff; }
+    #tools .section-sub { color: rgba(255,255,255,0.4); }
+    .tools-top-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; max-width: 1200px; margin: 0 auto 3rem; }
+    .tool-visual-card { position: relative; border-radius: 1.25rem; overflow: hidden; cursor: default; }
+    .tool-visual-card img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.7s ease; display: block; }
+    .tool-visual-card:hover img { transform: scale(1.05); }
+    .tool-overlay-cold { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,47,73,0.92) 0%, rgba(8,47,73,0.4) 50%, transparent 100%); }
+    .tool-overlay-dark { position: absolute; inset: 0; background: linear-gradient(to top, rgba(2,6,23,0.9) 0%, rgba(2,6,23,0.3) 50%, transparent 100%); }
+    .tool-overlay-warm { position: absolute; inset: 0; background: linear-gradient(to top, rgba(67,20,7,0.92) 0%, rgba(67,20,7,0.4) 50%, transparent 100%); }
+    .tool-card-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; }
+    .tool-card-tag { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .tag-cold { color: var(--blue); }
+    .tag-dark { color: #fff; }
+    .tag-warm { color: var(--amber); }
+    .tool-card-label h3 { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: 1.4rem; color: #fff; }
+    .tool-card-label p { color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 0.25rem; }
+    .tools-list { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; max-width: 1200px; margin: 0 auto; }
+    .tool-item {
+      padding: 1.25rem 1.5rem; border-radius: 12px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+    }
+    .tool-item:hover { border-color: rgba(14,165,233,0.4); background: rgba(14,165,233,0.06); transform: scale(1.02); }
+    .tool-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); margin-bottom: 0.75rem; }
+    .tool-item h4 { font-family: 'Inter Tight', sans-serif; font-weight: 700; color: #fff; font-size: 0.9rem; }
+    .tool-item p { color: rgba(255,255,255,0.35); font-size: 0.8rem; margin-top: 0.25rem; line-height: 1.5; }
+    .ice-burst-container, .sun-ray-container { position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: 1.25rem; }
+    .ice-burst-flake { position: absolute; bottom: 10%; color: rgba(147,210,255,0.6); animation: ice-float ease-out infinite; }
+    .sun-ray { position: absolute; width: 4px; border-radius: 4px; bottom: 5%; background: linear-gradient(to top, rgba(251,191,36,0.7), transparent); transform-origin: bottom center; animation: ray-pulse ease-in-out infinite; }
+    .sun-center { position: absolute; bottom: 2%; left: 50%; transform: translateX(-50%); width: 60px; height: 60px; border-radius: 50%; background: radial-gradient(circle, rgba(251,191,36,0.6), transparent 70%); animation: pulse-glow 3s ease-in-out infinite; }
+
+    /* ── STATS ── */
+    #stats { padding: 6rem 2rem; background: var(--obsidian); position: relative; overflow: hidden; }
+    #stats .section-title { color: #fff; }
+    #stats .section-sub { color: rgba(255,255,255,0.4); }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .stats-images { position: relative; }
+    .stats-main-img { border-radius: 1.25rem; overflow: hidden; box-shadow: 0 25px 60px rgba(0,0,0,0.4); position: relative; }
+    .stats-main-img img { width: 100%; height: 360px; object-fit: cover; display: block; }
+    .stats-main-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,23,42,0.6), transparent); }
+    .stats-small-img { position: absolute; bottom: -2rem; right: 2rem; width: 220px; border-radius: 1rem; overflow: hidden; border: 3px solid rgba(255,255,255,0.08); box-shadow: 0 15px 40px rgba(0,0,0,0.5); }
+    .stats-small-img img { width: 100%; height: 160px; object-fit: cover; display: block; }
+    .stats-badge {
+      position: absolute; top: -1rem; left: -1rem; background: var(--blue);
+      color: #fff; border-radius: 1rem; padding: 0.75rem 1.25rem; box-shadow: 0 8px 30px rgba(14,165,233,0.4);
+    }
+    .stats-badge .big { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: 1.5rem; }
+    .stats-badge .small { font-size: 0.7rem; opacity: 0.8; }
+    .stats-content .eyebrow { color: var(--blue); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
+    .stats-content h2 { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: clamp(2rem,3vw,3rem); color: #fff; margin-top: 0.5rem; line-height: 1.15; }
+    .stats-content p { color: rgba(255,255,255,0.4); font-size: 1rem; margin-top: 1.25rem; line-height: 1.7; }
+    .gauge-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .gauge-item label { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.4rem; }
+    .gauge-item label span:first-child { color: rgba(255,255,255,0.5); font-weight: 500; }
+    .gauge-item label span:last-child { font-family: 'Inter Tight', sans-serif; font-weight: 700; }
+    .gauge-track { height: 8px; border-radius: 8px; background: rgba(255,255,255,0.08); overflow: hidden; }
+    .gauge-fill { height: 100%; border-radius: 8px; animation: fill-gauge 1.5s ease-out forwards; width: 0; }
+    .stats-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+    .stat-box { padding: 1.25rem; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
+    .stat-box .val { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--blue); }
+    .stat-box .lbl { color: rgba(255,255,255,0.35); font-size: 0.8rem; margin-top: 0.25rem; }
+
+    /* ── REVIEWS ── */
+    .reviews {
+      padding: 6rem 2rem;
+      background: var(--obsidian);
+      position: relative;
+      overflow: hidden;
+    }
+    .reviews::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 15% 50%, rgba(14,165,233,0.12), transparent 35%),
+                  radial-gradient(circle at 85% 20%, rgba(245,158,11,0.10), transparent 30%);
+      pointer-events: none;
+    }
+    .reviews .section-title { color: #fff; }
+    .reviews .section-sub { color: rgba(255,255,255,0.55); }
+    .reviews-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(260px, 420px) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+    .reviews-figure {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100%;
+    }
+    .reviews-figure img {
+      width: 100%;
+      max-width: 390px;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.35));
+    }
+    .reviews-stack {
+      position: relative;
+      height: 560px;
+      overflow: hidden;
+      mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+    .reviews-track {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      animation: reviews-scroll 28s linear infinite;
+      padding: 1rem 0;
+    }
+    .reviews-stack:hover .reviews-track,
+    .reviews-stack:focus-within .reviews-track {
+      animation-play-state: paused;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 18px;
+      padding: 1.2rem 1.25rem;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transform: scale(0.96);
+      opacity: 0.72;
+      transition: transform 0.28s ease, opacity 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+      cursor: pointer;
+      outline: none;
+    }
+    .review-card:hover,
+    .review-card:focus,
+    .review-card.active {
+      transform: scale(1) translateY(-2px);
+      opacity: 1;
+      background: linear-gradient(135deg, rgba(14,165,233,0.16), rgba(255,255,255,0.08));
+      border-color: rgba(56,189,248,0.45);
+      box-shadow: 0 20px 55px rgba(0,0,0,0.35), 0 10px 24px rgba(56,189,248,0.14);
+      position: relative;
+      z-index: 2;
+    }
+    .review-name {
+      font-family: Inter Tight, sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.55rem;
+      letter-spacing: -0.01em;
+    }
+    .review-text {
+      color: rgba(255,255,255,0.72);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+    @keyframes reviews-scroll {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(calc(-50% - 0.5rem)); }
+    }
+
+
+    /* ── CONTACT ── */
+    #contact { padding: 6rem 2rem; background: var(--frost); position: relative; overflow: hidden; }
+    .contact-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 3rem; align-items: start; max-width: 1200px; margin: 0 auto; }
+    .contact-form-wrap { background: #fff; border-radius: 1.5rem; border: 1px solid rgba(0,0,0,0.07); padding: 2.5rem; box-shadow: 0 25px 60px rgba(0,0,0,0.07); }
+    .feeling-row { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .feeling-btn {
+      flex: 1; padding: 0.75rem 0.5rem; border-radius: 12px; border: 2px solid #e2e8f0;
+      background: #fff; font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 0.85rem;
+      cursor: pointer; transition: all 0.3s; color: var(--muted);
+    }
+    .feeling-btn:hover { border-color: var(--blue); color: var(--obsidian); }
+    .feeling-btn.active-hot { border-color: var(--amber); background: #fffbeb; color: #92400e; }
+    .feeling-btn.active-cold { border-color: var(--blue); background: #f0f9ff; color: #0c4a6e; }
+    .feeling-btn.active-repair { border-color: #94a3b8; background: #f8fafc; color: var(--obsidian); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--obsidian); margin-bottom: 0.4rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 0.75rem 1rem; border-radius: 10px;
+      border: 1.5px solid #e2e8f0; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem;
+      background: var(--frost); color: var(--obsidian); transition: border-color 0.3s, box-shadow 0.3s; outline: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(14,165,233,0.12); }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .submit-btn {
+      width: 100%; padding: 1rem; border-radius: 12px; background: var(--blue);
+      color: #fff; font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 1.05rem;
+      border: none; cursor: pointer; transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 8px 30px rgba(14,165,233,0.3); display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+    }
+    .submit-btn:hover { background: #38BDF8; transform: scale(1.02); box-shadow: 0 12px 40px rgba(14,165,233,0.45); }
+    .submit-btn:active { transform: scale(0.98); }
+    .contact-sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+    .phone-cta {
+      display: block; background: var(--obsidian); color: #fff; padding: 2rem 1.5rem;
+      border-radius: 1.25rem; text-decoration: none; transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 15px 40px rgba(15,23,42,0.2);
+    }
+    .phone-cta:hover { background: #1e293b; transform: translateY(-3px); }
+    .phone-cta-inner { display: flex; align-items: center; gap: 1rem; }
+    .phone-icon-wrap { width: 48px; height: 48px; border-radius: 50%; background: var(--blue); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; animation: pulse-slow 2s ease-in-out infinite; }
+    .phone-cta .label { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+    .phone-cta .number { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--blue); }
+    .phone-cta .avail { color: rgba(255,255,255,0.35); font-size: 0.8rem; margin-top: 0.75rem; }
+    .info-card { display: flex; align-items: flex-start; gap: 1rem; padding: 1.25rem; border-radius: 1rem; background: #fff; border: 1px solid rgba(0,0,0,0.07); text-decoration: none; transition: border-color 0.3s, background 0.3s; }
+    .info-card:hover { border-color: rgba(14,165,233,0.3); background: #f0f9ff; }
+    .info-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .info-icon.blue { background: rgba(14,165,233,0.1); }
+    .info-icon.amber { background: rgba(245,158,11,0.1); }
+    .info-card .meta { font-size: 0.75rem; color: var(--muted); font-weight: 500; }
+    .info-card .val { font-size: 0.9rem; font-weight: 600; color: var(--obsidian); margin-top: 0.15rem; word-break: break-all; }
+    .hours-card { padding: 1.5rem; border-radius: 1rem; background: linear-gradient(135deg, #f0f9ff, #fffbeb); border: 1px solid rgba(14,165,233,0.1); }
+    .hours-card h4 { font-family: 'Inter Tight', sans-serif; font-weight: 700; color: var(--obsidian); margin-bottom: 1rem; }
+    .hours-row { display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.5rem; }
+    .hours-row span:first-child { color: var(--muted); }
+    .hours-row span:last-child { font-weight: 600; color: var(--obsidian); }
+    .success-screen { text-align: center; padding: 4rem 2rem; }
+    .success-icon { font-size: 4rem; margin-bottom: 1rem; }
+    .success-screen h3 { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--obsidian); }
+    .success-screen p { color: var(--muted); margin-top: 0.5rem; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--obsidian); color: #fff; padding: 5rem 2rem 2.5rem; position: relative; overflow: hidden; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.5fr; gap: 3rem; max-width: 1200px; margin: 0 auto; }
+    .footer-brand p { color: rgba(255,255,255,0.35); font-size: 0.875rem; line-height: 1.7; margin-top: 1rem; max-width: 260px; }
+    .footer-col h4 { font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 1.25rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-col ul li a { color: rgba(255,255,255,0.4); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
+    .footer-col ul li a:hover { color: var(--blue); }
+    .footer-col ul li span { color: rgba(255,255,255,0.4); font-size: 0.875rem; }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.75rem; }
+    .footer-contact-item .icon { font-size: 1rem; margin-top: 0.1rem; }
+    .footer-contact-item a { color: rgba(255,255,255,0.4); font-size: 0.875rem; text-decoration: none; word-break: break-all; transition: color 0.3s; }
+    .footer-contact-item a:hover { color: var(--blue); }
+    .footer-contact-item span.text { color: rgba(255,255,255,0.4); font-size: 0.875rem; }
+    .footer-bottom { max-width: 1200px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 1rem; }
+    .footer-bottom p { color: rgba(255,255,255,0.2); font-size: 0.8rem; }
+    .footer-watermark { position: absolute; bottom: 0; right: 0; font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: 20rem; color: rgba(255,255,255,0.015); line-height: 1; pointer-events: none; transform: translate(25%, 30%); }
+
+    /* ── FAB ── */
+    .fab { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200; }
+    .fab a {
+      display: flex; align-items: center; background: var(--blue); color: #fff;
+      border-radius: 50px; text-decoration: none; box-shadow: 0 8px 30px rgba(14,165,233,0.4);
+      transition: box-shadow 0.3s; overflow: hidden;
+    }
+    .fab a:hover { box-shadow: 0 12px 40px rgba(14,165,233,0.6); }
+    .fab-icon { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; animation: pulse-slow 2s ease-in-out infinite; }
+    .fab-label { max-width: 0; overflow: hidden; white-space: nowrap; font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 0.9rem; transition: max-width 0.4s ease, padding 0.4s ease; }
+    .fab a:hover .fab-label { max-width: 160px; padding-right: 1.25rem; }
+
+    /* ── KEYFRAMES ── */
+    @keyframes pulse-glow { 0%,100%{transform:scale(1);opacity:0.5} 50%{transform:scale(1.2);opacity:0.8} }
+    @keyframes cold-pulse { 0%,100%{transform:scale(1);opacity:0.3} 50%{transform:scale(1.2);opacity:0.5} }
+    @keyframes ring-expand { 0%{transform:scale(0.8);opacity:0.4} 100%{transform:scale(1.4);opacity:0} }
+    @keyframes snow-fall { 0%{transform:translateY(-10px) rotate(0deg);opacity:0} 10%{opacity:0.8} 90%{opacity:0.5} 100%{transform:translateY(105vh) rotate(360deg);opacity:0} }
+    @keyframes wave-fade { 0%,100%{opacity:0;transform:scaleX(0.9)} 50%{opacity:0.2;transform:scaleX(1.05)} }
+    @keyframes heat-rise { 0%,100%{transform:translateY(0) scale(1);opacity:0} 50%{transform:translateY(-50px) scale(1.3);opacity:0.7} }
+    @keyframes bounce-hint { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+    @keyframes pulse-slow { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+    @keyframes ice-float { 0%{transform:translateY(0) rotate(0deg);opacity:0} 20%{opacity:0.8} 100%{transform:translateY(-100px) rotate(360deg);opacity:0} }
+    @keyframes ray-pulse { 0%,100%{transform:scaleY(0.5);opacity:0.3} 50%{transform:scaleY(1.2);opacity:0.8} }
+    @keyframes fill-gauge { to{width:var(--target-width)} }
+    @keyframes fade-up { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    .fade-up { opacity: 0; animation: fade-up 0.7s ease forwards; }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px) {
+      .tools-top-grid { grid-template-columns: 1fr 1fr; }
+      .tools-top-grid .tool-visual-card:last-child { grid-column: span 2; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width:768px) {
+      nav { display: none; }
+      .menu-toggle { display: block; }
+      .hero-copy { padding: 1.35rem 1.05rem 1.55rem; border-radius: 22px; text-align: center; }
+      .hero-eyebrow { margin-bottom: 0.9rem; }
+      .hero-p { max-width: 100%; }
+      .hero-btns { gap: 0.85rem; }
+      .hero-h1 .line1, .hero-h1 .line2, .hero-h1 .line3 { font-size: clamp(2.5rem,10vw,4rem); }
+      .tools-top-grid { grid-template-columns: 1fr; }
+      .tools-top-grid .tool-visual-card:last-child { grid-column: auto; }
+      .tools-list { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .feeling-row { flex-wrap: wrap; }
+      .feeling-btn { min-width: 45%; }
+    }
+    @media(max-width:480px) {
+      .tools-list { grid-template-columns: 1fr; }
+      .stats-boxes { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header id="site-header" class="scrolled">
+  <a href="#hero" class="logo">
+    <div class="logo-icon">F</div>
+    <div>
+      <div class="logo-text">Fullwood's Reliable</div>
+      <div class="logo-sub">HVAC Service</div>
+    </div>
+  </a>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#services">Services</a>
+    <a href="#tools">About</a>
+    <a href="#contact">Contact</a>
+    <a href="tel:9853003712" class="nav-cta">📞 985-300-3712</a>
+  </nav>
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Open menu">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+  </button>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="#hero" onclick="toggleMenu()">Home</a>
+  <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#tools" onclick="toggleMenu()">About</a>
+  <a href="#contact" onclick="toggleMenu()">Contact</a>
+  <a href="tel:9853003712" class="nav-cta" onclick="toggleMenu()">📞 985-300-3712</a>
+</div>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="hero">
+  <div class="hero-cold-bg">
+    <img src="https://media.base44.com/images/public/69c9d599218c2d513e2f89a0/34125962a_generated_image.png" class="hero-house-img" alt="House shown in winter climate treatment">
+    <div class="hero-cold-overlay"></div>
+    <div class="hero-frost-edge"></div>
+  </div>
+  <div class="hero-warm-bg" id="warm-bg" style="clip-path: inset(0px 0px 0px 50%);">
+    <img src="https://media.base44.com/images/public/69c9d599218c2d513e2f89a0/34125962a_generated_image.png" class="hero-house-img" alt="House shown in summer climate treatment">
+    <div class="hero-warm-overlay"></div>
+    <div class="hero-heat-edge"></div>
+    <!-- Sun glow -->
+    <div class="sun-glow" id="sun-glow"></div>
+    <div class="sun-ring" style="width:180px;height:180px;top:2%;right:2%;animation-delay:0s;animation-duration:3s;"></div>
+    <div class="sun-ring" style="width:260px;height:260px;top:-3%;right:-3%;animation-delay:0.8s;animation-duration:3s;"></div>
+    <div class="sun-ring" style="width:340px;height:340px;top:-8%;right:-8%;animation-delay:1.6s;animation-duration:3s;"></div>
+    <!-- Heat waves -->
+    <div class="heat-wave" style="top:20%;animation-delay:0s;"><svg viewBox="0 0 400 20"><path d="M0,10 Q50,0 100,10 Q150,20 200,10 Q250,0 300,10 Q350,20 400,10" stroke="#F59E0B" stroke-width="1.5" fill="none" opacity="0.5"></path></svg></div>
+    <div class="heat-wave" style="top:35%;animation-delay:0.5s;"><svg viewBox="0 0 400 20"><path d="M0,10 Q60,0 120,10 Q180,20 240,10 Q300,0 360,10 Q380,20 400,10" stroke="#F59E0B" stroke-width="1.5" fill="none" opacity="0.4"></path></svg></div>
+    <div class="heat-wave" style="top:52%;animation-delay:1s;"><svg viewBox="0 0 400 20"><path d="M0,10 Q40,0 80,10 Q160,20 240,10 Q320,0 400,10" stroke="#ef4444" stroke-width="1" fill="none" opacity="0.3"></path></svg></div>
+    <div class="heat-wave" style="top:68%;animation-delay:1.5s;"><svg viewBox="0 0 400 20"><path d="M0,10 Q50,0 100,10 Q150,20 200,10 Q250,0 300,10 Q350,20 400,10" stroke="#F59E0B" stroke-width="1.5" fill="none" opacity="0.45"></path></svg></div>
+    <!-- Heat particles -->
+    <div class="heat-particle" style="left:65%;top:70%;width:80px;height:80px;background:rgba(245,158,11,0.15);filter:blur(20px);animation-duration:4s;animation-delay:0s;"></div>
+    <div class="heat-particle" style="left:75%;top:50%;width:60px;height:60px;background:rgba(239,68,68,0.12);filter:blur(14px);animation-duration:5s;animation-delay:1s;"></div>
+    <div class="heat-particle" style="left:82%;top:80%;width:50px;height:50px;background:rgba(251,191,36,0.2);filter:blur(10px);animation-duration:3.5s;animation-delay:0.5s;"></div>
+  </div>
+
+  <!-- Cold glow -->
+  <div class="cold-glow"></div>
+
+  <!-- Snowflakes (JS-generated) -->
+  <div id="snowflakes"><div class="snowflake" style="left: 40.9775%; font-size: 16.1748px; animation-duration: 9.62506s; animation-delay: 5.8165s;">❄</div><div class="snowflake" style="left: 49.283%; font-size: 18.9954px; animation-duration: 6.19286s; animation-delay: 0.802984s;">❄</div><div class="snowflake" style="left: 49.9364%; font-size: 13.9858px; animation-duration: 6.62123s; animation-delay: 4.13535s;">❄</div><div class="snowflake" style="left: 1.95689%; font-size: 14.0019px; animation-duration: 9.81297s; animation-delay: 1.93119s;">❄</div><div class="snowflake" style="left: 19.6132%; font-size: 12.073px; animation-duration: 8.5008s; animation-delay: 0.505849s;">❄</div><div class="snowflake" style="left: 40.9757%; font-size: 12.5293px; animation-duration: 5.05522s; animation-delay: 0.882177s;">❄</div><div class="snowflake" style="left: 32.2032%; font-size: 16.3811px; animation-duration: 5.96658s; animation-delay: 0.296609s;">❄</div><div class="snowflake" style="left: 34.5583%; font-size: 23.1986px; animation-duration: 6.27826s; animation-delay: 1.59098s;">❄</div><div class="snowflake" style="left: 44.816%; font-size: 15.6066px; animation-duration: 9.70664s; animation-delay: 2.23628s;">❄</div><div class="snowflake" style="left: 8.69807%; font-size: 17.1701px; animation-duration: 8.12347s; animation-delay: 1.09541s;">❄</div><div class="snowflake" style="left: 1.81725%; font-size: 21.1534px; animation-duration: 7.69493s; animation-delay: 1.03138s;">❄</div><div class="snowflake" style="left: 39.6154%; font-size: 23.7956px; animation-duration: 9.99543s; animation-delay: 4.42092s;">❄</div><div class="snowflake" style="left: 0.366284%; font-size: 23.3097px; animation-duration: 5.03485s; animation-delay: 5.75453s;">❄</div><div class="snowflake" style="left: 48.6541%; font-size: 11.2731px; animation-duration: 5.41685s; animation-delay: 5.38178s;">❄</div><div class="snowflake" style="left: 43.994%; font-size: 16.497px; animation-duration: 6.18896s; animation-delay: 5.30173s;">❄</div><div class="snowflake" style="left: 48.8051%; font-size: 22.3372px; animation-duration: 9.76737s; animation-delay: 3.79023s;">❄</div><div class="snowflake" style="left: 40.769%; font-size: 17.7489px; animation-duration: 8.63528s; animation-delay: 5.87654s;">❄</div><div class="snowflake" style="left: 34.8218%; font-size: 12.4492px; animation-duration: 7.39774s; animation-delay: 1.51402s;">❄</div><div class="snowflake" style="left: 5.45009%; font-size: 16.0472px; animation-duration: 8.72818s; animation-delay: 1.63991s;">❄</div><div class="snowflake" style="left: 28.1022%; font-size: 23.5202px; animation-duration: 5.42715s; animation-delay: 3.66256s;">❄</div><div class="snowflake" style="left: 11.7374%; font-size: 15.1378px; animation-duration: 5.55593s; animation-delay: 2.71018s;">❄</div><div class="snowflake" style="left: 43.0312%; font-size: 13.7578px; animation-duration: 5.46208s; animation-delay: 2.83992s;">❄</div><div class="snowflake" style="left: 3.16481%; font-size: 23.5202px; animation-duration: 8.20654s; animation-delay: 3.42907s;">❄</div><div class="snowflake" style="left: 41.0127%; font-size: 21.9073px; animation-duration: 5.85559s; animation-delay: 0.738625s;">❄</div><div class="snowflake" style="left: 18.2816%; font-size: 12.4396px; animation-duration: 9.09227s; animation-delay: 1.91641s;">❄</div><div class="snowflake" style="left: 19.5961%; font-size: 14.4294px; animation-duration: 6.33193s; animation-delay: 0.709594s;">❄</div><div class="snowflake" style="left: 34.0176%; font-size: 17.6211px; animation-duration: 8.09801s; animation-delay: 4.68512s;">❄</div><div class="snowflake" style="left: 27.5099%; font-size: 12.0223px; animation-duration: 7.85867s; animation-delay: 0.115677s;">❄</div><div class="snowflake" style="left: 19.6098%; font-size: 10.8742px; animation-duration: 6.27105s; animation-delay: 0.269598s;">❄</div><div class="snowflake" style="left: 13.3732%; font-size: 18.0699px; animation-duration: 8.05989s; animation-delay: 1.42412s;">❄</div><div class="snowflake" style="left: 49.5235%; font-size: 16.6677px; animation-duration: 9.3485s; animation-delay: 3.96788s;">❄</div><div class="snowflake" style="left: 26.0069%; font-size: 14.9801px; animation-duration: 7.33133s; animation-delay: 3.61185s;">❄</div><div class="snowflake" style="left: 27.9444%; font-size: 21.7217px; animation-duration: 9.86476s; animation-delay: 5.20313s;">❄</div><div class="snowflake" style="left: 18.9231%; font-size: 15.3783px; animation-duration: 7.9118s; animation-delay: 3.11253s;">❄</div><div class="snowflake" style="left: 31.1382%; font-size: 20.7123px; animation-duration: 6.64977s; animation-delay: 4.00015s;">❄</div><div class="snowflake" style="left: 34.6351%; font-size: 11.5447px; animation-duration: 8.96214s; animation-delay: 3.07967s;">❄</div><div class="snowflake" style="left: 28.1131%; font-size: 16.3133px; animation-duration: 5.76315s; animation-delay: 0.703911s;">❄</div><div class="snowflake" style="left: 18.8361%; font-size: 13.6285px; animation-duration: 6.74382s; animation-delay: 0.132485s;">❄</div><div class="snowflake" style="left: 16.9286%; font-size: 12.5029px; animation-duration: 9.56705s; animation-delay: 1.2733s;">❄</div><div class="snowflake" style="left: 16.5696%; font-size: 19.2038px; animation-duration: 6.74903s; animation-delay: 1.11418s;">❄</div><div class="snowflake" style="left: 37.1765%; font-size: 22.4917px; animation-duration: 7.92366s; animation-delay: 4.44736s;">❄</div><div class="snowflake" style="left: 8.99015%; font-size: 23.1395px; animation-duration: 5.2478s; animation-delay: 1.6564s;">❄</div></div>
+
+  <!-- Divider -->
+  <div class="divider-line" id="divider-line" style="left: 50%;"></div>
+  <div class="divider-badge" id="divider-badge" style="left: 50%;">🌡</div>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+      <span>Patterson, Louisiana</span>
+    </div>
+    <h1 class="hero-h1">
+      <span class="line1 fade-up" style="animation-delay:0.2s">Fullwood's</span>
+      <span class="line2 fade-up" style="animation-delay:0.35s">Reliable</span>
+      <span class="line3 fade-up" style="animation-delay:0.5s">Services.</span>
+    </h1>
+    <p class="hero-p fade-up" style="animation-delay:0.65s">Keeping You Cool Without Burning Your Wallet.
+If you’re from Louisiana, you already know how brutal the heat can be. Move your mouse to feel the difference!</p>
+    <div class="hero-btns fade-up" style="animation-delay:0.8s">
+      <a href="#contact" class="btn-primary">Get a Free Quote</a>
+      <a href="tel:9853003712" class="btn-outline">Call 985-300-3712</a>
+    </div>
+    <div class="hero-indicators fade-up" style="animation-delay:1s">
+      <div class="indicator"><div class="indicator-dot cold"></div><span class="cold">Cooling Services</span></div>
+      <div class="indicator"><div class="indicator-dot warm"></div><span class="warm">Heating Services</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+  </div>
+</section>
+
+<!-- ═══════════════════ SERVICES ═══════════════════ -->
+<section id="services">
+  <div class="section-header">
+    <div class="section-eyebrow">What We Do</div>
+    <h2 class="section-title">Full-Spectrum Climate Solutions</h2>
+    <p class="section-sub">From quick AC fixes to full system replacements, we handle all your heating and cooling needs across Louisiana—day or night. We show up when we say we will, treat you right, and make sure the job’s done the right way.
+</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card cool" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+      <div class="service-icon cool">❄</div>
+      <h3>AC Installation</h3>
+      <p>High-efficiency cooling systems precisely sized and installed for your space.</p>
+      <div class="service-underline cool"></div>
+    </div>
+    <div class="service-card warm" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+      <div class="service-icon warm">🔥</div>
+      <h3>Heating Systems</h3>
+      <p>Furnace and heat pump installation, repair, and replacement done right.</p>
+      <div class="service-underline warm"></div>
+    </div>
+    <div class="service-card cool" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+      <div class="service-icon cool">🔧</div>
+      <h3>Repairs &amp; Maintenance</h3>
+      <p>Fast, reliable repairs and preventive maintenance to extend system life.</p>
+      <div class="service-underline cool"></div>
+    </div>
+    <div class="service-card cool" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+      <div class="service-icon cool">💨</div>
+      <h3>Ventilation</h3>
+      <p>Improve air quality with professional ductwork and ventilation services.</p>
+      <div class="service-underline cool"></div>
+    </div>
+    <div class="service-card warm" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+      <div class="service-icon warm">🌡</div>
+      <h3>Thermostat Services</h3>
+      <p>Smart thermostat installation and calibration for optimal climate control.</p>
+      <div class="service-underline warm"></div>
+    </div>
+    <div class="service-card warm" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+      <div class="service-icon warm">⚙</div>
+      <h3>Seasonal Tune-Ups</h3>
+      <p>Maximize efficiency and prevent costly breakdowns before each season.</p>
+      <div class="service-underline warm"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TOOLS ═══════════════════ -->
+
+
+<!-- ═══════════════════ STATS / ABOUT ═══════════════════ -->
+<section id="stats" class="reviews">
+  <div class="section-header" style="position:relative;z-index:1;max-width:1200px;margin:0 auto 4rem">
+    <div class="section-eyebrow">Customer Feedback</div>
+    <h2 class="section-title">Service You Can Trust</h2>
+    <p class="section-sub">Real-style feedback cards arranged to feel like Colb is pointing right at them.</p>
+  </div>
+  <div class="reviews-wrap">
+    <div class="reviews-figure">
+      <img src="./31fa06af-034d-4eff-978a-9064395539d3.jpg" alt="Colb pointing toward customer reviews" width="768" height="768" loading="lazy">
+    </div>
+    <div class="reviews-stack" aria-label="Customer reviews carousel">
+      <div class="reviews-track">
+        <article class="review-card active" tabindex="0">
+          <div class="review-name">Angela M.</div>
+          <p class="review-text">Jacolby showed up on time, explained everything clearly, and had our air back on faster than we expected. The whole experience felt honest and professional.</p>
+        </article>
+        <article class="review-card" tabindex="0">
+          <div class="review-name">Derrick P.</div>
+          <p class="review-text">Very respectful, very clean work, and no pressure at all. He made the repair simple to understand and the house was cooling again that same visit.</p>
+        </article>
+        <article class="review-card" tabindex="0">
+          <div class="review-name">Monique R.</div>
+          <p class="review-text">I appreciated how straightforward he was. He told us what actually needed to be fixed and did not try to sell us things we did not need.</p>
+        </article>
+        <article class="review-card" tabindex="0">
+          <div class="review-name">Trevor G.</div>
+          <p class="review-text">Fast response, solid communication, and great workmanship. You can tell he takes pride in the job and wants it done right the first time.</p>
+        </article>
+        <article class="review-card" tabindex="0">
+          <div class="review-name">Lisa T.</div>
+          <p class="review-text">He came out during a really hot day and got us taken care of without any hassle. Friendly, knowledgeable, and easy to work with from start to finish.</p>
+        </article>
+        <article class="review-card" tabindex="0">
+          <div class="review-name">Marcus J.</div>
+          <p class="review-text">The install looked clean, the system runs great, and he kept us updated the whole time. It is hard to find service like that anymore.</p>
+        </article>
+        <article class="review-card" tabindex="0">
+          <div class="review-name">Shonda B.</div>
+          <p class="review-text">What stood out most was the professionalism. He respected our home, answered our questions, and made sure we felt good before he left.</p>
+        </article>
+        <article class="review-card" tabindex="0">
+          <div class="review-name">Kelvin D.</div>
+          <p class="review-text">Reliable is the right name. He was prompt, fair, and the quality of work was excellent. I would absolutely recommend him to family and friends.</p>
+        </article>
+        <article class="review-card" tabindex="0">
+          <div class="review-name">Tasha W.</div>
+          <p class="review-text">Great communication and even better service. He made a stressful problem feel manageable and handled everything with confidence.</p>
+        </article>
+        <article class="review-card" tabindex="0">
+          <div class="review-name">Bryan C.</div>
+          <p class="review-text">From the first call to the finished repair, everything felt professional and smooth. You can tell customer service matters here.</p>
+        </article>
+
+        <article class="review-card active" tabindex="0" aria-hidden="true">
+          <div class="review-name">Angela M.</div>
+          <p class="review-text">Jacolby showed up on time, explained everything clearly, and had our air back on faster than we expected. The whole experience felt honest and professional.</p>
+        </article>
+        <article class="review-card" tabindex="0" aria-hidden="true">
+          <div class="review-name">Derrick P.</div>
+          <p class="review-text">Very respectful, very clean work, and no pressure at all. He made the repair simple to understand and the house was cooling again that same visit.</p>
+        </article>
+        <article class="review-card" tabindex="0" aria-hidden="true">
+          <div class="review-name">Monique R.</div>
+          <p class="review-text">I appreciated how straightforward he was. He told us what actually needed to be fixed and did not try to sell us things we did not need.</p>
+        </article>
+        <article class="review-card" tabindex="0" aria-hidden="true">
+          <div class="review-name">Trevor G.</div>
+          <p class="review-text">Fast response, solid communication, and great workmanship. You can tell he takes pride in the job and wants it done right the first time.</p>
+        </article>
+        <article class="review-card" tabindex="0" aria-hidden="true">
+          <div class="review-name">Lisa T.</div>
+          <p class="review-text">He came out during a really hot day and got us taken care of without any hassle. Friendly, knowledgeable, and easy to work with from start to finish.</p>
+        </article>
+        <article class="review-card" tabindex="0" aria-hidden="true">
+          <div class="review-name">Marcus J.</div>
+          <p class="review-text">The install looked clean, the system runs great, and he kept us updated the whole time. It is hard to find service like that anymore.</p>
+        </article>
+        <article class="review-card" tabindex="0" aria-hidden="true">
+          <div class="review-name">Shonda B.</div>
+          <p class="review-text">What stood out most was the professionalism. He respected our home, answered our questions, and made sure we felt good before he left.</p>
+        </article>
+        <article class="review-card" tabindex="0" aria-hidden="true">
+          <div class="review-name">Kelvin D.</div>
+          <p class="review-text">Reliable is the right name. He was prompt, fair, and the quality of work was excellent. I would absolutely recommend him to family and friends.</p>
+        </article>
+        <article class="review-card" tabindex="0" aria-hidden="true">
+          <div class="review-name">Tasha W.</div>
+          <p class="review-text">Great communication and even better service. He made a stressful problem feel manageable and handled everything with confidence.</p>
+        </article>
+        <article class="review-card" tabindex="0" aria-hidden="true">
+          <div class="review-name">Bryan C.</div>
+          <p class="review-text">From the first call to the finished repair, everything felt professional and smooth. You can tell customer service matters here.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section id="contact">
+  <div class="section-header">
+    <div class="section-eyebrow">Get In Touch</div>
+    <h2 class="section-title">Let's Talk Comfort</h2>
+    <p class="section-sub">Too hot? Too cold? Whatever the issue — we'll fix it fast.</p>
+  </div>
+  <div class="contact-grid">
+    <!-- Form -->
+    <div class="contact-form-wrap" id="form-wrap">
+      <div class="feeling-row">
+        <button class="feeling-btn" id="btn-hot" onclick="setFeeling('too_hot','active-hot')">☀ Too Hot</button>
+        <button class="feeling-btn" id="btn-cold" onclick="setFeeling('too_cold','active-cold')">❄ Too Cold</button>
+        <button class="feeling-btn" id="btn-repair" onclick="setFeeling('need_maintenance','active-repair')">🔧 Repair</button>
+      </div>
+      <form id="contact-form" onsubmit="submitForm(event)">
+        <input type="hidden" id="feeling-val" name="feeling" value="">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name *</label>
+            <input type="text" id="name" name="name" placeholder="Full Name" required="">
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" placeholder="(985) 000-0000" required="">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com">
+        </div>
+        <div class="form-group">
+          <label for="property">Property Type</label>
+          <select id="property" name="property">
+            <option value="">Select one...</option>
+            <option value="home">🏠 Home</option>
+            <option value="office">🏢 Office</option>
+            <option value="commercial">🏭 Commercial</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Tell Us More</label>
+          <textarea id="message" name="message" placeholder="Describe your situation..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          Send Message
+        </button>
+      </form>
+    </div>
+    <!-- Sidebar -->
+    <div class="contact-sidebar">
+      <a href="tel:9853003712" class="phone-cta">
+        <div class="phone-cta-inner">
+          <div class="phone-icon-wrap">📞</div>
+          <div>
+            <div class="label">Call Us Directly</div>
+            <div class="number">985-300-3712</div>
+          </div>
+        </div>
+        <div class="avail">Available for emergency calls 24/7</div>
+      </a>
+      <a href="mailto:Fullwoodsreliableservice@gmail.com" class="info-card">
+        <div class="info-icon blue">✉</div>
+        <div><div class="meta">Email</div><div class="val">Fullwoodsreliableservice@gmail.com</div></div>
+      </a>
+      <div class="info-card">
+        <div class="info-icon amber">📍</div>
+        <div><div class="meta">Location</div><div class="val">Patterson, Louisiana</div></div>
+      </div>
+      <div class="hours-card">
+        <h4>Business Hours</h4>
+        <div class="hours-row"><span>Mon – Fri</span><span>7:00 AM – 7:00 PM</span></div>
+        <div class="hours-row"><span>Saturday</span><span>8:00 AM – 5:00 PM</span></div>
+        <div class="hours-row"><span>Sunday</span><span>Emergency Only</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="logo">
+        <div class="logo-icon">F</div>
+        <div><div class="logo-text">Fullwood's Reliable</div><div class="logo-sub">HVAC Service</div></div>
+      </a>
+      <p>Professional HVAC solutions for homes and businesses in Patterson, LA and surrounding areas.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#tools">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><span>AC Installation</span></li>
+        <li><span>Heating Systems</span></li>
+        <li><span>Repairs &amp; Maintenance</span></li>
+        <li><span>Ventilation</span></li>
+        <li><span>Seasonal Tune-Ups</span></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><span class="icon">📞</span><a href="tel:9853003712">985-300-3712</a></div>
+      <div class="footer-contact-item"><span class="icon">✉</span><a href="mailto:Fullwoodsreliableservice@gmail.com">Fullwoodsreliableservice@gmail.com</a></div>
+      <div class="footer-contact-item"><span class="icon">📍</span><span class="text">Patterson, Louisiana</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Fullwood's Reliable Service. All rights reserved.</p>
+    <p>Jacolby Fullwood — Licensed HVAC Technician</p>
+  </div>
+  <div class="footer-watermark">F</div>
+</footer>
+
+<!-- ═══════════════════ FAB ═══════════════════ -->
+<div class="fab">
+  <a href="tel:9853003712">
+    <div class="fab-icon">📞</div>
+    <div class="fab-label">985-300-3712</div>
+  </a>
+</div>
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<script>
+  // ── Header scroll ──
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // ── Mobile menu ──
+  function toggleMenu() {
+    document.getElementById('mobile-menu').classList.toggle('open');
+  }
+
+  // ── Hero split ──
+  const warmBg = document.getElementById('warm-bg');
+  const dividerLine = document.getElementById('divider-line');
+  const dividerBadge = document.getElementById('divider-badge');
+  const hero = document.getElementById('hero');
+  const sf = document.getElementById('snowflakes');
+  let targetPct = 50, currentPct = 50;
+
+  function placeSnowflakes() {
+    const flakes = sf.querySelectorAll('.snowflake');
+    flakes.forEach((flake) => {
+      const rand = parseFloat(flake.dataset.rand || Math.random().toFixed(4));
+      flake.style.left = `${Math.max(2, (currentPct * 0.92) * rand)}%`;
+    });
+  }
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    targetPct = Math.max(24, Math.min(76, ((e.clientX - rect.left) / rect.width) * 100));
+  });
+  hero.addEventListener('touchmove', (e) => {
+    const touch = e.touches[0];
+    if (!touch) return;
+    const rect = hero.getBoundingClientRect();
+    targetPct = Math.max(24, Math.min(76, ((touch.clientX - rect.left) / rect.width) * 100));
+  }, { passive: true });
+  hero.addEventListener('mouseleave', () => { targetPct = currentPct; });
+  hero.addEventListener('touchend', () => { targetPct = currentPct; }, { passive: true });
+
+  function animateDivider() {
+    currentPct += (targetPct - currentPct) * 0.16;
+    const pct = currentPct.toFixed(2);
+    warmBg.style.clipPath = `inset(0 0 0 ${pct}%)`;
+    dividerLine.style.left = `${pct}%`;
+    dividerBadge.style.left = `${pct}%`;
+    placeSnowflakes();
+    requestAnimationFrame(animateDivider);
+  }
+  animateDivider();
+
+  // ── Snowflakes ──
+  for (let i = 0; i < 18; i++) {
+    const el = document.createElement('div');
+    el.className = 'snowflake';
+    el.textContent = '❄';
+    const rand = Math.random();
+    el.dataset.rand = rand.toFixed(4);
+    el.style.cssText = `left:${Math.max(2, (currentPct * 0.92) * rand)}%;font-size:${10+Math.random()*14}px;animation-duration:${5+Math.random()*5}s;animation-delay:${Math.random()*6}s;`;
+    sf.appendChild(el);
+  }
+  placeSnowflakes();
+
+  // ── Ice burst flakes ──
+  const ib = document.getElementById('ice-burst');
+  for (let i = 0; i < 8; i++) {
+    const el = document.createElement('div');
+    el.className = 'ice-burst-flake';
+    el.textContent = '❄';
+    el.style.cssText = `left:${10+i*11}%;font-size:${12+(i%3)*8}px;animation-duration:${3+i*0.4}s;animation-delay:${i*0.3}s;`;
+    ib.appendChild(el);
+  }
+
+  // ── Sun rays ──
+  const sr = document.getElementById('sun-rays');
+  for (let i = 0; i < 7; i++) {
+    const el = document.createElement('div');
+    el.className = 'sun-ray';
+    el.style.cssText = `height:${50+i*18}px;left:${12+i*13}%;animation-duration:${2+i*0.3}s;animation-delay:${i*0.25}s;`;
+    sr.appendChild(el);
+  }
+
+  // ── Contact form feeling toggle ──
+  let currentFeeling = '';
+  function setFeeling(val, cls) {
+    currentFeeling = val;
+    document.getElementById('feeling-val').value = val;
+    ['btn-hot','btn-cold','btn-repair'].forEach(id => {
+      document.getElementById(id).className = 'feeling-btn';
+    });
+    const map = { 'too_hot':'btn-hot','too_cold':'btn-cold','need_maintenance':'btn-repair' };
+    document.getElementById(map[val]).classList.add(cls);
+  }
+
+  // ── Contact form submit ──
+  function submitForm(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    if (!name || !phone) { alert('Please provide your name and phone number.'); return; }
+    const wrap = document.getElementById('form-wrap');
+    wrap.innerHTML = `
+      <div class="success-screen">
+        <div class="success-icon" style="animation:pulse-slow 1.5s ease-in-out 3">✅</div>
+        <h3>Message Sent!</h3>
+        <p>We'll get back to you shortly. For urgent needs, call us directly.</p>
+        <a href="tel:9853003712" class="btn-primary" style="margin-top:1.5rem;display:inline-flex">📞 985-300-3712</a>
+      </div>`;
+  }
+
+  // ── Intersection Observer for gauge fill ──
+  const gauges = document.querySelectorAll('.gauge-fill');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.style.animationPlayState = 'running'; } });
+  }, { threshold: 0.3 });
+  gauges.forEach(g => { g.style.animationPlayState = 'paused'; obs.observe(g); });
+
+  // ── Scroll-triggered fade-up ──
+  const fadeEls = document.querySelectorAll('.service-card, .tool-item, .stat-box, .tool-visual-card');
+  const fadeObs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+          e.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        }, i * 80);
+        fadeObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  fadeEls.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    fadeObs.observe(el);
+  });
+</script>
+
+</body></html>

@@ -4,7 +4,7 @@
   <title>Fullwood's Reliable Service – HVAC</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -628,9 +628,9 @@
 <span class="hero-title-part fade-up" style="animation-delay:0s; font-size: clamp(2.5rem, 7vw, 6rem); color: white;">Fullwood's</span>
 <span class="hero-title-part fade-up" style="animation-delay:0.1s; font-size: clamp(2.5rem, 7vw, 6rem); color: white;">Reliable</span>
 <span class="hero-title-part fade-up" style="animation-delay:0.2s; font-size: clamp(2.5rem, 7vw, 6rem); background: linear-gradient(90deg, #38bdf8, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 900;">Service</span>
-</span></h1>
+</h1>
     <p class="hero-p fade-up" style="animation-delay:0.65s">Keeping You Cool Without Burning Your Wallet.
-If you’re from Louisiana, you already know how brutal the heat can be. Move your mouse to feel the difference!</p>
+If you're from Louisiana, you already know how brutal the heat can be. Move your mouse to feel the difference!</p>
     <div class="hero-btns fade-up" style="animation-delay:0.8s">
       <a href="#contact" class="btn-primary">Get a Free Quote</a>
       <a href="tel:9853003712" class="btn-primary">Call 985-300-3712</a>
@@ -649,7 +649,7 @@ If you’re from Louisiana, you already know how brutal the heat can be. Move yo
 
 <!-- ═══════════════════ SERVICES ═══════════════════ -->
 <section id="services">
-  <div class="section-header" style="position:relative;z-index:1;max-width:1200px;margin:0 auto 4rem"><div class="section-eyebrow">Customer Feedback</div><h2 class="section-title">Service You Can Trust</h2></div>
+  <div class="section-header" style="position:relative;z-index:1;max-width:1200px;margin:0 auto 4rem"><div class="section-eyebrow">What We Do</div><h2 class="section-title">Our Services</h2></div>
   <div class="services-grid">
     <div class="service-card cool" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
       <div class="service-icon cool">❄</div>
@@ -697,7 +697,7 @@ If you’re from Louisiana, you already know how brutal the heat can be. Move yo
 <section id="stats" class="reviews">
   <div class="section-header" style="position:relative;z-index:1;max-width:1200px;margin:0 auto 4rem"><div class="section-eyebrow">Customer Feedback</div><h2 class="section-title">Service You Can Trust</h2></div>
   <div class="reviews-wrap">
-    <div class="reviews-figure"><img src="fullwoods-hvac-site/images/colb-mascot.jpg" alt="Colb mascot with 5-star service pointing to reviews" width="768" height="768" loading="lazy"></div>
+    <div class="reviews-figure"><img src="images/colb-mascot.jpg" alt="Colb mascot with 5-star service pointing to reviews" width="768" height="768" loading="lazy"></div>
     <div class="reviews-stack" aria-label="Customer reviews carousel">
       <div class="reviews-track">
         <article class="review-card active" tabindex="0">
@@ -788,7 +788,7 @@ If you’re from Louisiana, you already know how brutal the heat can be. Move yo
 
 <!-- ═══════════════════ CONTACT ═══════════════════ -->
 <section id="contact">
-  <div class="section-header" style="position:relative;z-index:1;max-width:1200px;margin:0 auto 4rem"><div class="section-eyebrow">Customer Feedback</div><h2 class="section-title">Service You Can Trust</h2></div>
+  <div class="section-header" style="position:relative;z-index:1;max-width:1200px;margin:0 auto 4rem"><div class="section-eyebrow">Get In Touch</div><h2 class="section-title">Contact Us</h2></div>
   <div class="contact-grid">
     <!-- Form -->
     <div class="contact-form-wrap" id="form-wrap">
@@ -980,21 +980,25 @@ If you’re from Louisiana, you already know how brutal the heat can be. Move yo
 
   // ── Ice burst flakes ──
   const ib = document.getElementById('ice-burst');
-  for (let i = 0; i < 8; i++) {
-    const el = document.createElement('div');
-    el.className = 'ice-burst-flake';
-    el.textContent = '❄';
-    el.style.cssText = `left:${10+i*11}%;font-size:${12+(i%3)*8}px;animation-duration:${3+i*0.4}s;animation-delay:${i*0.3}s;`;
-    ib.appendChild(el);
+  if (ib) {
+    for (let i = 0; i < 8; i++) {
+      const el = document.createElement('div');
+      el.className = 'ice-burst-flake';
+      el.textContent = '❄';
+      el.style.cssText = `left:${10+i*11}%;font-size:${12+(i%3)*8}px;animation-duration:${3+i*0.4}s;animation-delay:${i*0.3}s;`;
+      ib.appendChild(el);
+    }
   }
 
   // ── Sun rays ──
   const sr = document.getElementById('sun-rays');
-  for (let i = 0; i < 7; i++) {
-    const el = document.createElement('div');
-    el.className = 'sun-ray';
-    el.style.cssText = `height:${50+i*18}px;left:${12+i*13}%;animation-duration:${2+i*0.3}s;animation-delay:${i*0.25}s;`;
-    sr.appendChild(el);
+  if (sr) {
+    for (let i = 0; i < 7; i++) {
+      const el = document.createElement('div');
+      el.className = 'sun-ray';
+      el.style.cssText = `height:${50+i*18}px;left:${12+i*13}%;animation-duration:${2+i*0.3}s;animation-delay:${i*0.25}s;`;
+      sr.appendChild(el);
+    }
   }
 
   // ── Contact form feeling toggle ──

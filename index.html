@@ -59,7 +59,7 @@
 
     /* ── HERO ── */
     #hero {
-      position: relative; min-height: 100vh; display: flex; align-items: center;
+      position: relative; min-height: 90vh; display: flex; align-items: center;
       overflow: hidden; cursor: crosshair; user-select: none;
       isolation: isolate;
     }
@@ -167,17 +167,17 @@
       position: absolute; border-radius: 50%; pointer-events: none;
       animation: heat-rise ease-in-out infinite;
     }
-    .hero-content { position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; padding: 8rem 2rem 6rem; width: 100%; }
-    .hero-eyebrow { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .hero-content { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; padding: 2.5rem 2rem 2rem; width: 100%; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
     .hero-eyebrow span { color: var(--blue-light); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
-    .hero-h1 { font-family: 'Inter Tight', sans-serif; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+    .hero-h1 { font-family: 'Inter Tight', sans-serif; font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
     .hero-h1 .line1, .hero-h1 .line2 { display: block; color: #fff; font-size: clamp(3rem, 9vw, 8rem); }
     .hero-h1 .line3 {
       display: block; font-size: clamp(3rem, 9vw, 8rem);
       background: linear-gradient(90deg, #38bdf8, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     }
     .hero-p { position: relative; z-index: 1; margin: 1.25rem auto 0; color: rgba(255,255,255,0.96); font-size: 1.08rem; max-width: 620px; line-height: 1.75; text-shadow: 0 6px 22px rgba(0,0,0,0.52); }
-    .hero-btns { position: relative; z-index: 1; display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap; justify-content: center; }
+    .hero-btns { position: relative; z-index: 1; display: flex; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; justify-content: center; }
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center;
       background: var(--blue); color: #fff; padding: 1rem 2rem; border-radius: 12px;
@@ -193,7 +193,7 @@
       text-decoration: none; transition: border-color 0.3s, color 0.3s;
     }
     .btn-outline:hover { border-color: rgba(14,165,233,0.6); color: var(--blue); }
-    .hero-indicators { position: relative; z-index: 1; display: flex; gap: 2rem; margin-top: 2.25rem; justify-content: center; flex-wrap: wrap; }
+    .hero-indicators { position: relative; z-index: 1; display: flex; gap: 2rem; margin-top: 1.75rem; justify-content: center; flex-wrap: wrap; }
     .indicator { display: flex; align-items: center; gap: 0.5rem; }
     .indicator-dot { width: 10px; height: 10px; border-radius: 50%; }
     .indicator-dot.cold { background: var(--blue); box-shadow: 0 0 10px rgba(14,165,233,0.6); }
@@ -209,7 +209,7 @@
     }
 
     /* ── SERVICES ── */
-    #services { padding: 6rem 2rem; background: var(--frost); position: relative; overflow: hidden; }
+    #services { padding: 4rem 2rem; background: var(--frost); position: relative; overflow: hidden; }
     .section-eyebrow { color: var(--blue); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
     .section-title { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: clamp(2rem, 4vw, 3.5rem); color: var(--obsidian); margin-top: 0.5rem; }
     .section-sub { margin-top: 1rem; color: var(--muted); font-size: 1.05rem; max-width: 600px; line-height: 1.7; }
@@ -226,7 +226,7 @@
     .service-card.warm:hover { box-shadow: 0 20px 60px rgba(245,158,11,0.15), 0 0 80px rgba(245,158,11,0.05); }
     .service-icon {
       width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; margin-bottom: 1.5rem; transition: background 0.3s;
+      font-size: 1.5rem; margin-bottom: 1rem; transition: background 0.3s;
     }
     .service-icon.cool { background: rgba(14,165,233,0.1); }
     .service-icon.warm { background: rgba(245,158,11,0.1); }
@@ -299,13 +299,13 @@
     .stats-content .eyebrow { color: var(--blue); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; }
     .stats-content h2 { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: clamp(2rem,3vw,3rem); color: #fff; margin-top: 0.5rem; line-height: 1.15; }
     .stats-content p { color: rgba(255,255,255,0.4); font-size: 1rem; margin-top: 1.25rem; line-height: 1.7; }
-    .gauge-list { margin-top: 2rem; display: flex; flex-direction: column; gap: 1.25rem; }
+    .gauge-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
     .gauge-item label { display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 0.4rem; }
     .gauge-item label span:first-child { color: rgba(255,255,255,0.5); font-weight: 500; }
     .gauge-item label span:last-child { font-family: 'Inter Tight', sans-serif; font-weight: 700; }
     .gauge-track { height: 8px; border-radius: 8px; background: rgba(255,255,255,0.08); overflow: hidden; }
     .gauge-fill { height: 100%; border-radius: 8px; animation: fill-gauge 1.5s ease-out forwards; width: 0; }
-    .stats-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+    .stats-boxes { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
     .stat-box { padding: 1.25rem; border-radius: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); }
     .stat-box .val { font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--blue); }
     .stat-box .lbl { color: rgba(255,255,255,0.35); font-size: 0.8rem; margin-top: 0.25rem; }
@@ -416,7 +416,7 @@
     #contact { padding: 6rem 2rem; background: var(--frost); position: relative; overflow: hidden; }
     .contact-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 3rem; align-items: start; max-width: 1200px; margin: 0 auto; }
     .contact-form-wrap { background: #fff; border-radius: 1.5rem; border: 1px solid rgba(0,0,0,0.07); padding: 2.5rem; box-shadow: 0 25px 60px rgba(0,0,0,0.07); }
-    .feeling-row { display: flex; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .feeling-row { display: flex; gap: 0.75rem; margin-bottom: 1rem; }
     .feeling-btn {
       flex: 1; padding: 0.75rem 0.5rem; border-radius: 12px; border: 2px solid #e2e8f0;
       background: #fff; font-family: 'Inter Tight', sans-serif; font-weight: 700; font-size: 0.85rem;
@@ -489,10 +489,10 @@
     .footer-contact-item span.text { color: rgba(255,255,255,0.4); font-size: 0.875rem; }
     .footer-bottom { max-width: 1200px; margin: 4rem auto 0; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.07); display: flex; justify-content: space-between; align-items: center; flex-wrap: gap; gap: 1rem; }
     .footer-bottom p { color: rgba(255,255,255,0.2); font-size: 0.8rem; }
-    .footer-watermark { position: absolute; bottom: 0; right: 0; font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: 20rem; color: rgba(255,255,255,0.015); line-height: 1; pointer-events: none; transform: translate(25%, 30%); }
+    .footer-watermark { position: absolute; bottom: 0; right: 0; font-family: 'Inter Tight', sans-serif; font-weight: 800; font-size: 20rem; color: rgba(255,255,255,0.015); line-height: 1.1; pointer-events: none; transform: translate(25%, 30%); }
 
     /* ── FAB ── */
-    .fab { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200; }
+    .fab { position: fixed; bottom: 1rem; right: 1.5rem; z-index: 200; }
     .fab a {
       display: flex; align-items: center; background: var(--blue); color: #fff;
       border-radius: 50px; text-decoration: none; box-shadow: 0 8px 30px rgba(14,165,233,0.4);
@@ -595,17 +595,17 @@
     <!-- Sun glow -->
     <div class="sun-glow" id="sun-glow"></div>
     <div class="sun-ring" style="width:180px;height:180px;top:2%;right:2%;animation-delay:0s;animation-duration:3s;"></div>
-    <div class="sun-ring" style="width:260px;height:260px;top:-3%;right:-3%;animation-delay:0.8s;animation-duration:3s;"></div>
+    <div class="sun-ring" style="width:260px;height:260px;top:-3%;right:-3%;animation-delay:0.6s;animation-duration:3s;"></div>
     <div class="sun-ring" style="width:340px;height:340px;top:-8%;right:-8%;animation-delay:1.6s;animation-duration:3s;"></div>
     <!-- Heat waves -->
     <div class="heat-wave" style="top:20%;animation-delay:0s;"><svg viewBox="0 0 400 20"><path d="M0,10 Q50,0 100,10 Q150,20 200,10 Q250,0 300,10 Q350,20 400,10" stroke="#F59E0B" stroke-width="1.5" fill="none" opacity="0.5"></path></svg></div>
-    <div class="heat-wave" style="top:35%;animation-delay:0.5s;"><svg viewBox="0 0 400 20"><path d="M0,10 Q60,0 120,10 Q180,20 240,10 Q300,0 360,10 Q380,20 400,10" stroke="#F59E0B" stroke-width="1.5" fill="none" opacity="0.4"></path></svg></div>
-    <div class="heat-wave" style="top:52%;animation-delay:1s;"><svg viewBox="0 0 400 20"><path d="M0,10 Q40,0 80,10 Q160,20 240,10 Q320,0 400,10" stroke="#ef4444" stroke-width="1" fill="none" opacity="0.3"></path></svg></div>
+    <div class="heat-wave" style="top:35%;animation-delay:0.3s;"><svg viewBox="0 0 400 20"><path d="M0,10 Q60,0 120,10 Q180,20 240,10 Q300,0 360,10 Q380,20 400,10" stroke="#F59E0B" stroke-width="1.5" fill="none" opacity="0.4"></path></svg></div>
+    <div class="heat-wave" style="top:52%;animation-delay:0.75s;"><svg viewBox="0 0 400 20"><path d="M0,10 Q40,0 80,10 Q160,20 240,10 Q320,0 400,10" stroke="#ef4444" stroke-width="1" fill="none" opacity="0.3"></path></svg></div>
     <div class="heat-wave" style="top:68%;animation-delay:1.5s;"><svg viewBox="0 0 400 20"><path d="M0,10 Q50,0 100,10 Q150,20 200,10 Q250,0 300,10 Q350,20 400,10" stroke="#F59E0B" stroke-width="1.5" fill="none" opacity="0.45"></path></svg></div>
     <!-- Heat particles -->
     <div class="heat-particle" style="left:65%;top:70%;width:80px;height:80px;background:rgba(245,158,11,0.15);filter:blur(20px);animation-duration:4s;animation-delay:0s;"></div>
-    <div class="heat-particle" style="left:75%;top:50%;width:60px;height:60px;background:rgba(239,68,68,0.12);filter:blur(14px);animation-duration:5s;animation-delay:1s;"></div>
-    <div class="heat-particle" style="left:82%;top:80%;width:50px;height:50px;background:rgba(251,191,36,0.2);filter:blur(10px);animation-duration:3.5s;animation-delay:0.5s;"></div>
+    <div class="heat-particle" style="left:75%;top:50%;width:60px;height:60px;background:rgba(239,68,68,0.12);filter:blur(14px);animation-duration:5s;animation-delay:0.75s;"></div>
+    <div class="heat-particle" style="left:82%;top:80%;width:50px;height:50px;background:rgba(251,191,36,0.2);filter:blur(10px);animation-duration:3.5s;animation-delay:0.3s;"></div>
   </div>
 
   <!-- Cold glow -->
@@ -624,16 +624,16 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
       <span>Patterson, Louisiana</span>
     </div>
-    <h1 class="hero-h1">
-      <span class="line1 fade-up" style="animation-delay:0.2s">Fullwood's</span>
-      <span class="line2 fade-up" style="animation-delay:0.35s">Reliable</span>
-      <span class="line3 fade-up" style="animation-delay:0.5s">Services.</span>
-    </h1>
+    <h1 class="hero-h1" style="display: flex; flex-wrap: nowrap; justify-content: center; gap: 1rem; line-height: 1.1; letter-spacing: -0.02em;">
+<span class="hero-title-part fade-up" style="animation-delay:0s; font-size: clamp(2.5rem, 7vw, 6rem); color: white;">Fullwood's</span>
+<span class="hero-title-part fade-up" style="animation-delay:0.1s; font-size: clamp(2.5rem, 7vw, 6rem); color: white;">Reliable</span>
+<span class="hero-title-part fade-up" style="animation-delay:0.2s; font-size: clamp(2.5rem, 7vw, 6rem); background: linear-gradient(90deg, #38bdf8, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 900;">Service</span>
+</span></h1>
     <p class="hero-p fade-up" style="animation-delay:0.65s">Keeping You Cool Without Burning Your Wallet.
 If you’re from Louisiana, you already know how brutal the heat can be. Move your mouse to feel the difference!</p>
     <div class="hero-btns fade-up" style="animation-delay:0.8s">
       <a href="#contact" class="btn-primary">Get a Free Quote</a>
-      <a href="tel:9853003712" class="btn-outline">Call 985-300-3712</a>
+      <a href="tel:9853003712" class="btn-primary">Call 985-300-3712</a>
     </div>
     <div class="hero-indicators fade-up" style="animation-delay:1s">
       <div class="indicator"><div class="indicator-dot cold"></div><span class="cold">Cooling Services</span></div>
@@ -649,12 +649,7 @@ If you’re from Louisiana, you already know how brutal the heat can be. Move yo
 
 <!-- ═══════════════════ SERVICES ═══════════════════ -->
 <section id="services">
-  <div class="section-header">
-    <div class="section-eyebrow">What We Do</div>
-    <h2 class="section-title">Full-Spectrum Climate Solutions</h2>
-    <p class="section-sub">From quick AC fixes to full system replacements, we handle all your heating and cooling needs across Louisiana—day or night. We show up when we say we will, treat you right, and make sure the job’s done the right way.
-</p>
-  </div>
+  <div class="section-header" style="position:relative;z-index:1;max-width:1200px;margin:0 auto 4rem"><div class="section-eyebrow">Customer Feedback</div><h2 class="section-title">Service You Can Trust</h2></div>
   <div class="services-grid">
     <div class="service-card cool" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
       <div class="service-icon cool">❄</div>
@@ -700,15 +695,9 @@ If you’re from Louisiana, you already know how brutal the heat can be. Move yo
 
 <!-- ═══════════════════ STATS / ABOUT ═══════════════════ -->
 <section id="stats" class="reviews">
-  <div class="section-header" style="position:relative;z-index:1;max-width:1200px;margin:0 auto 4rem">
-    <div class="section-eyebrow">Customer Feedback</div>
-    <h2 class="section-title">Service You Can Trust</h2>
-    <p class="section-sub">Real-style feedback cards arranged to feel like Colb is pointing right at them.</p>
-  </div>
+  <div class="section-header" style="position:relative;z-index:1;max-width:1200px;margin:0 auto 4rem"><div class="section-eyebrow">Customer Feedback</div><h2 class="section-title">Service You Can Trust</h2></div>
   <div class="reviews-wrap">
-    <div class="reviews-figure">
-      <img src="./31fa06af-034d-4eff-978a-9064395539d3.jpg" alt="Colb pointing toward customer reviews" width="768" height="768" loading="lazy">
-    </div>
+    <div class="reviews-figure"><img src="colb-mascot.jpg" alt="Colb mascot with 5-star service pointing to reviews" width="768" height="768" loading="lazy"></div>
     <div class="reviews-stack" aria-label="Customer reviews carousel">
       <div class="reviews-track">
         <article class="review-card active" tabindex="0">
@@ -799,11 +788,7 @@ If you’re from Louisiana, you already know how brutal the heat can be. Move yo
 
 <!-- ═══════════════════ CONTACT ═══════════════════ -->
 <section id="contact">
-  <div class="section-header">
-    <div class="section-eyebrow">Get In Touch</div>
-    <h2 class="section-title">Let's Talk Comfort</h2>
-    <p class="section-sub">Too hot? Too cold? Whatever the issue — we'll fix it fast.</p>
-  </div>
+  <div class="section-header" style="position:relative;z-index:1;max-width:1200px;margin:0 auto 4rem"><div class="section-eyebrow">Customer Feedback</div><h2 class="section-title">Service You Can Trust</h2></div>
   <div class="contact-grid">
     <!-- Form -->
     <div class="contact-form-wrap" id="form-wrap">
@@ -859,9 +844,9 @@ If you’re from Louisiana, you already know how brutal the heat can be. Move yo
         </div>
         <div class="avail">Available for emergency calls 24/7</div>
       </a>
-      <a href="mailto:Fullwoodsreliableservice@gmail.com" class="info-card">
+      <a href="mailto:Fullwood'sreliableservice@gmail.com" class="info-card">
         <div class="info-icon blue">✉</div>
-        <div><div class="meta">Email</div><div class="val">Fullwoodsreliableservice@gmail.com</div></div>
+        <div><div class="meta">Email</div><div class="val">Fullwood'sreliableservice@gmail.com</div></div>
       </a>
       <div class="info-card">
         <div class="info-icon amber">📍</div>
@@ -909,7 +894,7 @@ If you’re from Louisiana, you already know how brutal the heat can be. Move yo
     <div class="footer-col">
       <h4>Contact</h4>
       <div class="footer-contact-item"><span class="icon">📞</span><a href="tel:9853003712">985-300-3712</a></div>
-      <div class="footer-contact-item"><span class="icon">✉</span><a href="mailto:Fullwoodsreliableservice@gmail.com">Fullwoodsreliableservice@gmail.com</a></div>
+      <div class="footer-contact-item"><span class="icon">✉</span><a href="mailto:Fullwood'sreliableservice@gmail.com">Fullwood'sreliableservice@gmail.com</a></div>
       <div class="footer-contact-item"><span class="icon">📍</span><span class="text">Patterson, Louisiana</span></div>
     </div>
   </div>

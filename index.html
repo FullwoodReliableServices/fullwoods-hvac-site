@@ -71,7 +71,6 @@
       border-bottom:1px solid rgba(255,255,255,.12);
       z-index:9999;
     }
-    /* Left + right edge fade-out vignettes */
     .emergency-banner::before,.emergency-banner::after{
       content:'';position:absolute;top:0;width:80px;height:100%;z-index:2;pointer-events:none;
     }
@@ -95,7 +94,6 @@
       color:#fff;
       text-shadow:0 0 8px rgba(255,255,255,.7),0 0 18px rgba(255,100,100,.8),0 0 32px rgba(220,38,38,.6);
     }
-    /* Separator dots between segments */
     .banner-track span::after{
       content:' ◆ ';
       opacity:.5;
@@ -107,7 +105,7 @@
       100%{transform:translateX(-50%)}
     }
 
-    /* HEADER — offset by banner height */
+    /* HEADER */
     #hdr{position:fixed;top:var(--banner-h);left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s}
     #hdr.on{background:rgba(11,18,33,.93);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.07)}
     .logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
@@ -128,8 +126,8 @@
     .mclose{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,.4);font-size:1.8rem;cursor:pointer;transition:color .2s;line-height:1}
     .mclose:hover{color:#fff}
 
-    /* HERO */
-    #hero{position:relative;min-height:90vh;display:flex;align-items:center;overflow:hidden;cursor:crosshair;user-select:none;isolation:isolate;font-family:'Plus Jakarta Sans', sans-serif;}
+    /* HERO — reduced height, tighter internal spacing, text sizes unchanged */
+    #hero{position:relative;min-height:65vh;display:flex;align-items:center;overflow:hidden;cursor:crosshair;user-select:none;isolation:isolate;font-family:'Plus Jakarta Sans', sans-serif;}
     #hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,6,23,0.72) 0%,rgba(2,6,23,0.58) 34%,rgba(2,6,23,0.2) 58%,rgba(2,6,23,0.06) 100%);z-index:9;pointer-events:none}
     .hero-cold-bg,.hero-warm-bg{position:absolute;inset:0;overflow:hidden}
     .hero-cold-bg{background:linear-gradient(135deg,#02101d 0%,#0b213f 50%,#0f172a 100%)}
@@ -151,19 +149,20 @@
     .snowflake{position:absolute;color:rgba(147,210,255,0.7);font-size:1rem;animation:snow-fall linear infinite;pointer-events:none;top:-5%}
     .heat-wave{position:absolute;right:0;width:50%;pointer-events:none;animation:wave-fade 3s ease-in-out infinite}
     .heat-particle{position:absolute;border-radius:50%;pointer-events:none;animation:heat-rise ease-in-out infinite}
-    .hero-content{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:2.5rem 2rem 2rem;width:100%}
-    .hero-eyebrow{display:flex;align-items:center;gap:0.5rem;margin-bottom:1rem}
+    /* Tighter content padding — text sizes unchanged */
+    .hero-content{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:1.25rem 2rem 1.25rem;width:100%}
+    .hero-eyebrow{display:flex;align-items:center;gap:0.5rem;margin-bottom:.5rem}
     .hero-eyebrow span{color:var(--blue-light);font-weight:600;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase}
     .hero-h1{font-family:'Inter Tight', sans-serif;font-weight:800;line-height:1.1;letter-spacing:-0.02em}
     .hero-h1 .line1,.hero-h1 .line2{display:block;color:#fff;font-size:clamp(3rem, 9vw, 8rem)}
     .hero-h1 .line3{display:block;font-size:clamp(3rem, 9vw, 8rem);background:linear-gradient(90deg,#38bdf8,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-    .hero-p{position:relative;z-index:1;margin:1.25rem auto 0;color:rgba(255,255,255,0.96);font-size:1.08rem;max-width:620px;line-height:1.75;text-shadow:0 6px 22px rgba(0,0,0,0.52)}
-    .hero-btns{position:relative;z-index:1;display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;justify-content:center}
+    .hero-p{position:relative;z-index:1;margin:.75rem auto 0;color:rgba(255,255,255,0.96);font-size:1.08rem;max-width:620px;line-height:1.75;text-shadow:0 6px 22px rgba(0,0,0,0.52)}
+    .hero-btns{position:relative;z-index:1;display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;justify-content:center}
     .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--blue);color:#fff;padding:1rem 2rem;border-radius:12px;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;transition:background 0.3s,transform 0.2s,box-shadow 0.3s;box-shadow:0 8px 30px rgba(14,165,233,0.3)}
     .btn-primary:hover{background:#38BDF8;transform:translateY(-2px);box-shadow:0 12px 40px rgba(14,165,233,0.45)}
     .btn-outline{display:inline-flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.2);color:#fff;padding:1rem 2rem;border-radius:12px;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;transition:border-color 0.3s,color 0.3s}
     .btn-outline:hover{border-color:rgba(14,165,233,0.6);color:var(--blue)}
-    .hero-indicators{position:relative;z-index:1;display:flex;gap:2rem;margin-top:1.75rem;justify-content:center;flex-wrap:wrap}
+    .hero-indicators{position:relative;z-index:1;display:flex;gap:2rem;margin-top:1rem;justify-content:center;flex-wrap:wrap}
     .indicator{display:flex;align-items:center;gap:0.5rem}
     .indicator-dot{width:10px;height:10px;border-radius:50%}
     .indicator-dot.cold{background:var(--blue);box-shadow:0 0 10px rgba(14,165,233,0.6)}
@@ -171,7 +170,7 @@
     .indicator span{font-size:0.85rem;font-weight:500}
     .indicator span.cold{color:rgba(147,210,255,0.92)}
     .indicator span.warm{color:rgba(255,210,122,0.92)}
-    .scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.3);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;animation:bounce-hint 2s ease-in-out infinite;z-index:10}
+    .scroll-hint{position:absolute;bottom:1.25rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.3);font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;animation:bounce-hint 2s ease-in-out infinite;z-index:10}
 
     /* SERVICES */
     #services{padding:6rem 2.5rem;background:var(--white);position:relative;overflow:hidden}
@@ -180,22 +179,11 @@
     .sh2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.8rem);text-transform:uppercase;color:var(--obs);line-height:1;margin-top:.4rem}
     .sdesc{font-size:1rem;color:var(--muted);line-height:1.75;max-width:560px;margin-top:.75rem}
 
-    /* Services intro: text left, image right — NO box/border/shadow */
     .svc-intro{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;max-width:1200px;margin:0 auto 4rem}
     .svc-intro-text .sdesc{max-width:100%}
     .svc-intro-img{position:relative;display:flex;align-items:center;justify-content:center}
-    .svc-intro-img img{
-      width:100%;
-      height:auto;
-      display:block;
-      object-fit:contain;
-      /* No border, no radius, no shadow — transparent PNG shows clean */
-      border:none;
-      background:transparent;
-      transition:transform .5s ease;
-    }
+    .svc-intro-img img{width:100%;height:auto;display:block;object-fit:contain;border:none;background:transparent;transition:transform .5s ease;}
     .svc-intro-img:hover img{transform:scale(1.04)}
-    /* Fire/ice badge overlay */
     .svc-img-badge{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;pointer-events:none}
     .svc-img-badge span{background:rgba(11,18,33,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:100px;padding:.4rem 1rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.12)}
     .svc-img-badge .cool-tag{border-color:rgba(56,189,248,.35);color:var(--blue-l)}
@@ -342,7 +330,8 @@
       nav{display:none}
       .mbtn{display:block}
       #hdr{padding:1rem 1.5rem}
-      .hero-content{padding:6rem 1.5rem 4rem}
+      #hero{min-height:55vh}
+      .hero-content{padding:3.5rem 1.5rem 2rem}
       .hero-h1 .line1,.hero-h1 .line2,.hero-h1 .line3{font-size:clamp(2.5rem,10vw,4rem)}
       .hero-btns{flex-direction:column;align-items:center}
       .sgrid{grid-template-columns:1fr}
@@ -478,7 +467,6 @@
 <!-- SERVICES -->
 <section id="services">
 
-  <!-- Intro row: text left, image right — clean PNG, no box -->
   <div class="svc-intro">
     <div class="svc-intro-text">
       <div class="sl">What We Do</div>
@@ -494,7 +482,6 @@
     </div>
   </div>
 
-  <!-- Full-width service cards grid -->
   <div class="sgrid">
     <div class="sc2 cool">
       <div class="si cool">❄️</div>
@@ -701,18 +688,15 @@
 
 
 <script>
-  // Header scroll
   const hdr = document.getElementById('hdr');
   window.addEventListener('scroll', () => hdr.classList.toggle('on', scrollY > 40), {passive:true});
 
-  // Mobile nav
   function toggleM() {
     const n = document.getElementById('mnav');
     n.classList.toggle('open');
     document.body.style.overflow = n.classList.contains('open') ? 'hidden' : '';
   }
 
-  // Hero split interaction
   const warmBg = document.getElementById('warm-bg');
   const dividerLine = document.getElementById('divider-line');
   const dividerBadge = document.getElementById('divider-badge');
@@ -752,7 +736,6 @@
   }
   animateDivider();
 
-  // Snowflakes
   for (let i = 0; i < 18; i++) {
     const el = document.createElement('div');
     el.className = 'snowflake';
@@ -764,7 +747,6 @@
   }
   placeSnowflakes();
 
-  // Feeling buttons
   function setF(cls) {
     const map = {hot:'fhot', cold:'fcold', fix:'ffix'};
     document.getElementById('fval').value = cls;
@@ -772,7 +754,6 @@
     document.getElementById(map[cls]).classList.add(cls);
   }
 
-  // Form handling
   const form = document.getElementById('cform');
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -805,7 +786,6 @@
     }
   });
 
-  // Scroll-in animation
   const aos = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {

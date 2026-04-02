@@ -126,7 +126,7 @@
     .mclose{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,.4);font-size:1.8rem;cursor:pointer;transition:color .2s;line-height:1}
     .mclose:hover{color:#fff}
 
-    /* HERO — reduced height, tighter internal spacing, text sizes unchanged */
+    /* HERO */
     #hero{position:relative;min-height:65vh;display:flex;align-items:center;overflow:hidden;cursor:crosshair;user-select:none;isolation:isolate;font-family:'Plus Jakarta Sans', sans-serif;}
     #hero::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,6,23,0.72) 0%,rgba(2,6,23,0.58) 34%,rgba(2,6,23,0.2) 58%,rgba(2,6,23,0.06) 100%);z-index:9;pointer-events:none}
     .hero-cold-bg,.hero-warm-bg{position:absolute;inset:0;overflow:hidden}
@@ -149,7 +149,6 @@
     .snowflake{position:absolute;color:rgba(147,210,255,0.7);font-size:1rem;animation:snow-fall linear infinite;pointer-events:none;top:-5%}
     .heat-wave{position:absolute;right:0;width:50%;pointer-events:none;animation:wave-fade 3s ease-in-out infinite}
     .heat-particle{position:absolute;border-radius:50%;pointer-events:none;animation:heat-rise ease-in-out infinite}
-    /* Tighter content padding — text sizes unchanged */
     .hero-content{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:1.25rem 2rem 1.25rem;width:100%}
     .hero-eyebrow{display:flex;align-items:center;gap:0.5rem;margin-bottom:.5rem}
     .hero-eyebrow span{color:var(--blue-light);font-weight:600;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase}
@@ -203,7 +202,6 @@
     .sl{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
     .sh2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.8rem);text-transform:uppercase;color:var(--obs);line-height:1;margin-top:.4rem}
     .sdesc{font-size:1rem;color:var(--muted);line-height:1.75;max-width:560px;margin-top:.75rem}
-
     .svc-intro{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;max-width:1200px;margin:0 auto 4rem}
     .svc-intro-text .sdesc{max-width:100%}
     .svc-intro-img{position:relative;display:flex;align-items:center;justify-content:center}
@@ -213,7 +211,6 @@
     .svc-img-badge span{background:rgba(11,18,33,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:100px;padding:.4rem 1rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.12)}
     .svc-img-badge .cool-tag{border-color:rgba(56,189,248,.35);color:var(--blue-l)}
     .svc-img-badge .warm-tag{border-color:rgba(245,158,11,.35);color:var(--amber-l)}
-
     .shdr{text-align:center;max-width:1200px;margin:0 auto 3.5rem}
     .shdr .sdesc{margin:.75rem auto 0}
     .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1200px;margin:0 auto}
@@ -236,15 +233,30 @@
     /* REVIEWS */
     #reviews{background:var(--obs2);padding:6rem 2.5rem;position:relative;overflow:hidden}
     #reviews::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 15% 50%,rgba(14,165,233,.09),transparent),radial-gradient(ellipse 40% 50% at 88% 20%,rgba(245,158,11,.07),transparent);pointer-events:none}
-    .rl{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:3.5rem;align-items:center;position:relative;z-index:1}
-    .rv-left{display:flex;flex-direction:column;align-items:center;gap:2rem}
+
+    /* 2-col grid: image panel LEFT, reviews feed RIGHT */
+    .rl{
+      max-width:1200px;
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:minmax(240px,380px) 1fr;
+      gap:3.5rem;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+    /* Left panel — label, heading, desc, then mascot image */
+    .rv-left{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:2rem;
+    }
     .rv-left .sh2{color:#fff;text-align:center}
     .rv-left .sdesc{color:rgba(255,255,255,.4);text-align:center}
     .mw{position:relative;display:flex;justify-content:center;width:100%}
     .mw img{width:100%;max-width:340px;height:auto;object-fit:contain;filter:drop-shadow(0 24px 48px rgba(0,0,0,.5));border-radius:var(--r-lg)}
-    .stbadge{position:absolute;bottom:-1rem;left:50%;transform:translateX(-50%);background:var(--obs3);border:1px solid rgba(245,158,11,.3);border-radius:100px;padding:.5rem 1.25rem;display:flex;align-items:center;gap:.5rem;white-space:nowrap;box-shadow:0 8px 24px rgba(0,0,0,.4)}
-    .stbadge .sts{color:var(--amber);font-size:.85rem;letter-spacing:.05em}
-    .stbadge .stlbl{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.85rem;color:rgba(255,255,255,.7);letter-spacing:.06em;text-transform:uppercase}
+    /* Right panel — scrolling review feed */
     .rf{position:relative;height:540px;overflow:hidden;mask-image:linear-gradient(to bottom,transparent,black 12%,black 88%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,black 12%,black 88%,transparent)}
     .rt{display:flex;flex-direction:column;gap:1rem;padding:.5rem 0;animation:rs 32s linear infinite}
     .rf:hover .rt{animation-play-state:paused}
@@ -326,7 +338,7 @@
 
     /* FAB */
     .fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:300}
-    .fab a{display:flex;align-items:background:var(--blue);color:#fff;border-radius:100px;text-decoration:none;box-shadow:0 8px 28px rgba(14,165,233,.45);overflow:hidden;transition:box-shadow .25s}
+    .fab a{display:flex;align-items:center;background:var(--blue);color:#fff;border-radius:100px;text-decoration:none;box-shadow:0 8px 28px rgba(14,165,233,.45);overflow:hidden;transition:box-shadow .25s}
     .fab a:hover{box-shadow:0 14px 40px rgba(14,165,233,.65)}
     .fabi{width:58px;height:58px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.4rem;animation:pr 2s ease-in-out infinite}
     .fabt{max-width:0;overflow:hidden;white-space:nowrap;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;transition:max-width .4s ease,padding .4s ease}
@@ -491,7 +503,6 @@
 
 <!-- SERVICES -->
 <section id="services">
-
   <div class="svc-intro">
     <div class="svc-intro-text">
       <div class="sl">What We Do</div>
@@ -508,36 +519,12 @@
   </div>
 
   <div class="sgrid">
-    <div class="sc2 cool">
-      <div class="si cool">❄️</div>
-      <h3>AC Installation</h3>
-      <p>High-efficiency cooling systems sized and installed precisely for your space — done right the first time.</p>
-    </div>
-    <div class="sc2 warm">
-      <div class="si warm">🔥</div>
-      <h3>Heating Systems</h3>
-      <p>Furnace and heat pump installation, repair, and replacement. Stay warm all winter long.</p>
-    </div>
-    <div class="sc2 cool">
-      <div class="si cool">🔧</div>
-      <h3>Repairs &amp; Maintenance</h3>
-      <p>Fast, reliable repairs and preventive tune-ups that extend system life and prevent costly breakdowns.</p>
-    </div>
-    <div class="sc2 cool">
-      <div class="si cool">💨</div>
-      <h3>Ventilation &amp; Air Quality</h3>
-      <p>Professional ductwork cleaning, sealing, and ventilation upgrades for fresher, healthier air.</p>
-    </div>
-    <div class="sc2 warm">
-      <div class="si warm">🌡️</div>
-      <h3>Thermostat Services</h3>
-      <p>Smart thermostat installation and calibration for maximum comfort and energy savings.</p>
-    </div>
-    <div class="sc2 warm">
-      <div class="si warm">⚙️</div>
-      <h3>Seasonal Tune-Ups</h3>
-      <p>Prepare your system for summer heat or winter chill. Maximize efficiency before each season hits.</p>
-    </div>
+    <div class="sc2 cool"><div class="si cool">❄️</div><h3>AC Installation</h3><p>High-efficiency cooling systems sized and installed precisely for your space — done right the first time.</p></div>
+    <div class="sc2 warm"><div class="si warm">🔥</div><h3>Heating Systems</h3><p>Furnace and heat pump installation, repair, and replacement. Stay warm all winter long.</p></div>
+    <div class="sc2 cool"><div class="si cool">🔧</div><h3>Repairs &amp; Maintenance</h3><p>Fast, reliable repairs and preventive tune-ups that extend system life and prevent costly breakdowns.</p></div>
+    <div class="sc2 cool"><div class="si cool">💨</div><h3>Ventilation &amp; Air Quality</h3><p>Professional ductwork cleaning, sealing, and ventilation upgrades for fresher, healthier air.</p></div>
+    <div class="sc2 warm"><div class="si warm">🌡️</div><h3>Thermostat Services</h3><p>Smart thermostat installation and calibration for maximum comfort and energy savings.</p></div>
+    <div class="sc2 warm"><div class="si warm">⚙️</div><h3>Seasonal Tune-Ups</h3><p>Prepare your system for summer heat or winter chill. Maximize efficiency before each season hits.</p></div>
   </div>
 </section>
 
@@ -545,6 +532,8 @@
 <!-- REVIEWS -->
 <section id="reviews">
   <div class="rl">
+
+    <!-- LEFT: heading + mascot image -->
     <div class="rv-left">
       <div>
         <div class="sl" style="color:var(--blue-l);text-align:center">Customer Reviews</div>
@@ -553,10 +542,10 @@
       </div>
       <div class="mw">
         <img src="images/colb-mascot.jpg" alt="Fullwood's Reliable Service mascot — 5-star rated HVAC" width="768" height="768" loading="lazy">
-        </div>
       </div>
     </div>
 
+    <!-- RIGHT: scrolling reviews feed -->
     <div class="rf" aria-label="Customer reviews">
       <div class="rt">
         <article class="rc" tabindex="0"><div class="rch"><div class="rcn">Angela M.</div><div class="rcs">★★★★★</div></div><p class="rct">Jacolby showed up on time, explained everything clearly, and had our air back on faster than we expected. Honest and professional from start to finish.</p></article>
@@ -582,6 +571,7 @@
         <article class="rc" tabindex="-1" aria-hidden="true"><div class="rch"><div class="rcn">Bryan C.</div><div class="rcs">★★★★★</div></div><p class="rct">From the first call to the finished repair, everything felt professional and smooth. You can tell customer service truly matters here.</p></article>
       </div>
     </div>
+
   </div>
 </section>
 

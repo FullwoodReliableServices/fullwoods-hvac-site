@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fullwood's Reliable Service – HVAC | Patterson, Louisiana</title>
-  <meta name="description" content="Fullwood's Reliable Service offers professional HVAC installation, repair, and maintenance in Patterson, Louisiana. Licensed technician. 24/7 emergency service. Call 985-300-3712.">
-  <meta name="keywords" content="HVAC Patterson Louisiana, AC repair Patterson LA, air conditioning service Morgan City, HVAC technician Berwick LA, Jacolby Fullwood HVAC">
-  <meta property="og:title" content="Fullwood's Reliable Service – HVAC | Patterson, LA">
-  <meta property="og:description" content="Licensed HVAC technician serving Patterson, Louisiana. AC installation, heating, repairs & tune-ups. Call 985-300-3712.">
+  <title>Fullwood's Reliable Service – HVAC & Home Services | Patterson, Louisiana</title>
+  <meta name="description" content="Fullwood's Reliable Service offers professional HVAC, electrical, and home services in Patterson, Louisiana. AC repair, heating, ceiling fans, breaker boxes & more. Licensed technician. 24/7 emergency. Call 985-300-3712.">
+  <meta name="keywords" content="HVAC Patterson Louisiana, AC repair Patterson LA, air conditioning service Morgan City, electrical services Patterson LA, ceiling fan installation, HVAC technician Berwick LA, handyman Patterson LA, Jacolby Fullwood HVAC">
+  <meta property="og:title" content="Fullwood's Reliable Service – HVAC & Home Services | Patterson, LA">
+  <meta property="og:description" content="Licensed HVAC technician serving Patterson, Louisiana. AC installation, heating, electrical, repairs & more. Call 985-300-3712.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://fullwoodsreliableservice.com">
   <meta name="twitter:card" content="summary_large_image">
@@ -16,9 +16,9 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "HVACBusiness",
+    "@type": "LocalBusiness",
     "name": "Fullwood's Reliable Service",
-    "description": "Professional HVAC installation, repair, and maintenance in Patterson, Louisiana.",
+    "description": "Professional HVAC, electrical, and home services in Patterson, Louisiana. AC installation, heating, ceiling fans, breaker boxes, and more.",
     "url": "https://fullwoodsreliableservice.com",
     "telephone": "+19853003712",
     "email": "jacolby@fullwoodsreliableservice.com",
@@ -63,7 +63,7 @@
     .emergency-banner::before,.emergency-banner::after{content:'';position:absolute;top:0;width:80px;height:100%;z-index:2;pointer-events:none;}
     .emergency-banner::before{left:0;background:linear-gradient(to right,#991b1b,transparent)}
     .emergency-banner::after{right:0;background:linear-gradient(to left,#991b1b,transparent)}
-    .banner-track{display:flex;width:max-content;height:100%;align-items:center;animation:banner-scroll 22s linear infinite;}
+    .banner-track{display:flex;width:max-content;height:100%;align-items:center;animation:banner-scroll 26s linear infinite;}
     .banner-track span{padding:0 3.5rem;white-space:nowrap;font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;text-shadow:0 0 8px rgba(255,255,255,.7),0 0 18px rgba(255,100,100,.8),0 0 32px rgba(220,38,38,.6);}
     .banner-track span::after{content:' ◆ ';opacity:.5;font-size:.7rem;}
     .banner-track span:last-child::after{content:''}
@@ -127,17 +127,9 @@
     .btn-outline{display:inline-flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.2);color:#fff;padding:1rem 2rem;border-radius:12px;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;transition:border-color 0.3s,color 0.3s}
     .btn-outline:hover{border-color:rgba(14,165,233,0.6);color:var(--blue)}
 
-    /* HERO INDICATORS — pill badges with background */
+    /* HERO INDICATORS */
     .hero-indicators{position:relative;z-index:1;display:flex;gap:.65rem;margin-top:1rem;justify-content:center;flex-wrap:wrap}
-    .indicator{
-      display:flex;align-items:center;gap:.45rem;
-      background:rgba(0,0,0,0.45);
-      backdrop-filter:blur(10px);
-      -webkit-backdrop-filter:blur(10px);
-      border:1px solid rgba(255,255,255,0.12);
-      border-radius:100px;
-      padding:.42rem .9rem;
-    }
+    .indicator{display:flex;align-items:center;gap:.45rem;background:rgba(0,0,0,0.45);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.12);border-radius:100px;padding:.42rem .9rem;}
     .indicator-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
     .indicator-dot.cold{background:var(--blue);box-shadow:0 0 8px rgba(14,165,233,0.7)}
     .indicator-dot.warm{background:var(--amber);box-shadow:0 0 8px rgba(245,158,11,0.7)}
@@ -169,19 +161,24 @@
     .sc2::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform .45s ease;border-radius:0 0 var(--r-lg) var(--r-lg)}
     .sc2.cool::before{background:var(--blue)}
     .sc2.warm::before{background:var(--amber)}
+    .sc2.elec::before{background:#22c55e}
     .sc2:hover{transform:translateY(-8px)}
     .sc2.cool:hover{box-shadow:0 20px 50px rgba(14,165,233,.12);border-color:rgba(14,165,233,.2)}
     .sc2.warm:hover{box-shadow:0 20px 50px rgba(245,158,11,.12);border-color:rgba(245,158,11,.2)}
+    .sc2.elec:hover{box-shadow:0 20px 50px rgba(34,197,94,.1);border-color:rgba(34,197,94,.2)}
     .sc2:hover::before{transform:scaleX(1)}
     .si{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.25rem;transition:background .3s}
     .si.cool{background:rgba(14,165,233,.1)}
     .si.warm{background:rgba(245,158,11,.1)}
+    .si.elec{background:rgba(34,197,94,.1)}
     .sc2:hover .si.cool{background:rgba(14,165,233,.18)}
     .sc2:hover .si.warm{background:rgba(245,158,11,.18)}
+    .sc2:hover .si.elec{background:rgba(34,197,94,.18)}
     .sc2 h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.4rem;text-transform:uppercase;color:var(--obs);margin-bottom:.6rem;letter-spacing:.02em}
     .sc2 p{color:var(--muted);line-height:1.7;font-size:.9rem}
+    .svc-note{display:inline-flex;align-items:center;gap:.35rem;margin-top:.65rem;font-size:.75rem;font-weight:600;color:var(--blue);background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.15);border-radius:100px;padding:.25rem .75rem}
 
-    /* REVIEWS — DESKTOP: 2-col (image left, feed right) */
+    /* REVIEWS */
     #reviews{background:var(--obs2);padding:6rem 2.5rem;position:relative;overflow:hidden}
     #reviews::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 15% 50%,rgba(14,165,233,.09),transparent),radial-gradient(ellipse 40% 50% at 88% 20%,rgba(245,158,11,.07),transparent);pointer-events:none}
     .rl{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:3.5rem;align-items:center;position:relative;z-index:1;}
@@ -200,33 +197,27 @@
     .rcn{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;letter-spacing:.02em;text-transform:uppercase}
     .rcs{color:var(--amber);font-size:.75rem;letter-spacing:.05em}
     .rct{color:rgba(255,255,255,.62);font-size:.9rem;line-height:1.72}
+    .rv-cta{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);color:#fff;border-radius:12px;padding:.85rem 1.6rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .25s,border-color .25s,transform .2s;margin-top:.5rem}
+    .rv-cta:hover{background:rgba(14,165,233,.18);border-color:rgba(56,189,248,.4);transform:translateY(-2px)}
 
     /* CONTACT */
     #contact{padding:6rem 2.5rem;background:var(--frost);position:relative;overflow:hidden}
     #contact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 80% 100%,rgba(14,165,233,.05),transparent);pointer-events:none}
     .cgrid{display:grid;grid-template-columns:3fr 2fr;gap:3rem;align-items:start;max-width:1200px;margin:0 auto;position:relative;z-index:1}
     .fcard{background:var(--white);border-radius:var(--r-xl);border:1px solid rgba(0,0,0,.06);padding:2.5rem;box-shadow:0 20px 60px rgba(0,0,0,.06)}
-    .fcard-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.8rem;text-transform:uppercase;color:var(--obs);margin-bottom:1.5rem;letter-spacing:.02em}
-    .frow-btns{display:flex;gap:.75rem;margin-bottom:1.5rem}
-    .fbtn{flex:1;padding:.7rem .5rem;border-radius:10px;border:1.5px solid #e2e8f0;background:var(--frost);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:all .25s;color:var(--muted)}
-    .fbtn:hover{border-color:var(--blue);color:var(--obs);background:#f0f9ff}
-    .fbtn.hot{border-color:var(--amber);background:#fffbeb;color:#92400e}
-    .fbtn.cold{border-color:var(--blue);background:#f0f9ff;color:#0c4a6e}
-    .fbtn.fix{border-color:#94a3b8;background:#f1f5f9;color:var(--obs)}
-    .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-    .fg{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1rem}
-    .fg label{font-size:.82rem;font-weight:600;color:var(--obs);letter-spacing:.02em}
-    .fg input,.fg select,.fg textarea{width:100%;padding:.75rem 1rem;border-radius:10px;border:1.5px solid #e2e8f0;background:var(--frost);font-family:'Plus Jakarta Sans',sans-serif;font-size:.95rem;color:var(--obs);transition:border-color .25s,box-shadow .25s;outline:none}
-    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(14,165,233,.1)}
-    .fg textarea{min-height:100px;resize:vertical}
-    .fsub{width:100%;padding:1rem;background:var(--blue);color:#fff;border:none;border-radius:12px;cursor:pointer;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;justify-content:center;gap:.5rem;box-shadow:0 8px 24px rgba(14,165,233,.35);transition:background .25s,transform .2s,box-shadow .25s}
-    .fsub:hover{background:var(--blue-l);transform:translateY(-2px);box-shadow:0 14px 36px rgba(14,165,233,.45)}
-    .fsub:active{transform:translateY(0)}
-    .sscr{text-align:center;padding:3rem 2rem;display:flex;flex-direction:column;align-items:center;gap:1rem}
-    .sscr-icon{width:72px;height:72px;border-radius:50%;background:rgba(34,197,94,.1);border:2px solid rgba(34,197,94,.3);display:flex;align-items:center;justify-content:center;font-size:2rem;animation:pi .5s cubic-bezier(.175,.885,.32,1.275) forwards}
-    @keyframes pi{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
-    .sscr h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2rem;text-transform:uppercase;color:var(--obs)}
-    .sscr p{color:var(--muted);font-size:.95rem;max-width:320px}
+    .fcard-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.8rem;text-transform:uppercase;color:var(--obs);margin-bottom:.75rem;letter-spacing:.02em}
+    .fcard-sub{color:var(--muted);font-size:.95rem;line-height:1.7;margin-bottom:2rem}
+    .cta-btns{display:flex;flex-direction:column;gap:1rem}
+    .cta-btn{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;border-radius:14px;text-decoration:none;transition:transform .25s,box-shadow .25s,background .25s;font-family:'Plus Jakarta Sans',sans-serif;}
+    .cta-btn.primary{background:var(--blue);color:#fff;box-shadow:0 8px 24px rgba(14,165,233,.3)}
+    .cta-btn.primary:hover{background:var(--blue-l);transform:translateY(-2px);box-shadow:0 14px 36px rgba(14,165,233,.45)}
+    .cta-btn.secondary{background:var(--frost);border:1.5px solid rgba(0,0,0,.08);color:var(--obs)}
+    .cta-btn.secondary:hover{border-color:rgba(14,165,233,.3);background:#f0f9ff;transform:translateY(-2px)}
+    .cta-btn-ico{width:44px;height:44px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+    .cta-btn.primary .cta-btn-ico{background:rgba(255,255,255,.15)}
+    .cta-btn.secondary .cta-btn-ico{background:rgba(14,165,233,.1)}
+    .cta-btn-text strong{display:block;font-weight:700;font-size:1rem;margin-bottom:.15rem}
+    .cta-btn-text span{font-size:.82rem;opacity:.7}
     .cside{display:flex;flex-direction:column;gap:1.1rem}
     .ccrd{display:block;background:var(--obs);color:#fff;border-radius:var(--r-lg);padding:1.75rem 1.5rem;text-decoration:none;box-shadow:0 16px 40px rgba(11,18,33,.2);transition:background .25s,transform .3s}
     .ccrd:hover{background:var(--obs3);transform:translateY(-3px)}
@@ -285,6 +276,9 @@
     @keyframes wave-fade{0%,100%{opacity:0;transform:scaleX(0.9)}50%{opacity:0.2;transform:scaleX(1.05)}}
     @keyframes heat-rise{0%,100%{transform:translateY(0) scale(1);opacity:0}50%{transform:translateY(-50px) scale(1.3);opacity:0.7}}
     @keyframes bounce-hint{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+    @keyframes pi{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+    .fade-up{opacity:0;transform:translateY(24px);animation:fade-up-in .7s forwards ease-out}
+    @keyframes fade-up-in{to{opacity:1;transform:translateY(0)}}
 
     /* RESPONSIVE — tablet */
     @media(max-width:1024px){
@@ -304,41 +298,24 @@
       #hdr{padding:1rem 1.5rem}
       #hero{min-height:60vh}
       .hero-content{padding:3rem 1.25rem 1.5rem}
-
-      /* Mobile hero title: shrink all lines, keep brand name readable */
       .hero-h1 .line1,.hero-h1 .line2{font-size:clamp(2.2rem,9vw,3.2rem);}
       .hero-h1 .line3{font-size:clamp(2.2rem,9vw,3.2rem);}
-
       .hero-p{font-size:.95rem}
       .hero-btns{flex-direction:column;align-items:center}
       .hero-indicators{gap:.45rem}
       .indicator{padding:.35rem .75rem}
       .indicator span{font-size:.75rem}
-
       .sgrid{grid-template-columns:1fr}
       .fgrid{grid-template-columns:1fr;gap:2rem}
       #services,#reviews,#contact{padding:4rem 1.5rem}
-      .frow{grid-template-columns:1fr}
-      .frow-btns{flex-wrap:wrap}
-      .fbtn{min-width:calc(50% - .375rem)}
-
-      /* MOBILE REVIEWS: single column, reviews stacked BELOW image/title */
-      .rl{
-        grid-template-columns:1fr;
-        gap:2rem;
-      }
-      .rv-left{
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-      }
+      .rl{grid-template-columns:1fr;gap:2rem}
+      .rv-left{flex-direction:column;align-items:center;text-align:center}
       .mw{max-width:260px}
-      /* Reviews feed: reduce height slightly for mobile */
       .rf{height:420px}
-
       .svc-intro{grid-template-columns:1fr;gap:2rem}
       .svc-img-badge{display:none}
       .banner-track span{font-size:.9rem;padding:0 2rem}
+      .cta-btns{gap:.75rem}
     }
 
     @media(max-width:480px){
@@ -351,12 +328,12 @@
 <body>
 
 <!-- EMERGENCY ALERT BANNER -->
-<div class="emergency-banner" role="marquee" aria-label="Emergency HVAC service alert">
+<div class="emergency-banner" role="marquee" aria-label="Emergency service alert">
   <div class="banner-track">
-    <span>🚨 24/7 Emergency HVAC Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; Fast &nbsp;•&nbsp; Reliable &nbsp;•&nbsp; Local 🔧</span>
-    <span>🔥 Heating &amp; Cooling Emergencies &nbsp;•&nbsp; Same&#8209;Day Service &nbsp;•&nbsp; Licensed &amp; Insured ⚡</span>
-    <span>🚨 24/7 Emergency HVAC Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; Fast &nbsp;•&nbsp; Reliable &nbsp;•&nbsp; Local 🔧</span>
-    <span>🔥 Heating &amp; Cooling Emergencies &nbsp;•&nbsp; Same&#8209;Day Service &nbsp;•&nbsp; Licensed &amp; Insured ⚡</span>
+    <span>🚨 24/7 Emergency Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; HVAC &nbsp;•&nbsp; Electrical &nbsp;•&nbsp; Fast &amp; Reliable 🔧</span>
+    <span>🔥 Heating &amp; Cooling &nbsp;•&nbsp; ⚡ Electrical Work &nbsp;•&nbsp; Same&#8209;Day Service &nbsp;•&nbsp; Licensed &amp; Insured</span>
+    <span>🚨 24/7 Emergency Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; HVAC &nbsp;•&nbsp; Electrical &nbsp;•&nbsp; Fast &amp; Reliable 🔧</span>
+    <span>🔥 Heating &amp; Cooling &nbsp;•&nbsp; ⚡ Electrical Work &nbsp;•&nbsp; Same&#8209;Day Service &nbsp;•&nbsp; Licensed &amp; Insured</span>
   </div>
 </div>
 
@@ -366,14 +343,14 @@
     <div class="logo-badge">F</div>
     <div>
       <div class="logo-name">Fullwood's Reliable</div>
-      <div class="logo-tag">HVAC · Patterson, LA</div>
+      <div class="logo-tag">Service · Patterson, LA</div>
     </div>
   </a>
   <nav>
     <a href="#hero">Home</a>
     <a href="#services">Services</a>
     <a href="#reviews">Reviews</a>
-    <a href="#contact">Contact</a>
+    <a href="contact.html">Contact</a>
     <a href="tel:9853003712" class="nav-cta">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       985-300-3712
@@ -389,7 +366,7 @@
   <a href="#hero" onclick="toggleM()">Home</a>
   <a href="#services" onclick="toggleM()">Services</a>
   <a href="#reviews" onclick="toggleM()">Reviews</a>
-  <a href="#contact" onclick="toggleM()">Contact</a>
+  <a href="contact.html" onclick="toggleM()">Contact</a>
   <a href="tel:9853003712" class="mcta" onclick="toggleM()">📞 985-300-3712</a>
 </nav>
 
@@ -397,12 +374,12 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-cold-bg">
-    <img src="https://media.base44.com/images/public/69c9d599218c2d513e2f89a0/34125962a_generated_image.png" class="hero-house-img" alt="House shown in winter climate treatment">
+    <img src="images/hero-house.jpg" class="hero-house-img" alt="House shown in winter climate treatment">
     <div class="hero-cold-overlay"></div>
     <div class="hero-frost-edge"></div>
   </div>
   <div class="hero-warm-bg" id="warm-bg" style="clip-path: inset(0px 0px 0px 50%);">
-    <img src="https://media.base44.com/images/public/69c9d599218c2d513e2f89a0/34125962a_generated_image.png" class="hero-house-img" alt="House shown in summer climate treatment">
+    <img src="images/hero-house.jpg" class="hero-house-img" alt="House shown in summer climate treatment">
     <div class="hero-warm-overlay"></div>
     <div class="hero-heat-edge"></div>
     <div class="sun-glow" id="sun-glow"></div>
@@ -423,15 +400,14 @@
   <div class="divider-badge" id="divider-badge" style="left:50%;">🌡</div>
 
   <div class="hero-content">
-    <!-- eyebrow REMOVED -->
     <h1 class="hero-h1">
       <span class="line1 fade-up" style="animation-delay:0s">Fullwood's</span>
       <span class="line2 fade-up" style="animation-delay:0.1s">Reliable</span>
       <span class="line3 fade-up" style="animation-delay:0.2s">Service</span>
     </h1>
-    <p class="hero-p fade-up" style="animation-delay:0.45s">Keeping you cool without burning your wallet. South Louisiana heat is no joke — and neither is our work. Move your mouse to feel the difference.</p>
+    <p class="hero-p fade-up" style="animation-delay:0.45s">HVAC, electrical, and home services — done right the first time. South Louisiana heat is no joke, and neither is our work. Move your mouse to feel the difference.</p>
     <div class="hero-btns fade-up" style="animation-delay:0.6s">
-      <a href="#contact" class="btn-primary">
+      <a href="contact.html" class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         Get a Free Quote
       </a>
@@ -440,12 +416,11 @@
         Call 985-300-3712
       </a>
     </div>
-    <!-- Indicator pills with background for visibility -->
     <div class="hero-indicators fade-up" style="animation-delay:0.75s">
       <div class="indicator"><div class="indicator-dot cold"></div><span class="cold">AC &amp; Cooling</span></div>
       <div class="indicator"><div class="indicator-dot warm"></div><span class="warm">Heating Systems</span></div>
-      <div class="indicator"><div class="indicator-dot" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.7);flex-shrink:0;width:9px;height:9px;border-radius:50%;"></div><span style="color:rgba(255,255,255,.92);font-size:.82rem;font-weight:600;">24/7 Emergency</span></div>
-      <div class="indicator"><div class="indicator-dot cold"></div><span class="cold">Free Estimates</span></div>
+      <div class="indicator"><div class="indicator-dot" style="background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.7);flex-shrink:0;width:9px;height:9px;border-radius:50%;"></div><span style="color:rgba(255,255,255,.92);font-size:.82rem;font-weight:600;">Electrical Work</span></div>
+      <div class="indicator"><div class="indicator-dot cold"></div><span class="cold">24/7 Emergency</span></div>
     </div>
   </div>
 
@@ -462,7 +437,7 @@
     <div class="svc-intro-text">
       <div class="sl">What We Do</div>
       <h2 class="sh2">Our Services</h2>
-      <p class="sdesc">From emergency repairs to full system installs — we handle every HVAC need for homes and businesses across the Patterson area. Whether it's the peak of a Louisiana summer or a cold snap rolling through, Fullwood's Reliable Service shows up fast and gets it done right.</p>
+      <p class="sdesc">From emergency AC repairs to full system installs, electrical work, and beyond — Fullwood's Reliable Service handles it all for homes and businesses across the Patterson area. Whether it's the peak of a Louisiana summer or a cold snap rolling through, we show up fast and get it done right.</p>
     </div>
     <div class="svc-intro-img">
       <img src="images/colby-hvac-fire-ice.png" alt="Colby HVAC — Fire &amp; Ice service visual" loading="lazy">
@@ -473,12 +448,37 @@
     </div>
   </div>
   <div class="sgrid">
-    <div class="sc2 cool"><div class="si cool">❄️</div><h3>AC Installation</h3><p>High-efficiency cooling systems sized and installed precisely for your space — done right the first time.</p></div>
-    <div class="sc2 warm"><div class="si warm">🔥</div><h3>Heating Systems</h3><p>Furnace and heat pump installation, repair, and replacement. Stay warm all winter long.</p></div>
-    <div class="sc2 cool"><div class="si cool">🔧</div><h3>Repairs &amp; Maintenance</h3><p>Fast, reliable repairs and preventive tune-ups that extend system life and prevent costly breakdowns.</p></div>
-    <div class="sc2 cool"><div class="si cool">💨</div><h3>Ventilation &amp; Air Quality</h3><p>Professional ductwork cleaning, sealing, and ventilation upgrades for fresher, healthier air.</p></div>
-    <div class="sc2 warm"><div class="si warm">🌡️</div><h3>Thermostat Services</h3><p>Smart thermostat installation and calibration for maximum comfort and energy savings.</p></div>
-    <div class="sc2 warm"><div class="si warm">⚙️</div><h3>Seasonal Tune-Ups</h3><p>Prepare your system for summer heat or winter chill. Maximize efficiency before each season hits.</p></div>
+    <div class="sc2 cool">
+      <div class="si cool">❄️</div>
+      <h3>AC Installation &amp; Repair</h3>
+      <p>High-efficiency cooling systems sized and installed precisely for your space. Fast diagnosis and same-day repairs to get you comfortable again.</p>
+    </div>
+    <div class="sc2 warm">
+      <div class="si warm">🔥</div>
+      <h3>Heating Systems</h3>
+      <p>Furnace and heat pump installation, repair, and replacement. Stay warm all winter long with reliable service you can count on.</p>
+    </div>
+    <div class="sc2 elec">
+      <div class="si elec">⚡</div>
+      <h3>Electrical Services</h3>
+      <p>Ceiling fan installation, light switches, outlets &amp; receptacles, and breaker box upgrades. Safe, clean electrical work done to code.</p>
+    </div>
+    <div class="sc2 cool">
+      <div class="si cool">🔧</div>
+      <h3>Repairs &amp; Maintenance</h3>
+      <p>Fast, reliable repairs and preventive tune-ups across HVAC and home systems — extending equipment life and preventing costly breakdowns.</p>
+    </div>
+    <div class="sc2 warm">
+      <div class="si warm">⚙️</div>
+      <h3>Seasonal Tune-Ups</h3>
+      <p>Prepare your system for summer heat or a winter chill. Maximize efficiency and catch problems before each season hits.</p>
+    </div>
+    <div class="sc2 cool">
+      <div class="si cool">💨</div>
+      <h3>Duct Cleaning &amp; Duct Work</h3>
+      <p>Need your ducts cleaned or replaced? We've got you covered — we coordinate with trusted partners so you never have to look elsewhere.</p>
+      <div class="svc-note">✅ Available — we handle the coordination</div>
+    </div>
   </div>
 </section>
 
@@ -487,7 +487,6 @@
 <section id="reviews">
   <div class="rl">
 
-    <!-- LEFT (desktop) / TOP (mobile): heading + mascot image -->
     <div class="rv-left">
       <div>
         <div class="sl" style="color:var(--blue-l);text-align:center">Customer Reviews</div>
@@ -495,11 +494,13 @@
         <p class="sdesc" style="color:rgba(255,255,255,.4);text-align:center">Real feedback from real customers across Patterson and surrounding areas.</p>
       </div>
       <div class="mw">
-        <img src="images/colb-mascot.jpg" alt="Fullwood's Reliable Service mascot — 5-star rated HVAC" width="768" height="768" loading="lazy">
+        <img src="images/colb-mascot.jpg" alt="Fullwood's Reliable Service mascot — 5-star rated" width="768" height="768" loading="lazy">
       </div>
+      <a href="contact.html?tab=review" class="rv-cta">
+        ⭐ Leave Us a Review
+      </a>
     </div>
 
-    <!-- RIGHT (desktop) / BELOW (mobile): scrolling reviews feed -->
     <div class="rf" aria-label="Customer reviews">
       <div class="rt">
         <article class="rc" tabindex="0"><div class="rch"><div class="rcn">Angela M.</div><div class="rcs">★★★★★</div></div><p class="rct">Jacolby showed up on time, explained everything clearly, and had our air back on faster than we expected. Honest and professional from start to finish.</p></article>
@@ -534,40 +535,40 @@
 <section id="contact">
   <div class="shdr">
     <div class="sl">Get in Touch</div>
-    <h2 class="sh2">Request Service</h2>
-    <p class="sdesc">Tell us what's going on and we'll get back to you fast. Or just call — we're always ready.</p>
+    <h2 class="sh2">Ready to Help</h2>
+    <p class="sdesc">Send us a message, leave a review, or just call — we're always ready to help.</p>
   </div>
   <div class="cgrid">
-    <div class="fcard" id="fwrap">
-      <div class="fcard-title">Send Us a Message</div>
-      <div class="frow-btns">
-        <button class="fbtn" id="fhot" onclick="setF('hot')">☀️ Too Hot</button>
-        <button class="fbtn" id="fcold" onclick="setF('cold')">❄️ Too Cold</button>
-        <button class="fbtn" id="ffix" onclick="setF('fix')">🔧 Repair</button>
+    <div class="fcard">
+      <div class="fcard-title">How Can We Help?</div>
+      <p class="fcard-sub">Use our contact page to request service, get a quote, or share your experience with a review. Takes less than a minute.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="cta-btn primary">
+          <div class="cta-btn-ico">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="cta-btn-text">
+            <strong>Send a Message</strong>
+            <span>Request service or get a free estimate</span>
+          </div>
+        </a>
+        <a href="contact.html?tab=review" class="cta-btn secondary">
+          <div class="cta-btn-ico">⭐</div>
+          <div class="cta-btn-text">
+            <strong>Leave a Review</strong>
+            <span>Share your experience with others</span>
+          </div>
+        </a>
+        <a href="tel:9853003712" class="cta-btn secondary">
+          <div class="cta-btn-ico">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="cta-btn-text">
+            <strong>Call 985-300-3712</strong>
+            <span>Talk to us directly — always available</span>
+          </div>
+        </a>
       </div>
-      <form id="cform" action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST">
-        <input type="hidden" id="fval" name="feeling" value="">
-        <input type="hidden" name="_replyto" value="jacolby@fullwoodsreliableservice.com">
-        <div class="frow">
-          <div class="fg"><label for="fn">Your Name *</label><input type="text" id="fn" name="name" placeholder="Full Name" required></div>
-          <div class="fg"><label for="fp">Phone Number *</label><input type="tel" id="fp" name="phone" placeholder="(985) 000-0000" required></div>
-        </div>
-        <div class="fg"><label for="fe">Email Address</label><input type="email" id="fe" name="email" placeholder="you@email.com"></div>
-        <div class="fg">
-          <label for="fpt">Property Type</label>
-          <select id="fpt" name="property">
-            <option value="">Select one...</option>
-            <option value="home">🏠 Residential Home</option>
-            <option value="office">🏢 Office / Commercial</option>
-            <option value="mobile">🏠 Mobile Home</option>
-          </select>
-        </div>
-        <div class="fg"><label for="fm">Describe Your Situation</label><textarea id="fm" name="message" placeholder="What's going on with your system? Any details help..."></textarea></div>
-        <button type="submit" class="fsub">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          Send Message
-        </button>
-      </form>
     </div>
     <div class="cside">
       <a href="tel:9853003712" class="ccrd">
@@ -606,9 +607,9 @@
     <div class="fbrand">
       <a href="#hero" class="logo">
         <div class="logo-badge">F</div>
-        <div><div class="logo-name">Fullwood's Reliable</div><div class="logo-tag">HVAC Service</div></div>
+        <div><div class="logo-name">Fullwood's Reliable</div><div class="logo-tag">Service</div></div>
       </a>
-      <p>Professional HVAC solutions for homes and businesses in Patterson, LA and surrounding South Louisiana communities.</p>
+      <p>HVAC, electrical, and home services for homes and businesses across Patterson, LA and South Louisiana.</p>
     </div>
     <div class="fcol">
       <h5>Navigate</h5>
@@ -616,17 +617,17 @@
         <li><a href="#hero">Home</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#reviews">Reviews</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
     <div class="fcol">
       <h5>Services</h5>
       <ul>
-        <li><span>AC Installation</span></li>
+        <li><span>AC Installation &amp; Repair</span></li>
         <li><span>Heating Systems</span></li>
+        <li><span>Electrical Work</span></li>
         <li><span>Repairs &amp; Maintenance</span></li>
-        <li><span>Ventilation</span></li>
-        <li><span>Seasonal Tune-Ups</span></li>
+        <li><span>Duct Cleaning &amp; Duct Work</span></li>
       </ul>
     </div>
     <div class="fcol">
@@ -638,7 +639,7 @@
   </div>
   <div class="fbot">
     <p>© 2025 Fullwood's Reliable Service. All rights reserved.</p>
-    <p>Jacolby Fullwood — Licensed HVAC Technician · Patterson, LA</p>
+    <p>Jacolby Fullwood — Licensed Technician · Patterson, LA</p>
   </div>
   <div class="fwm">F</div>
 </footer>
@@ -712,45 +713,6 @@
   }
   placeSnowflakes();
 
-  function setF(cls) {
-    const map = {hot:'fhot', cold:'fcold', fix:'ffix'};
-    document.getElementById('fval').value = cls;
-    Object.values(map).forEach(id => document.getElementById(id).className = 'fbtn');
-    document.getElementById(map[cls]).classList.add(cls);
-  }
-
-  const form = document.getElementById('cform');
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const n = document.getElementById('fn').value.trim();
-    const p = document.getElementById('fp').value.trim();
-    if (!n || !p) { alert('Please fill in your name and phone number.'); return; }
-    const formData = new FormData(form);
-    const action = form.action;
-    if (action.includes('YOUR_FORM_ID_HERE')) {
-      alert('Please configure your form endpoint.');
-      return;
-    }
-    try {
-      const response = await fetch(action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
-      if (response.ok) {
-        document.getElementById('fwrap').innerHTML = `
-          <div class="sscr">
-            <div class="sscr-icon">✅</div>
-            <h3>Message Sent!</h3>
-            <p>We'll be in touch shortly. For urgent needs, call us right now.</p>
-            <a href="tel:9853003712" style="display:inline-flex;align-items:center;gap:.5rem;margin-top:.5rem;background:var(--blue);color:#fff;padding:.8rem 1.75rem;border-radius:12px;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 24px rgba(14,165,233,.35)">
-              📞 985-300-3712
-            </a>
-          </div>`;
-      } else {
-        alert('Oops! There was a problem. Please call us directly at 985-300-3712.');
-      }
-    } catch (error) {
-      alert('Oops! There was a problem. Please call us directly at 985-300-3712.');
-    }
-  });
-
   const aos = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -763,16 +725,12 @@
     });
   }, {threshold: 0.08});
 
-  document.querySelectorAll('.sc2, .rc:not([aria-hidden])').forEach(el => {
+  document.querySelectorAll('.sc2, .rc, .fcard, .itile, .ccrd, .htile, .cta-btn').forEach(el => {
     el.style.opacity = '0';
-    el.style.transform = 'translateY(22px)';
-    el.style.transition = 'opacity .55s ease, transform .55s ease';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity .5s ease, transform .5s ease';
     aos.observe(el);
   });
-
-  const s = document.createElement('style');
-  s.textContent = '@keyframes wf{0%,100%{opacity:0;transform:scaleX(.95)}50%{opacity:.35;transform:scaleX(1.05)}}';
-  document.head.appendChild(s);
 </script>
 </body>
 </html>

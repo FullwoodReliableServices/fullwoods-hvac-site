@@ -1,358 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact, Review, & Emergency – Fullwood's Reliable Service | Patterson, LA</title>
+  <meta name="description" content="Contact Fullwood's Reliable Service for HVAC, electrical, and home services in Patterson, Louisiana. Request service, leave a review, or reach our 24/7 emergency after-hours line.">
+  <link rel="canonical" href="https://fullwoodsreliableservice.com/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --blue:#0EA5E9;--blue-l:#38BDF8;--blue-d:#0369A1;
+      --amber:#F59E0B;--amber-l:#FCD34D;
+      --red:#DC2626;--red-d:#7f1d1d;
+      --obs:#0B1221;--obs2:#111827;
+      --frost:#F0F4F8;--white:#FFFFFF;
+      --muted:#64748B;--muted-l:#94A3B8;
+      --stroke:#e2e8f0;
+      --r-md:14px;--r-lg:20px;--r-xl:28px;
+      --banner-h:44px;
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--frost);color:var(--obs);overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-top:var(--banner-h)}
 
-<title>Contact & Emergency Service – Fullwood's Reliable Service</title>
-<meta name="description" content="24/7 Emergency HVAC & Home Services in Patterson, LA. Fast response for AC, heating, and electrical emergencies. Call now." />
+    /* EMERGENCY BANNER */
+    .emergency-banner{position:fixed;top:0;left:0;width:100%;height:var(--banner-h);overflow:hidden;background:linear-gradient(90deg,#7f1d1d,#B91C1C,#DC2626,#EF4444,#DC2626,#B91C1C,#7f1d1d);box-shadow:0 2px 20px rgba(220,38,38,.55);border-bottom:1px solid rgba(255,255,255,.12);z-index:9999}
+    .emergency-banner::before,.emergency-banner::after{content:'';position:absolute;top:0;width:80px;height:100%;z-index:2;pointer-events:none}
+    .emergency-banner::before{left:0;background:linear-gradient(to right,#991b1b,transparent)}
+    .emergency-banner::after{right:0;background:linear-gradient(to left,#991b1b,transparent)}
+    .banner-track{display:flex;width:max-content;height:100%;align-items:center;animation:banner-scroll 26s linear infinite}
+    .banner-track span{padding:0 3.5rem;white-space:nowrap;font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;text-shadow:0 0 8px rgba(255,255,255,.7),0 0 18px rgba(255,100,100,.8)}
+    .banner-track span::after{content:' ◆ ';opacity:.5;font-size:.7rem}
+    .banner-track span:last-child::after{content:''}
+    @keyframes banner-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+    /* HEADER */
+    #hdr{position:fixed;top:var(--banner-h);left:0;right:0;z-index:100;padding:1rem 2.5rem;display:flex;align-items:center;justify-content:space-between;background:rgba(11,18,33,.93);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.07)}
+    .logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+    .logo-badge{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--blue-d));display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.4rem;color:#fff;box-shadow:0 4px 16px rgba(14,165,233,.4)}
+    .logo-name{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.1rem;color:#fff;line-height:1.1;letter-spacing:.02em}
+    .logo-tag{font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:600;color:var(--blue-l);letter-spacing:.08em;text-transform:uppercase}
+    nav{display:flex;align-items:center;gap:.25rem}
+    nav a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.875rem;font-weight:500;padding:.45rem .9rem;border-radius:8px;transition:color .25s,background .25s}
+    nav a:hover,nav a.active{color:#fff;background:rgba(255,255,255,.07)}
+    .nav-cta{display:flex;align-items:center;gap:.5rem;background:var(--blue);color:#fff !important;padding:.55rem 1.1rem;border-radius:10px;font-weight:700;font-size:.875rem;text-decoration:none;margin-left:.75rem;transition:background .25s,transform .2s;box-shadow:0 4px 16px rgba(14,165,233,.35)}
+    .nav-cta:hover{background:var(--blue-l);transform:translateY(-1px)}
+    .mbtn{display:none;background:none;border:none;cursor:pointer;color:#fff;padding:.4rem}
+    .mnav{display:none;position:fixed;inset:0;z-index:200;background:rgba(11,18,33,.98);backdrop-filter:blur(24px);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+    .mnav.open{display:flex}
+    .mnav a{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:2.4rem;color:rgba(255,255,255,.7);text-decoration:none;transition:color .2s}
+    .mnav a:hover{color:var(--blue-l)}
+    .mnav .mcta{font-size:1.5rem;background:var(--blue);color:#fff;padding:.8rem 2rem;border-radius:14px}
+    .mclose{position:absolute;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(255,255,255,.4);font-size:1.8rem;cursor:pointer;line-height:1}
+    .mclose:hover{color:#fff}
 
-<style>
-:root{
-  --blue:#0EA5E9;
-  --blue-d:#0369A1;
-  --amber:#F59E0B;
-  --danger:#dc2626;
-  --danger-d:#7f1d1d;
-  --obs:#0B1221;
-  --muted:#64748B;
-  --stroke:#e5e7eb;
-  --radius:20px;
-  --ease:cubic-bezier(.22,1,.36,1);
-}
+    /* PAGE WRAP */
+    .page-wrap{max-width:820px;margin:0 auto;padding:7rem 1.5rem 5rem}
 
-*{box-sizing:border-box}
+    /* PAGE TITLE */
+    .page-title{text-align:center;margin-bottom:2.5rem}
+    .page-title .eyebrow{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem}
+    .page-title h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(2.4rem,5vw,3.8rem);text-transform:uppercase;color:var(--obs);line-height:1;letter-spacing:.02em;margin-bottom:.6rem}
+    .page-title p{color:var(--muted);font-size:.95rem;line-height:1.7;max-width:520px;margin:0 auto}
 
-body{
-  margin:0;
-  font-family:'Plus Jakarta Sans',sans-serif;
-  color:var(--obs);
-  background:
-    radial-gradient(circle at 12% 10%, rgba(14,165,233,.14), transparent 40%),
-    radial-gradient(circle at 88% 18%, rgba(245,158,11,.18), transparent 45%),
-    linear-gradient(180deg,#f8fafc,#eef2ff);
-}
+    /* TAB BAR */
+    .tab-bar{display:grid;grid-template-columns:1fr 1fr 1fr;background:#fff;border-radius:var(--r-xl);padding:.45rem;box-shadow:0 4px 24px rgba(0,0,0,.08);margin-bottom:1.75rem;gap:.4rem}
+    .tab-btn{display:flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 1rem;border:none;border-radius:var(--r-lg);font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .25s ease;background:transparent;color:var(--muted);white-space:nowrap}
+    .tab-btn:hover{color:var(--obs);background:var(--frost)}
+    .tab-btn.t-msg.active{background:var(--blue);color:#fff;box-shadow:0 4px 16px rgba(14,165,233,.4)}
+    .tab-btn.t-rev.active{background:var(--amber);color:#fff;box-shadow:0 4px 16px rgba(245,158,11,.4)}
+    .tab-btn.t-em.active{background:linear-gradient(135deg,var(--red-d),var(--red));color:#fff;box-shadow:0 4px 20px rgba(220,38,38,.5)}
 
-/* HEADER */
-header{
-  padding:1.2rem 2rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-header a{
-  font-weight:700;
-  color:var(--obs);
-  text-decoration:none;
-}
+    /* FORM CARD */
+    .form-card{background:#fff;border-radius:var(--r-xl);padding:2.5rem;box-shadow:0 8px 40px rgba(0,0,0,.08)}
+    .card-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:1.85rem;text-transform:uppercase;color:var(--obs);letter-spacing:.02em;margin-bottom:.35rem}
+    .card-sub{color:var(--muted);font-size:.88rem;line-height:1.65;margin-bottom:1.75rem}
 
-/* MAIN */
-main{
-  max-width:1400px;
-  margin:2.5rem auto 4.5rem;
-  padding:0 1.5rem;
-}
+    /* INFO BOX */
+    .info-box{display:flex;align-items:flex-start;gap:.75rem;background:#fffbeb;border:1px solid rgba(245,158,11,.25);border-radius:var(--r-md);padding:1rem 1.15rem;margin-bottom:1.75rem}
+    .info-box-icon{font-size:1.05rem;flex-shrink:0;margin-top:.1rem}
+    .ibt{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:.95rem;text-transform:uppercase;letter-spacing:.04em;color:#92400e;margin-bottom:.2rem}
+    .info-box-body p{font-size:.82rem;color:#78350f;line-height:1.6}
 
-h1{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:3.4rem;
-  text-align:center;
-  margin-bottom:.35rem;
-}
+    /* CHIPS */
+    .chip-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin-bottom:1.5rem}
+    .chip{display:flex;align-items:center;justify-content:center;gap:.4rem;padding:.65rem .5rem;border:1.5px solid var(--stroke);border-radius:var(--r-md);background:var(--frost);color:var(--muted);font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:all .2s ease;user-select:none}
+    .chip:hover{border-color:var(--blue);color:var(--blue-d);background:#f0f9ff}
+    .chip.selected{border-color:var(--blue);background:rgba(14,165,233,.1);color:var(--blue-d)}
+    .chip.chip-full{grid-column:1/-1}
 
-.sub{
-  text-align:center;
-  color:var(--muted);
-  max-width:720px;
-  margin:0 auto 3rem;
-}
+    /* FIELDS */
+    .row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+    .row1{margin-bottom:1rem}
+    .fg{display:flex;flex-direction:column;gap:.38rem}
+    .fg label{font-size:.8rem;font-weight:700;color:var(--obs);letter-spacing:.02em}
+    .fg label .req{color:var(--red)}
+    .fg input,.fg select,.fg textarea{width:100%;padding:.78rem 1rem;border:1.5px solid var(--stroke);border-radius:var(--r-md);font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;color:var(--obs);background:var(--frost);transition:border-color .2s,box-shadow .2s,background .2s;outline:none}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(14,165,233,.12);background:#fff}
+    .fg textarea{resize:vertical;min-height:130px;line-height:1.6}
+    .fg select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%2364748B' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;background-size:10px;padding-right:2.5rem}
 
-/* LAYOUT */
-.layout{
-  display:grid;
-  grid-template-columns:1.25fr 1fr;
-  gap:4rem;
-  align-items:flex-start;
-}
+    /* STARS */
+    .star-wrap{margin-bottom:1.25rem}
+    .star-wrap > label{font-size:.8rem;font-weight:700;color:var(--obs);letter-spacing:.02em;display:block;margin-bottom:.55rem}
+    .star-wrap > label .req{color:var(--red)}
+    .stars{display:flex;gap:.3rem}
+    .star{font-size:2.2rem;cursor:pointer;color:#cbd5e1;transition:color .15s,transform .15s;line-height:1;user-select:none}
+    .star.lit{color:var(--amber);transform:scale(1.1)}
 
-/* LEFT COLUMN */
-.left-col{
-  display:flex;
-  flex-direction:column;
-  gap:2.5rem;
-}
+    /* SUBMIT - FIXED SIZE HERE */
+    .submit-btn{display:flex;align-items:center;justify-content:center;gap:.6rem;width:100%;padding:1.1rem;margin-top:1.5rem;border:none;border-radius:var(--r-lg);font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.25rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:all .25s ease}
+    .s-blue{background:var(--blue);color:#fff;box-shadow:0 8px 24px rgba(14,165,233,.35)}
+    .s-blue:hover{background:var(--blue-l);transform:translateY(-2px);box-shadow:0 16px 40px rgba(14,165,233,.5)}
+    .s-amber{background:var(--amber);color:#fff;box-shadow:0 8px 24px rgba(245,158,11,.35)}
+    .s-amber:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 16px 40px rgba(245,158,11,.5)}
 
-/* EMERGENCY CALLOUT */
-.emergency-panel{
-  background:linear-gradient(135deg,var(--danger-d),var(--danger));
-  color:#fff;
-  border-radius:28px;
-  padding:2.6rem;
-  box-shadow:
-    0 30px 70px rgba(220,38,38,.55),
-    inset 0 0 0 1px rgba(255,255,255,.18);
-  animation:pulseGlow 4s ease-in-out infinite;
-}
+    /* SUCCESS */
+    .success-state{display:none;text-align:center;padding:1rem 0}
+    .success-state img { width: 100%; max-width: 320px; border-radius: 18px; margin-bottom: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+    .success-state .si{font-size:3.5rem;margin-bottom:.75rem}
+    .success-state h3{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:2rem;text-transform:uppercase;color:var(--obs);margin-bottom:.5rem}
+    .success-state p{color:var(--muted);font-size:.92rem;line-height:1.65}
 
-@keyframes pulseGlow{
-  0%,100%{box-shadow:0 30px 70px rgba(220,38,38,.55)}
-  50%{box-shadow:0 40px 95px rgba(220,38,38,.8)}
-}
+    /* TAB PANELS */
+    .tab-panel{display:none}
+    .tab-panel.active{display:block}
 
-.emergency-panel h2{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:2.2rem;
-  letter-spacing:.06em;
-  margin-bottom:.8rem;
-}
+    /* BOTTOM TILES */
+    .bottom-tiles{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:1.5rem}
+    .btile{background:#fff;border-radius:var(--r-lg);padding:1.25rem 1.1rem;display:flex;align-items:center;gap:.85rem;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+    .btile-ico{font-size:1.3rem;width:44px;height:44px;background:rgba(14,165,233,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .btile-lbl{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:.15rem}
+    .btile-val{font-size:.88rem;font-weight:700;color:var(--obs);line-height:1.3}
+    .btile a{color:var(--obs);text-decoration:none}
+    .btile a:hover{color:var(--blue)}
 
-.emergency-panel p{
-  font-size:.95rem;
-  line-height:1.7;
-  opacity:.95;
-}
+    /* EMERGENCY CARD */
+    .em-card{background:linear-gradient(145deg,#6b0000,#b91c1c,#dc2626);border-radius:var(--r-xl);padding:3rem 2.8rem;color:#fff;position:relative;overflow:hidden;text-align:center;box-shadow:0 0 0 1px rgba(255,80,80,.2),0 32px 80px rgba(220,38,38,.55),0 0 80px rgba(220,38,38,.28);animation:emGlow 3.5s ease-in-out infinite}
+    @keyframes emGlow{0%,100%{box-shadow:0 0 0 1px rgba(255,80,80,.2),0 32px 80px rgba(220,38,38,.55),0 0 80px rgba(220,38,38,.28)}50%{box-shadow:0 0 0 1px rgba(255,100,100,.35),0 32px 100px rgba(220,38,38,.8),0 0 120px rgba(220,38,38,.45)}}
+    .em-card::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:300px;height:300px;background:radial-gradient(circle,rgba(255,80,80,.22),transparent 70%);pointer-events:none;animation:innerPulse 3s ease-in-out infinite}
+    @keyframes innerPulse{0%,100%{opacity:.5;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.2)}}
+    .em-label{font-size:1.05rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,180,180,.9);margin-bottom:.5rem;text-shadow:0 0 12px rgba(255,100,100,.8)}
+    .em-num{font-family:'Barlow Condensed',sans-serif;font-size:4rem;font-weight:900;color:#fff;line-height:1;letter-spacing:.04em;margin-bottom:.5rem;text-shadow:0 0 24px rgba(255,150,150,.5)}
+    .em-sub{font-size:.9rem;color:rgba(255,210,210,.85);margin-bottom:2rem;line-height:1.6}
+    .em-cta{display:block;background:#fff;color:var(--red-d);padding:1.2rem 2.5rem;border-radius:var(--r-lg);font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-decoration:none;letter-spacing:.05em;text-transform:uppercase;box-shadow:0 12px 30px rgba(0,0,0,.25);transition:all .25s ease;margin-bottom:.6rem}
+    .em-cta:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+    .em-note{font-size:.78rem;color:rgba(255,200,200,.75);margin-bottom:.3rem}
+    .em-disclaimer{font-size:.68rem;color:rgba(255,180,180,.55);font-style:italic;margin-bottom:2rem}
+    .em-divider{height:1px;background:rgba(255,255,255,.12);margin:2rem 0}
+    .em-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;text-align:left;margin-bottom:2rem}
+    .em-item{display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:.75rem 1rem;font-size:.88rem;color:rgba(255,225,225,.9)}
+    .em-item span{font-size:1.1rem;flex-shrink:0}
+    .em-info-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.8rem;margin-top:2rem}
+    .em-info-tile{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-md);padding:1.1rem;text-align:center}
+    .eit-icon{font-size:1.4rem;margin-bottom:.4rem}
+    .eit-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,180,180,.7);margin-bottom:.2rem}
+    .eit-val{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:.02em}
 
-.em-call{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:.8rem;
-  margin:1.6rem 0 1.2rem;
-  background:#fff;
-  color:var(--danger-d);
-  padding:1.1rem 2.4rem;
-  border-radius:999px;
-  font-weight:900;
-  font-size:1.25rem;
-  text-decoration:none;
-  box-shadow:0 14px 40px rgba(255,255,255,.55);
-  transition:transform .2s var(--ease), box-shadow .2s var(--ease);
-}
+    /* FOOTER */
+    footer{background:var(--obs);color:#fff;padding:4.5rem 2.5rem 2.5rem;position:relative;overflow:hidden}
+    footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(14,165,233,.4),transparent)}
+    .fgrid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1.6fr;gap:3rem;max-width:1200px;margin:0 auto}
+    .fbrand p{color:rgba(255,255,255,.3);font-size:.85rem;line-height:1.7;margin-top:1rem;max-width:250px}
+    .fcol h5{font-family:'DM Sans',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.25rem}
+    .fcol ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+    .fcol ul li a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.875rem;transition:color .25s}
+    .fcol ul li a:hover{color:var(--blue-l)}
+    .fcol ul li span{color:rgba(255,255,255,.35);font-size:.875rem}
+    .fcr{display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.7rem}
+    .fcr .ico{font-size:.9rem;margin-top:.1rem;opacity:.5}
+    .fcr a{color:rgba(255,255,255,.4);font-size:.85rem;text-decoration:none;transition:color .25s}
+    .fcr a:hover{color:var(--blue-l)}
+    .fcr .t{color:rgba(255,255,255,.35);font-size:.85rem}
+    .fbot{max-width:1200px;margin:3.5rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+    .fbot p{color:rgba(255,255,255,.18);font-size:.78rem}
+    .fwm{position:absolute;bottom:-2rem;right:-1rem;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22rem;line-height:1;color:rgba(255,255,255,.015);pointer-events:none;user-select:none}
+    footer a.fl{color:var(--blue-l);text-decoration:none;font-size:.78rem}
 
-.em-call:hover{
-  transform:translateY(-3px) scale(1.06);
-  box-shadow:0 25px 60px rgba(255,255,255,.8);
-}
+    /* FAB */
+    .fab{position:fixed;bottom:1.5rem;right:1.5rem;z-index:300}
+    .fab a{display:flex;align-items:center;background:var(--blue);color:#fff;border-radius:100px;text-decoration:none;box-shadow:0 8px 28px rgba(14,165,233,.45);overflow:hidden;transition:box-shadow .25s}
+    .fab a:hover{box-shadow:0 14px 40px rgba(14,165,233,.65)}
+    .fabi{width:58px;height:58px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.4rem;animation:pr 2s ease-in-out infinite}
+    @keyframes pr{0%,100%{box-shadow:0 0 0 0 rgba(14,165,233,.5)}50%{box-shadow:0 0 0 10px rgba(14,165,233,0)}}
+    .fabt{max-width:0;overflow:hidden;white-space:nowrap;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;transition:max-width .4s ease,padding .4s ease}
+    .fab a:hover .fabt{max-width:180px;padding-right:1.4rem}
 
-.em-small{
-  font-size:.7rem;
-  opacity:.8;
-}
-
-/* EMERGENCY SERVICE LIST */
-.em-list{
-  margin-top:1.8rem;
-  display:grid;
-  gap:.6rem;
-}
-
-.em-list li{
-  list-style:none;
-  position:relative;
-  padding-left:1.4rem;
-  font-size:.85rem;
-}
-
-.em-list li::before{
-  content:"●";
-  position:absolute;
-  left:0;
-  color:#fecaca;
-}
-
-/* CONTACT FORM */
-.card{
-  background:#fff;
-  border-radius:var(--radius);
-  padding:2.8rem;
-  box-shadow:0 24px 60px rgba(0,0,0,.12);
-}
-
-.card h3{
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1.9rem;
-  margin-bottom:1.2rem;
-}
-
-/* FORM */
-.service-row{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:.8rem;
-  margin-bottom:1.6rem;
-}
-
-.service-btn{
-  border:1.5px solid var(--stroke);
-  background:#fff;
-  padding:.75rem;
-  border-radius:14px;
-  font-weight:700;
-  cursor:pointer;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:.55rem;
-}
-
-.service-btn.active{
-  border-color:var(--blue);
-  background:#f0f9ff;
-  color:var(--blue-d);
-}
-
-.grid-2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:1rem;
-}
-
-input,textarea{
-  width:100%;
-  padding:.85rem;
-  border-radius:12px;
-  border:1.5px solid var(--stroke);
-  margin:.3rem 0 1rem;
-}
-
-textarea{min-height:120px}
-
-.submit{
-  width:100%;
-  background:linear-gradient(135deg,var(--blue),var(--blue-d));
-  color:#fff;
-  border:none;
-  padding:1.1rem;
-  border-radius:14px;
-  font-family:'Barlow Condensed',sans-serif;
-  font-size:1.2rem;
-  cursor:pointer;
-}
-
-/* CONTACT INFO */
-.contact-info{
-  margin-top:2rem;
-  padding-top:1.5rem;
-  border-top:1px solid var(--stroke);
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:1.4rem;
-  font-size:.85rem;
-}
-
-/* RIGHT COLUMN */
-.visual img{
-  width:100%;
-  display:block;
-  background:transparent;
-}
-
-/* RESPONSIVE */
-@media(max-width:1000px){
-  .layout{grid-template-columns:1fr}
-  .contact-info{grid-template-columns:1fr}
-}
-</style>
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      nav{display:none}
+      .mbtn{display:block}
+      #hdr{padding:1rem 1.5rem}
+      .page-wrap{padding:6rem 1rem 4rem}
+      .tab-btn{font-size:.8rem;padding:.75rem .4rem;gap:.25rem}
+      .form-card,.em-card{padding:1.75rem 1.25rem}
+      .row2{grid-template-columns:1fr}
+      .chip-grid{grid-template-columns:1fr 1fr}
+      .em-grid{grid-template-columns:1fr}
+      .em-info-row{grid-template-columns:1fr}
+      .bottom-tiles{grid-template-columns:1fr}
+      .fgrid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:480px){
+      .tab-btn{font-size:.72rem;letter-spacing:.02em}
+      .em-num{font-size:2.8rem}
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <a href="index.html">← Back to Home</a>
-  <a href="tel:9853003712">📞 985‑300‑3712</a>
+<div class="emergency-banner" role="marquee" aria-label="Emergency service alert">
+  <div class="banner-track">
+    <span>🚨 24/7 Emergency After-Hours Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; HVAC &nbsp;•&nbsp; Electrical &nbsp;•&nbsp; Fast &amp; Reliable 🔧</span>
+    <span>🔥 Heating &amp; Cooling &nbsp;•&nbsp; ⚡ Electrical Work &nbsp;•&nbsp; Same&#8209;Day Service &nbsp;•&nbsp; Licensed &amp; Insured</span>
+    <span>🚨 24/7 Emergency After-Hours Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; HVAC &nbsp;•&nbsp; Electrical &nbsp;•&nbsp; Fast &amp; Reliable 🔧</span>
+    <span>🔥 Heating &amp; Cooling &nbsp;•&nbsp; ⚡ Electrical Work &nbsp;•&nbsp; Same&#8209;Day Service &nbsp;•&nbsp; Licensed &amp; Insured</span>
+  </div>
+</div>
+
+<header id="hdr">
+  <a href="index.html" class="logo">
+    <div class="logo-badge">F</div>
+    <div>
+      <div class="logo-name">Fullwood's Reliable</div>
+      <div class="logo-tag">Service · Patterson, LA</div>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="tel:9853003712" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      985-300-3712
+    </a>
+  </nav>
+  <button class="mbtn" onclick="toggleM()" aria-label="Open menu">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
 </header>
 
-<main>
-<h1>Emergency & Contact Service</h1>
-<p class="sub">
-Fast, dependable HVAC, electrical, and home services — including 24/7 emergency outcall support throughout Patterson and surrounding areas.
-</p>
+<nav class="mnav" id="mnav">
+  <button class="mclose" onclick="toggleM()">✕</button>
+  <a href="index.html" onclick="toggleM()">Home</a>
+  <a href="index.html#services" onclick="toggleM()">Services</a>
+  <a href="index.html#reviews" onclick="toggleM()">Reviews</a>
+  <a href="contact.html" onclick="toggleM()">Contact</a>
+  <a href="tel:9853003712" class="mcta" onclick="toggleM()">📞 985-300-3712</a>
+</nav>
 
-<div class="layout">
+<div class="page-wrap">
 
-  <!-- LEFT COLUMN -->
-  <div class="left-col">
+  <div class="page-title">
+    <div class="eyebrow">Fullwood's Reliable Service</div>
+    <h1>Contact, Reviews, &amp; Emergency</h1>
+    <p>Send a message, leave a review, or reach our 24/7 emergency after-hours line — we're always ready to help.</p>
+  </div>
 
-    <!-- EMERGENCY PANEL -->
-    <div class="emergency-panel">
-      <h2>24/7 Emergency HVAC & Home Services Outcall</h2>
+  <div class="tab-bar">
+    <button class="tab-btn t-msg" onclick="switchTab('msg')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Send a Message
+    </button>
+    <button class="tab-btn t-rev" onclick="switchTab('rev')">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Leave a Review
+    </button>
+    <button class="tab-btn t-em" onclick="switchTab('em')">
+      🚨 Emergency
+    </button>
+  </div>
 
-      <p>
-        When your heating, cooling, or electrical system fails, you need a technician who can get to you fast — day or night.
-        We provide rapid emergency response across Patterson and surrounding areas to keep your home safe and functional.
-      </p>
+  <div class="tab-panel" id="panel-msg">
+    <div class="form-card">
+      <div class="card-title">Send Us a Message</div>
+      <p class="card-sub">Tell us what's going on and we'll get back to you fast. For urgent needs, call us directly.</p>
 
-      <a href="tel:9853003712" class="em-call">📞 Call Emergency Service</a>
-      <div class="em-small">$160 upfront if after hours</div>
-
-      <ul class="em-list">
-        <li>AC not cooling / blowing warm air</li>
-        <li>No heat / furnace failure</li>
-        <li>Electrical issues or burning smells</li>
-        <li>Breaker trips / power loss</li>
-        <li>Thermostat malfunctions</li>
-        <li>HVAC leaks or unusual noises</li>
-      </ul>
-
-      <p class="em-small" style="margin-top:1.4rem">
-        We’re based in Patterson, LA — meaning faster arrival times and reliable service when you need it most.
-      </p>
-    </div>
-
-    <!-- CONTACT FORM -->
-    <div class="card">
-      <h3>Request Service</h3>
-
-      <form onsubmit="sendContact(event)">
-        <div class="service-row">
-          <button type="button" class="service-btn active" onclick="pick('HVAC',this)">❄️ HVAC</button>
-          <button type="button" class="service-btn" onclick="pick('Electrical',this)">⚡ Electrical</button>
-          <button type="button" class="service-btn" onclick="pick('Handyman',this)">🔧 Handyman</button>
+      <div id="msg-form-body">
+        <div class="chip-grid" id="msg-chips">
+          <div class="chip" onclick="selectChip(this)">🌡️ Too Hot</div>
+          <div class="chip" onclick="selectChip(this)">❄️ Too Cold</div>
+          <div class="chip" onclick="selectChip(this)">🔧 Repair</div>
+          <div class="chip chip-full" onclick="selectChip(this)">⚡ Electrical</div>
         </div>
 
-        <div class="grid-2">
-          <input id="cname" placeholder="Full Name" required>
-          <input id="cphone" placeholder="Phone Number" required>
+        <div class="row2">
+          <div class="fg">
+            <label>Your Name <span class="req">*</span></label>
+            <input type="text" id="msg-name" placeholder="Full Name" required>
+          </div>
+          <div class="fg">
+            <label>Phone Number <span class="req">*</span></label>
+            <input type="tel" id="msg-phone" placeholder="(985) 000-0000" required>
+          </div>
         </div>
 
-        <textarea id="cmsg" placeholder="Describe the issue or service needed…" required></textarea>
+        <div class="row1">
+          <div class="fg">
+            <label>Email Address</label>
+            <input type="email" id="msg-email" placeholder="you@email.com">
+          </div>
+        </div>
 
-        <button class="submit">Send Message</button>
-      </form>
+        <div class="row1">
+          <div class="fg">
+            <label>Property Type</label>
+            <select id="msg-property">
+              <option value="" disabled selected>Select one...</option>
+              <option>Residential Home</option>
+              <option>Apartment / Condo</option>
+              <option>Commercial Property</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
 
-      <div class="contact-info">
-        <div><strong>Phone</strong>985‑300‑3712</div>
-        <div><strong>Email</strong>jacolby@fullwoodsreliableservice.com</div>
-        <div><strong>Location</strong>Patterson, Louisiana</div>
+        <div class="row1">
+          <div class="fg">
+            <label>Describe Your Situation</label>
+            <textarea id="msg-desc" placeholder="What's going on? Any details help us come prepared..."></textarea>
+          </div>
+        </div>
+
+        <button class="submit-btn s-blue" onclick="submitMsg()">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Send Message
+        </button>
+      </div>
+
+      <div class="success-state" id="msg-success">
+        <div class="si">✅</div>
+        <h3>Message Sent!</h3>
+        <p>We received your message and will get back to you shortly.<br>For urgent needs, call us directly at <strong>985&#8209;300&#8209;3712</strong>.</p>
       </div>
     </div>
-
   </div>
 
-  <!-- RIGHT COLUMN -->
-  <div class="visual">
-    <img src="images/contact-visual.png" alt="HVAC service technician providing emergency service">
+  <div class="tab-panel" id="panel-rev">
+    <div class="form-card">
+      <div class="card-title">Leave a Review</div>
+      <p class="card-sub">We'd love to hear about your experience. Your review helps others in the community find reliable service.</p>
+
+      <div class="info-box">
+        <div class="info-box-icon">📋</div>
+        <div class="info-box-body">
+          <div class="ibt">How this works</div>
+          <p>Your review goes directly to us first. Once we've had a chance to read it, we'll add it to the site. We appreciate every word.</p>
+        </div>
+      </div>
+
+      <div id="rev-form-body">
+        <div class="star-wrap">
+          <label>Your Rating <span class="req">*</span></label>
+          <div class="stars" id="star-row">
+            <span class="star" onclick="setStars(1)">★</span>
+            <span class="star" onclick="setStars(2)">★</span>
+            <span class="star" onclick="setStars(3)">★</span>
+            <span class="star" onclick="setStars(4)">★</span>
+            <span class="star" onclick="setStars(5)">★</span>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="fg">
+            <label>Your Name <span class="req">*</span></label>
+            <input type="text" id="rev-name" placeholder="First Name or Initials" required>
+          </div>
+          <div class="fg">
+            <label>City / Neighborhood</label>
+            <input type="text" id="rev-city" placeholder="e.g. Patterson, Berwick...">
+          </div>
+        </div>
+
+        <div class="row1">
+          <div class="fg">
+            <label>Service Received</label>
+            <select id="rev-service">
+              <option value="" disabled selected>Select one...</option>
+              <option>AC Installation &amp; Repair</option>
+              <option>Heating Systems</option>
+              <option>Electrical Services</option>
+              <option>Repairs &amp; Maintenance</option>
+              <option>Seasonal Tune-Up</option>
+              <option>General Handyman</option>
+              <option>Emergency Service</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row1">
+          <div class="fg">
+            <label>Your Review <span class="req">*</span></label>
+            <textarea id="rev-text" placeholder="Tell us about your experience — what did we do well? We'd love to share it with others..."></textarea>
+          </div>
+        </div>
+
+        <button class="submit-btn s-amber" onclick="submitReview()">
+          ★ Submit My Review
+        </button>
+      </div>
+
+      <div class="success-state" id="rev-success">
+        <img src="images/contact-visual.jpg" alt="Thank You for your review!">
+        <div class="si">⭐</div>
+        <h3>Thank You!</h3>
+        <p>Your review means a lot to us. We'll read it and add it to the site. We truly appreciate your support.</p>
+      </div>
+    </div>
   </div>
 
+  <div class="tab-panel" id="panel-em">
+    <div class="em-card">
+      <div class="em-label">🚨 Emergency Service 🚨</div>
+      <div class="em-num">985&#8209;300&#8209;3712</div>
+      <div class="em-sub">
+        24/7 Emergency HVAC &amp; Home Service Line<br>
+        Based in Patterson, LA — fast arrival times, day or night.
+      </div>
+
+      <a href="tel:9853003712" class="em-cta">📞 Call Emergency After-Hours Service</a>
+      <div class="em-note">$160 upfront for after-hours calls</div>
+      <div class="em-disclaimer">*Prices are subject to change depending on distance traveled.</div>
+
+      <div class="em-divider"></div>
+
+      <div style="text-align:left;margin-bottom:.75rem;font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,210,210,.9)">We respond to:</div>
+      <div class="em-grid">
+        <div class="em-item"><span>❄️</span> AC not cooling / blowing warm air</div>
+        <div class="em-item"><span>🔥</span> No heat / furnace failure</div>
+        <div class="em-item"><span>⚡</span> Electrical issues or burning smells</div>
+        <div class="em-item"><span>🔌</span> Breaker trips / power loss</div>
+        <div class="em-item"><span>🌡️</span> Thermostat malfunctions</div>
+        <div class="em-item"><span>💧</span> HVAC leaks or unusual noises</div>
+      </div>
+
+      <div class="em-divider"></div>
+
+      <div class="em-info-row">
+        <div class="em-info-tile">
+          <div class="eit-icon">🕐</div>
+          <div class="eit-label">Availability</div>
+          <div class="eit-val">24 / 7 / 365</div>
+        </div>
+        <div class="em-info-tile">
+          <div class="eit-icon">📍</div>
+          <div class="eit-label">Based In</div>
+          <div class="eit-val">Patterson, LA</div>
+        </div>
+        <div class="em-info-tile">
+          <div class="eit-icon">⚡</div>
+          <div class="eit-label">Response</div>
+          <div class="eit-val">Fast Arrival</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><footer>
+  <div class="fgrid">
+    <div class="fbrand">
+      <a href="index.html" class="logo">
+        <div class="logo-badge">F</div>
+        <div><div class="logo-name">Fullwood's Reliable</div><div class="logo-tag">Service</div></div>
+      </a>
+      <p>HVAC, electrical, and home services for homes and businesses across Patterson, LA and South Louisiana.</p>
+    </div>
+    <div class="fcol">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h5>Services</h5>
+      <ul>
+        <li><span>AC Installation &amp; Repair</span></li>
+        <li><span>Heating Systems</span></li>
+        <li><span>Electrical Work</span></li>
+        <li><span>Repairs &amp; Maintenance</span></li>
+        <li><span>General Handyman</span></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h5>Contact</h5>
+      <div class="fcr"><span class="ico">📞</span><a href="tel:9853003712">985-300-3712</a></div>
+      <div class="fcr"><span class="ico">✉️</span><a href="mailto:jacolby@fullwoodsreliableservice.com">jacolby@fullwoodsreliableservice.com</a></div>
+      <div class="fcr"><span class="ico">📍</span><span class="t">Patterson, Louisiana</span></div>
+    </div>
+  </div>
+  <div class="fbot">
+    <p>© 2025 Fullwood's Reliable Service. All rights reserved.</p>
+    <p>Jacolby Fullwood — Licensed Technician · Patterson, LA</p>
+  </div>
+  <div class="fwm">F</div>
+</footer>
+
+<div class="fab">
+  <a href="tel:9853003712" aria-label="Call 985-300-3712">
+    <div class="fabi">📞</div>
+    <div class="fabt">985-300-3712</div>
+  </a>
 </div>
-</main>
 
 <script>
-let service='HVAC';
-function pick(v,el){
-  service=v;
-  document.querySelectorAll('.service-btn').forEach(b=>b.classList.remove('active'));
-  el.classList.add('active');
-}
-function sendContact(e){
-  e.preventDefault();
-  location.href=`mailto:jacolby@fullwoodsreliableservice.com?subject=Service Request (${service})&body=Name:${cname.value}%0APhone:${cphone.value}%0A%0A${cmsg.value}`;
-}
-</script>
+  /* Header scroll */
+  window.addEventListener('scroll', () => {
+    document.getElementById('hdr').classList.toggle('on', scrollY > 40);
+  }, {passive:true});
 
+  function toggleM() {
+    const n = document.getElementById('mnav');
+    n.classList.toggle('open');
+    document.body.style.overflow = n.classList.contains('open') ? 'hidden' : '';
+  }
+
+  /* Tab switching */
+  function switchTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    const map = {msg:'t-msg', rev:'t-rev', em:'t-em'};
+    document.querySelector('.' + map[id]).classList.add('active');
+  }
+
+  /* Chip selection */
+  let msgService = '';
+  function selectChip(el) {
+    document.querySelectorAll('#msg-chips .chip').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    msgService = el.textContent.trim();
+  }
+
+  /* Star rating */
+  let starVal = 0;
+  function setStars(n) {
+    starVal = n;
+    document.querySelectorAll('#star-row .star').forEach((s, i) => {
+      s.classList.toggle('lit', i < n);
+    });
+  }
+
+  /* Submit: message */
+  function submitMsg() {
+    const name  = document.getElementById('msg-name').value.trim();
+    const phone = document.getElementById('msg-phone').value.trim();
+    const email = document.getElementById('msg-email').value.trim();
+    const prop  = document.getElementById('msg-property').value;
+    const desc  = document.getElementById('msg-desc').value.trim();
+    if (!name || !phone) { alert('Please fill in your name and phone number.'); return; }
+    const subject = encodeURIComponent('Service Request' + (msgService ? ' — ' + msgService : ''));
+    const body = encodeURIComponent(
+      'Name: ' + name + '\nPhone: ' + phone + '\nEmail: ' + (email || 'Not provided') +
+      '\nProperty Type: ' + (prop || 'Not specified') + '\nService: ' + (msgService || 'Not selected') +
+      '\n\n' + desc
+    );
+    window.location.href = 'mailto:jacolby@fullwoodsreliableservice.com?subject=' + subject + '&body=' + body;
+    document.getElementById('msg-form-body').style.display = 'none';
+    document.getElementById('msg-success').style.display = 'block';
+  }
+
+  /* Submit: review */
+  function submitReview() {
+    const name    = document.getElementById('rev-name').value.trim();
+    const city    = document.getElementById('rev-city').value.trim();
+    const service = document.getElementById('rev-service').value;
+    const text    = document.getElementById('rev-text').value.trim();
+    if (!name || !text) { alert('Please enter your name and review text.'); return; }
+    if (starVal === 0) { alert('Please select a star rating.'); return; }
+    const stars = '★'.repeat(starVal) + '☆'.repeat(5 - starVal);
+    const subject = encodeURIComponent('New Review — ' + stars + ' — ' + name);
+    const body = encodeURIComponent(
+      'Rating: ' + stars + '\nName: ' + name + '\nCity: ' + (city || 'Not provided') +
+      '\nService: ' + (service || 'Not specified') + '\n\nReview:\n' + text
+    );
+    window.location.href = 'mailto:jacolby@fullwoodsreliableservice.com?subject=' + subject + '&body=' + body;
+    document.getElementById('rev-form-body').style.display = 'none';
+    document.getElementById('rev-success').style.display = 'block';
+    document.getElementById('rev-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  /* Open correct tab from URL param */
+  (function() {
+    const tab = new URLSearchParams(window.location.search).get('tab');
+    if (tab === 'review') switchTab('rev');
+    else if (tab === 'emergency') switchTab('em');
+    else switchTab('msg');
+  })();
+</script>
 </body>
 </html>

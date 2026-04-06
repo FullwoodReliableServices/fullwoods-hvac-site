@@ -157,23 +157,38 @@
     .shdr{text-align:center;max-width:1200px;margin:0 auto 3.5rem}
     .shdr .sdesc{margin:.75rem auto 0}
     .sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1200px;margin:0 auto}
-    .sc2{background:var(--frost);border-radius:var(--r-lg);border:1px solid rgba(0,0,0,.06);padding:2rem 1.75rem;position:relative;overflow:hidden;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;cursor:default}
+    .sc2{background:var(--frost);border-radius:var(--r-lg);border:1px solid rgba(0,0,0,.06);padding:2rem 1.75rem;position:relative;overflow:hidden;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease,background .35s ease;cursor:default}
     .sc2::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;transform:scaleX(0);transform-origin:left;transition:transform .45s ease;border-radius:0 0 var(--r-lg) var(--r-lg)}
+    .sc2::after{content:'';position:absolute;inset:0;border-radius:var(--r-lg);opacity:0;transition:opacity .4s ease;pointer-events:none}
+    .sc2.cool{box-shadow:0 4px 24px rgba(14,165,233,.13),0 0 0 0 rgba(14,165,233,0)}
+    .sc2.warm{box-shadow:0 4px 24px rgba(245,158,11,.13),0 0 0 0 rgba(245,158,11,0)}
+    .sc2.elec{box-shadow:0 4px 24px rgba(34,197,94,.11),0 0 0 0 rgba(34,197,94,0)}
+    .sc2.handy{box-shadow:0 4px 24px rgba(168,85,247,.11),0 0 0 0 rgba(168,85,247,0)}
     .sc2.cool::before{background:var(--blue)}
     .sc2.warm::before{background:var(--amber)}
     .sc2.elec::before{background:#22c55e}
-    .sc2:hover{transform:translateY(-8px)}
-    .sc2.cool:hover{box-shadow:0 20px 50px rgba(14,165,233,.12);border-color:rgba(14,165,233,.2)}
-    .sc2.warm:hover{box-shadow:0 20px 50px rgba(245,158,11,.12);border-color:rgba(245,158,11,.2)}
-    .sc2.elec:hover{box-shadow:0 20px 50px rgba(34,197,94,.1);border-color:rgba(34,197,94,.2)}
+    .sc2.handy::before{background:#a855f7}
+    .sc2.cool::after{background:radial-gradient(ellipse at bottom,rgba(14,165,233,.08),transparent 70%)}
+    .sc2.warm::after{background:radial-gradient(ellipse at bottom,rgba(245,158,11,.08),transparent 70%)}
+    .sc2.elec::after{background:radial-gradient(ellipse at bottom,rgba(34,197,94,.07),transparent 70%)}
+    .sc2.handy::after{background:radial-gradient(ellipse at bottom,rgba(168,85,247,.07),transparent 70%)}
+    .sc2:hover{transform:translateY(-10px)}
+    .sc2:hover::after{opacity:1}
+    .sc2.cool:hover{box-shadow:0 24px 60px rgba(14,165,233,.22),0 0 40px rgba(14,165,233,.1);border-color:rgba(14,165,233,.28);background:#f0f9ff}
+    .sc2.warm:hover{box-shadow:0 24px 60px rgba(245,158,11,.22),0 0 40px rgba(245,158,11,.1);border-color:rgba(245,158,11,.28);background:#fffbeb}
+    .sc2.elec:hover{box-shadow:0 24px 60px rgba(34,197,94,.18),0 0 40px rgba(34,197,94,.1);border-color:rgba(34,197,94,.28);background:#f0fdf4}
+    .sc2.handy:hover{box-shadow:0 24px 60px rgba(168,85,247,.18),0 0 40px rgba(168,85,247,.1);border-color:rgba(168,85,247,.28);background:#faf5ff}
     .sc2:hover::before{transform:scaleX(1)}
-    .si{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.25rem;transition:background .3s}
+    .si{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.25rem;transition:background .3s,transform .3s,box-shadow .3s}
     .si.cool{background:rgba(14,165,233,.1)}
     .si.warm{background:rgba(245,158,11,.1)}
     .si.elec{background:rgba(34,197,94,.1)}
-    .sc2:hover .si.cool{background:rgba(14,165,233,.18)}
-    .sc2:hover .si.warm{background:rgba(245,158,11,.18)}
-    .sc2:hover .si.elec{background:rgba(34,197,94,.18)}
+    .si.handy{background:rgba(168,85,247,.1)}
+    .sc2:hover .si{transform:scale(1.12)}
+    .sc2:hover .si.cool{background:rgba(14,165,233,.18);box-shadow:0 0 16px rgba(14,165,233,.3)}
+    .sc2:hover .si.warm{background:rgba(245,158,11,.18);box-shadow:0 0 16px rgba(245,158,11,.3)}
+    .sc2:hover .si.elec{background:rgba(34,197,94,.18);box-shadow:0 0 16px rgba(34,197,94,.3)}
+    .sc2:hover .si.handy{background:rgba(168,85,247,.18);box-shadow:0 0 16px rgba(168,85,247,.3)}
     .sc2 h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.4rem;text-transform:uppercase;color:var(--obs);margin-bottom:.6rem;letter-spacing:.02em}
     .sc2 p{color:var(--muted);line-height:1.7;font-size:.9rem}
     .svc-note{display:inline-flex;align-items:center;gap:.35rem;margin-top:.65rem;font-size:.75rem;font-weight:600;color:var(--blue);background:rgba(14,165,233,.08);border:1px solid rgba(14,165,233,.15);border-radius:100px;padding:.25rem .75rem}
@@ -201,14 +216,17 @@
     .contact-link-icon{font-size:1.2rem;width:42px;height:42px;background:rgba(14,165,233,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
     .contact-link-body strong{display:block;font-size:.85rem;font-weight:700;color:var(--obs)}
     .contact-link-body span{font-size:.77rem;color:var(--muted)}
-    .cta-emergency{background:linear-gradient(145deg,#7f1d1d,#dc2626);border-radius:24px;padding:3rem 2.8rem;text-align:center;position:relative;overflow:hidden;color:#fff;box-shadow:0 40px 80px rgba(220,38,38,.2);animation:ctaGlow 4s ease-in-out infinite}
-    @keyframes ctaGlow{0%,100%{box-shadow:0 40px 80px rgba(220,38,38,.2)}50%{box-shadow:0 40px 100px rgba(220,38,38,.42)}}
-    .cta-emergency::before{content:'EMERGENCY';position:absolute;top:1.4rem;left:50%;transform:translateX(-50%);font-size:.6rem;letter-spacing:.22em;font-weight:700;color:rgba(255,160,160,.6);text-transform:uppercase}
-    .cta-em-num{font-family:'Barlow Condensed',sans-serif;font-size:3.2rem;line-height:1;color:#fff;margin:2rem 0 .4rem;letter-spacing:.04em}
+    .cta-emergency{background:linear-gradient(145deg,#6b0000,#b91c1c,#dc2626);border-radius:24px;padding:3rem 2.8rem;text-align:center;position:relative;overflow:hidden;color:#fff;box-shadow:0 0 0 1px rgba(255,80,80,.18),0 32px 80px rgba(220,38,38,.5),0 0 60px rgba(220,38,38,.25),0 0 120px rgba(220,38,38,.12);animation:ctaGlow 3.5s ease-in-out infinite}
+    @keyframes ctaGlow{0%,100%{box-shadow:0 0 0 1px rgba(255,80,80,.18),0 32px 80px rgba(220,38,38,.5),0 0 60px rgba(220,38,38,.25),0 0 120px rgba(220,38,38,.12)}50%{box-shadow:0 0 0 1px rgba(255,100,100,.3),0 32px 100px rgba(220,38,38,.7),0 0 90px rgba(220,38,38,.4),0 0 160px rgba(220,38,38,.2)}}
+    .cta-emergency::before{content:'🚨 EMERGENCY 🚨';position:absolute;top:1.2rem;left:50%;transform:translateX(-50%);font-size:.95rem;letter-spacing:.18em;font-weight:800;color:rgba(255,180,180,.9);text-transform:uppercase;white-space:nowrap;text-shadow:0 0 12px rgba(255,100,100,.8)}
+    .cta-emergency::after{content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:200px;height:200px;background:radial-gradient(circle,rgba(255,80,80,.25),transparent 70%);pointer-events:none;animation:innerGlow 3s ease-in-out infinite}
+    @keyframes innerGlow{0%,100%{opacity:.5;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.2)}}
+    .cta-em-num{font-family:'Barlow Condensed',sans-serif;font-size:3.2rem;line-height:1;color:#fff;margin:2.6rem 0 .4rem;letter-spacing:.04em;text-shadow:0 0 20px rgba(255,150,150,.5)}
     .cta-em-sub{font-size:.78rem;color:rgba(255,200,200,.85);margin-bottom:2rem}
-    .cta-em-btn{display:block;background:#fff;color:#7f1d1d;padding:1.2rem;border-radius:14px;font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-decoration:none;letter-spacing:.05em;box-shadow:0 12px 30px rgba(0,0,0,.2);transition:all .25s ease;margin-bottom:.7rem}
-    .cta-em-btn:hover{transform:translateY(-3px);box-shadow:0 20px 48px rgba(0,0,0,.35)}
-    .cta-em-note{font-size:.7rem;color:rgba(255,200,200,.7)}
+    .cta-em-btn{display:block;background:#fff;color:#7f1d1d;padding:1.2rem;border-radius:14px;font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-decoration:none;letter-spacing:.05em;box-shadow:0 12px 30px rgba(0,0,0,.3),0 0 20px rgba(255,255,255,.15);transition:all .25s ease;margin-bottom:.5rem}
+    .cta-em-btn:hover{transform:translateY(-3px);box-shadow:0 20px 48px rgba(0,0,0,.45),0 0 30px rgba(255,255,255,.25)}
+    .cta-em-note{font-size:.7rem;color:rgba(255,200,200,.7);margin-bottom:.35rem}
+    .cta-em-disclaimer{font-size:.65rem;color:rgba(255,180,180,.5);margin-top:.3rem;font-style:italic;line-height:1.4}
     @media(max-width:900px){.cta-inner{grid-template-columns:1fr}}
     /* REVIEWS */
     #reviews{background:var(--obs2);padding:6rem 2.5rem;position:relative;overflow:hidden}
@@ -362,9 +380,9 @@
 <!-- EMERGENCY ALERT BANNER -->
 <div class="emergency-banner" role="marquee" aria-label="Emergency service alert">
   <div class="banner-track">
-    <span>🚨 24/7 Emergency Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; HVAC &nbsp;•&nbsp; Electrical &nbsp;•&nbsp; Fast &amp; Reliable 🔧</span>
+    <span>🚨 24/7 Emergency After-Hours Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; HVAC &nbsp;•&nbsp; Electrical &nbsp;•&nbsp; Fast &amp; Reliable 🔧</span>
     <span>🔥 Heating &amp; Cooling &nbsp;•&nbsp; ⚡ Electrical Work &nbsp;•&nbsp; Same&#8209;Day Service &nbsp;•&nbsp; Licensed &amp; Insured</span>
-    <span>🚨 24/7 Emergency Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; HVAC &nbsp;•&nbsp; Electrical &nbsp;•&nbsp; Fast &amp; Reliable 🔧</span>
+    <span>🚨 24/7 Emergency After-Hours Service &nbsp;•&nbsp; Call Now: 985&#8209;300&#8209;3712 &nbsp;•&nbsp; HVAC &nbsp;•&nbsp; Electrical &nbsp;•&nbsp; Fast &amp; Reliable 🔧</span>
     <span>🔥 Heating &amp; Cooling &nbsp;•&nbsp; ⚡ Electrical Work &nbsp;•&nbsp; Same&#8209;Day Service &nbsp;•&nbsp; Licensed &amp; Insured</span>
   </div>
 </div>
@@ -539,11 +557,10 @@
       <h3>Seasonal Tune-Ups</h3>
       <p>Prepare your system for summer heat or a winter chill. Maximize efficiency and catch problems before each season hits.</p>
     </div>
-    <div class="sc2 cool">
-      <div class="si cool">💨</div>
-      <h3>Duct Cleaning &amp; Duct Work</h3>
-      <p>Need your ducts cleaned or replaced? We've got you covered — we coordinate with trusted partners so you never have to look elsewhere.</p>
-      <div class="svc-note">✅ Available — we handle the coordination</div>
+    <div class="sc2 handy">
+      <div class="si handy">🏠</div>
+      <h3>General Handyman Services</h3>
+      <p>From minor repairs to home improvements — drywall patches, door hardware, fixtures, and general upkeep. One call handles it all.</p>
     </div>
   </div>
 </section>
@@ -612,10 +629,10 @@
             <span>Call or text anytime</span>
           </div>
         </a>
-        <a href="mailto:jacolby@fullwoodsreliableservice.com" class="contact-link-item">
+        <a href="/cdn-cgi/l/email-protection#4923282a26252b30092f3c25253e26262d3a3b2c2520282b252c3a2c3b3f202a2c672a2624" class="contact-link-item">
           <div class="contact-link-icon">✉️</div>
           <div class="contact-link-body">
-            <strong>jacolby@fullwoodsreliableservice.com</strong>
+            <strong><span class="__cf_email__" data-cfemail="137972707c7f716a5375667f7f647c7c776061767f7a72717f76607661657a70763d707c7e">[email&#160;protected]</span></strong>
             <span>Email for quotes &amp; requests</span>
           </div>
         </a>
@@ -630,9 +647,10 @@
     </div>
     <div class="cta-emergency">
       <div class="cta-em-num">985&#8209;300&#8209;3712</div>
-      <div class="cta-em-sub">24/7 Emergency HVAC &amp; Home Service Outcall Line</div>
-      <a href="tel:9853003712" class="cta-em-btn">📞 After Hours Outcall Services</a>
-      <div class="cta-em-note">$160 upfront for after-hours calls · Patterson, LA</div>
+      <div class="cta-em-sub">24/7 Emergency HVAC &amp; Home Service Line</div>
+      <a href="tel:9853003712" class="cta-em-btn">📞 Call Emergency After‑Hours Service</a>
+      <div class="cta-em-note">$160 upfront for after-hours calls</div>
+      <div class="cta-em-disclaimer">*Prices are subject to change depending on distance traveled.</div>
     </div>
   </div>
 </section>
@@ -690,7 +708,7 @@
 </div>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   const hdr = document.getElementById('hdr');
   window.addEventListener('scroll', () => hdr.classList.toggle('on', scrollY > 40), {passive:true});
 
@@ -745,14 +763,4 @@
     el.textContent = '❄';
     const rand = Math.random();
     el.dataset.rand = rand.toFixed(4);
-    el.style.cssText = `left:${Math.max(2, (currentPct * 0.92) * rand)}%;font-size:${10+Math.random()*14}px;animation-duration:${5+Math.random()*5}s;animation-delay:${Math.random()*6}s;`;
-    sf.appendChild(el);
-  }
-  placeSnowflakes();
-
-  const aos = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          entry.target.style.opacity = '1';
- 
+    el.style.cssText = `left:${Math.max(2, (currentPct * 0.92) * rand)}%;font-size:${10+Math.random()*14}px;animation-duration:${5+Math.random()*5}s;animatio

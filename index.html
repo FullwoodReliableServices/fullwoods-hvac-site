@@ -18,7 +18,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Fullwood's Reliable Service",
-    "description": "Professional HVAC, electrical, and home services in Patterson, Louisiana. AC installation, heating, ceiling fans, breaker boxes, and more.",
+    "description": "Professional HVAC, electrical, and home services in Patterson, Louisiana. AC installation, heating, electrical, repairs & more.",
     "url": "https://fullwoodsreliableservice.com",
     "telephone": "+19853003712",
     "email": "jacolby@fullwoodsreliableservice.com",
@@ -116,16 +116,17 @@
     .hero-content{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;position:relative;z-index:10;max-width:1200px;margin:0 auto;padding:1.25rem 2rem;width:100%}
 
     /* HERO TITLE */
-    .hero-h1{font-family:'Inter Tight', sans-serif;font-weight:800;letter-spacing:-0.02em;display:flex;flex-direction:column;align-items:center;gap:0;line-height:1.05;text-align:center;}
-    .hero-h1 .line1,.hero-h1 .line2{display:block;color:#fff;font-size:clamp(3rem, 9vw, 8rem);}
+    .hero-h1{font-family:'Inter Tight', sans-serif;font-weight:800;line-height:0.9;letter-spacing:-0.03em;color:#fff;margin-bottom:1.5rem}
+    .hero-h1 .line1,.hero-h1 .line2{display:block;font-size:clamp(2.5rem, 8vw, 6.5rem);text-shadow:0 10px 30px rgba(0,0,0,0.4)}
     .hero-h1 .line3{display:block;font-size:clamp(3rem, 9vw, 8rem);background:linear-gradient(90deg,#38bdf8,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
     .hero-p{position:relative;z-index:1;margin:.75rem auto 0;color:rgba(255,255,255,0.96);font-size:1.08rem;max-width:620px;line-height:1.75;text-shadow:0 6px 22px rgba(0,0,0,0.52)}
     .hero-btns{position:relative;z-index:1;display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap;justify-content:center}
-    .btn-primary{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;background:var(--blue);color:#fff;padding:1rem 2rem;border-radius:12px;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;transition:background 0.3s,transform 0.2s,box-shadow 0.3s;box-shadow:0 8px 30px rgba(14,165,233,0.3)}
+    .btn-primary{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;background:var(--blue);color:#fff;padding:1rem 2rem;border-radius:12px;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;transition:background 0.3s,transform 0.2s,box-shadow 0.3s;box-shadow:0 8px 30px rgba(14,165,233,0.3)}
     .btn-primary:hover{background:#38BDF8;transform:translateY(-2px);box-shadow:0 12px 40px rgba(14,165,233,0.45)}
     .btn-outline{display:inline-flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,0.2);color:#fff;padding:1rem 2rem;border-radius:12px;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:1.05rem;text-decoration:none;transition:border-color 0.3s,color 0.3s}
     .btn-outline:hover{border-color:rgba(14,165,233,0.6);color:var(--blue)}
+    .quote-disclaimer{font-size:0.7rem;opacity:0.8;font-weight:400;margin-top:0.25rem}
 
     /* HERO INDICATORS */
     .hero-indicators{position:relative;z-index:1;display:flex;gap:.65rem;margin-top:1rem;justify-content:center;flex-wrap:wrap}
@@ -142,8 +143,8 @@
     /* SERVICES */
     #services{padding:6rem 2.5rem;background:var(--white);position:relative;overflow:hidden}
     #services::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--amber))}
-    .sl{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
-    .sh2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.2rem,4.5vw,3.8rem);text-transform:uppercase;color:var(--obs);line-height:1;margin-top:.4rem}
+    .sl{font-family:'DM Sans',sans-serif;font-size:clamp(0.85rem, 2vw, 1.1rem);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+    .sh2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.5rem,5vw,4.2rem);text-transform:uppercase;color:var(--obs);line-height:1;margin-top:.4rem}
     .sdesc{font-size:1rem;color:var(--muted);line-height:1.75;max-width:560px;margin-top:.75rem}
     .svc-intro{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center;max-width:1200px;margin:0 auto 4rem}
     .svc-intro-text .sdesc{max-width:100%}
@@ -206,8 +207,8 @@
     #contact-cta{padding:6rem 2.5rem;background:var(--frost);position:relative;overflow:hidden}
     #contact-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 80% 100%,rgba(14,165,233,.05),transparent);pointer-events:none}
     .cta-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
-    .cta-eyebrow{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem}
-    .cta-left h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.8rem,5vw,4rem);text-transform:uppercase;line-height:.95;letter-spacing:.02em;color:var(--obs);margin-bottom:1.2rem}
+    .cta-eyebrow{font-family:'DM Sans',sans-serif;font-size:clamp(0.85rem, 2vw, 1.1rem);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem}
+    .cta-left h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.8rem,5vw,4.2rem);text-transform:uppercase;line-height:.95;letter-spacing:.02em;color:var(--obs);margin-bottom:1.2rem}
     .cta-left h2 span{color:var(--blue)}
     .cta-left p{color:var(--muted);font-size:.95rem;line-height:1.75;margin-bottom:2rem}
     .contact-links{display:flex;flex-direction:column;gap:.9rem}
@@ -233,68 +234,22 @@
       animation: emergency-shake 0.8s ease-in-out infinite;
     }
 
-    @keyframes emergency-shake {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      15% { transform: translate(-2px, 1px) rotate(-0.3deg); }
-      30% { transform: translate(2px, -1px) rotate(0.3deg); }
-      45% { transform: translate(-2px, -1px) rotate(-0.3deg); }
-      60% { transform: translate(2px, 1px) rotate(0.3deg); }
-    }
-
-    /* Siren Body (Dome) */
-    .cta-emergency::before {
-      content: '';
-      position: absolute;
-      top: -35px; 
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90px;
-      height: 100px;
-      background: radial-gradient(circle at 50% 120%, rgba(255, 50, 50, 0.9), rgba(139, 0, 0, 1) 80%);
-      border-radius: 45px 45px 12px 12px;
-      z-index: 10;
-      border-bottom: 6px solid #111; 
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-      animation: siren-flare 1.5s linear infinite;
-    }
-
-    /* Siren Light (Rotating Lens Effect) */
-    .cta-emergency::after {
-      content: '';
-      position: absolute;
-      top: -15px; 
-      left: 50%;
-      width: 50px;
-      height: 50px;
-      transform: translateX(-50%);
-      background: radial-gradient(circle at center, #fff 10%, #f59e0b 40%, transparent 70%);
-      border-radius: 50%;
-      z-index: 11;
-      filter: blur(4px);
-      animation: siren-rotate 1.5s linear infinite;
-    }
-
-    @keyframes siren-flare {
-      0%, 100% { box-shadow: 0 0 40px rgba(239, 68, 68, 0.8), 0 0 80px rgba(239, 68, 68, 0.4); }
-      50% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4), 0 0 40px rgba(239, 68, 68, 0.2); }
-    }
-
-    @keyframes siren-rotate {
-      0% { transform: translateX(-150%) scale(0.8); opacity: 0.3; }
-      25% { transform: translateX(-50%) scale(1.2); opacity: 1; }
-      50% { transform: translateX(50%) scale(0.8); opacity: 0.3; }
-      75% { transform: translateX(-50%) scale(0.5); opacity: 0.1; }
-      100% { transform: translateX(-150%) scale(0.8); opacity: 0.3; }
-    }
-
     .cta-em-eyebrow {
-      font-size: 1rem;
-      letter-spacing: .25em;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      color: #dc2626;
+      padding: 0.6rem 1.8rem;
+      border-radius: 100px;
+      font-family: 'Barlow Condensed', sans-serif;
       font-weight: 900;
-      color: #ffbaba;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      text-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
+      white-space: nowrap;
+      z-index: 2;
     }
 
     .cta-em-num {
@@ -349,6 +304,31 @@
     /* REVIEWS */
     #reviews{background:var(--obs2);padding:6rem 2.5rem;position:relative;overflow:hidden}
     #reviews::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 15% 50%,rgba(14,165,233,.09),transparent),radial-gradient(ellipse 40% 50% at 88% 20%,rgba(245,158,11,.07),transparent);pointer-events:none}
+    
+    /* Ice Effects for Review Section */
+    .ice-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(to bottom, rgba(186, 230, 253, 0.15), transparent);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .ice-crystal {
+      position: absolute;
+      top: 10px;
+      color: rgba(186, 230, 253, 0.2);
+      font-size: 2rem;
+      pointer-events: none;
+      animation: ice-float 6s ease-in-out infinite;
+    }
+    @keyframes ice-float {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+      50% { transform: translateY(15px) rotate(15deg); opacity: 0.4; }
+    }
+
     .rl{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:3.5rem;align-items:center;position:relative;z-index:1;}
     .rv-left{display:flex;flex-direction:column;align-items:center;gap:2rem;}
     .rv-left .sh2{color:#fff;text-align:center}
@@ -365,8 +345,72 @@
     .rcn{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1.05rem;color:#fff;letter-spacing:.02em;text-transform:uppercase}
     .rcs{color:var(--amber);font-size:.75rem;letter-spacing:.05em}
     .rct{color:rgba(255,255,255,.62);font-size:.9rem;line-height:1.72}
-    .rv-cta{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);color:#fff;border-radius:12px;padding:.85rem 1.6rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .25s,border-color .25s,transform .2s;margin-top:.5rem}
-    .rv-cta:hover{background:rgba(14,165,233,.18);border-color:rgba(56,189,248,.4);transform:translateY(-2px)}
+    
+    /* Enhanced Leave a Review Button */
+    .rv-cta{
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      background:var(--blue);
+      border:none;
+      color:#fff;
+      border-radius:14px;
+      padding:1.1rem 2.2rem;
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:800;
+      font-size:1.3rem;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      text-decoration:none;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      margin-top:.5rem;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4);
+    }
+    .rv-cta::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.6), transparent 70%);
+      border-radius: 20px;
+      z-index: -1;
+      opacity: 0.6;
+      animation: glow-pulse 2s ease-in-out infinite;
+    }
+    @keyframes glow-pulse {
+      0%, 100% { transform: scale(1); opacity: 0.4; }
+      50% { transform: scale(1.15); opacity: 0.8; }
+    }
+    .rv-cta:hover{
+      background:var(--blue-l);
+      transform:translateY(-4px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(14, 165, 233, 0.6);
+    }
+
+    /* GALLERY SECTION */
+    #gallery { padding: 6rem 2.5rem; background: var(--white); position: relative; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 3rem auto 0; }
+    .gallery-item { border-radius: var(--r-lg); overflow: hidden; background: var(--frost); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s; }
+    .gallery-item:hover { transform: translateY(-8px); }
+    .gallery-img-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+    .gallery-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-label { position: absolute; bottom: 1rem; left: 1rem; background: rgba(11,18,33,0.8); color: #fff; padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .gallery-info { padding: 1.5rem; }
+    .gallery-info h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .gallery-info p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+
+    /* Heat Effects for Next Section */
+    .heat-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(to bottom, rgba(245, 158, 11, 0.1), transparent);
+      pointer-events: none;
+      z-index: 2;
+    }
 
     /* FOOTER */
     footer{background:var(--obs);color:#fff;padding:4.5rem 2.5rem 2.5rem;position:relative;overflow:hidden}
@@ -406,6 +450,11 @@
     @keyframes pi{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
     .fade-up{opacity:0;transform:translateY(24px);animation:fade-up-in .7s forwards ease-out}
     @keyframes fade-up-in{to{opacity:1;transform:translateY(0)}}
+    @keyframes emergency-shake {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(0.5deg); }
+      75% { transform: rotate(-0.5deg); }
+    }
 
     /* RESPONSIVE — tablet */
     @media(max-width:1024px){
@@ -434,7 +483,7 @@
       .indicator span{font-size:.75rem}
       .sgrid{grid-template-columns:1fr}
       .fgrid{grid-template-columns:1fr;gap:2rem}
-      #services,#reviews,#contact{padding:4rem 1.5rem}
+      #services,#reviews,#contact,#gallery{padding:4rem 1.5rem}
       .rl{grid-template-columns:1fr;gap:2rem}
       .rv-left{flex-direction:column;align-items:center;text-align:center}
       .mw{max-width:260px}
@@ -444,6 +493,7 @@
       .banner-track span{font-size:.9rem;padding:0 2rem}
       .cta-btns{gap:.75rem}
       .cta-emergency { padding: 5rem 2rem 2.5rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
     }
 
     @media(max-width:480px){
@@ -536,12 +586,17 @@
     <p class="hero-p fade-up" style="animation-delay:0.45s">HVAC, electrical, and home services — done right the first time. South Louisiana heat is no joke, and neither is our work. Move your mouse to feel the difference.</p>
     <div class="hero-btns fade-up" style="animation-delay:0.6s">
       <a href="contact.html" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        Get a Free Quote
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Get a Free Quote*
+        </div>
+        <span class="quote-disclaimer">*Estimate of work only, not free labor.</span>
       </a>
       <a href="tel:9853003712" class="btn-primary">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        Call 985-300-3712
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call 985-300-3712
+        </div>
       </a>
     </div>
     <div class="hero-indicators fade-up" style="animation-delay:0.75s">
@@ -598,56 +653,74 @@
   <div class="svc-intro">
     <div class="svc-intro-text">
       <div class="sl">What We Do</div>
-      <h2 class="sh2">Our Services</h2>
-      <p class="sdesc">From emergency AC repairs to full system installs, electrical work, and beyond — Fullwood's Reliable Service handles it all for homes and businesses across the Patterson area. Whether it's the peak of a Louisiana summer or a cold snap rolling through, we show up fast and get it done right.</p>
+      <h2 class="sh2">Professional HVAC &amp; Home Services</h2>
+      <p class="sdesc">From emergency AC repairs in the dead of summer to full electrical upgrades, we provide reliable solutions for homeowners and businesses in Patterson and across South Louisiana.</p>
     </div>
     <div class="svc-intro-img">
-      <img src="images/colby-hvac-fire-ice.png" alt="Colby HVAC — Fire &amp; Ice service visual" loading="lazy">
+      <img src="images/colby-hvac-fire-ice.png" alt="HVAC Service Visual — Fire and Ice theme" width="1200" height="800" loading="lazy">
       <div class="svc-img-badge">
-        <span class="cool-tag">❄️ Cooling</span>
-        <span class="warm-tag">🔥 Heating</span>
+        <span class="cool-tag">❄️ Expert Cooling</span>
+        <span class="warm-tag">🔥 Reliable Heating</span>
       </div>
     </div>
   </div>
+
+  <div class="shdr">
+    <div class="sl">Our Expertise</div>
+    <h2 class="sh2">Complete Home Comfort</h2>
+    <p class="sdesc">We specialize in keeping your environment perfect, no matter what the Louisiana weather throws at you.</p>
+  </div>
+
   <div class="sgrid">
     <div class="sc2 cool">
       <div class="si cool">❄️</div>
-      <h3>AC Installation &amp; Repair</h3>
-      <p>High-efficiency cooling systems sized and installed precisely for your space. Fast diagnosis and same-day repairs to get you comfortable again.</p>
+      <h3>Air Conditioning</h3>
+      <p>Complete AC repair, installation, and maintenance. We keep you cool when the humidity hits.</p>
+      <div class="svc-note">24/7 Emergency Repair</div>
     </div>
     <div class="sc2 warm">
       <div class="si warm">🔥</div>
       <h3>Heating Systems</h3>
-      <p>Furnace and heat pump installation, repair, and replacement. Stay warm all winter long with reliable service you can count on.</p>
+      <p>Furnace repair and heating system tune-ups to ensure your home stays warm during the winter months.</p>
+      <div class="svc-note">All Major Brands</div>
     </div>
     <div class="sc2 elec">
       <div class="si elec">⚡</div>
-      <h3>Electrical Services</h3>
-      <p>Ceiling fan installation, light switches, outlets &amp; receptacles, and breaker box upgrades. Safe, clean electrical work done to code.</p>
-    </div>
-    <div class="sc2 cool">
-      <div class="si cool">🔧</div>
-      <h3>Repairs &amp; Maintenance</h3>
-      <p>Fast, reliable repairs and preventive tune-ups across HVAC and home systems — extending equipment life and preventing costly breakdowns.</p>
-    </div>
-    <div class="sc2 warm">
-      <div class="si warm">⚙️</div>
-      <h3>Seasonal Tune-Ups</h3>
-      <p>Prepare your system for summer heat or a winter chill. Maximize efficiency and catch problems before each season hits.</p>
+      <h3>Electrical Work</h3>
+      <p>Breaker boxes, ceiling fans, lighting, and general electrical repairs handled by a pro.</p>
+      <div class="svc-note">Licensed &amp; Safe</div>
     </div>
     <div class="sc2 handy">
-      <div class="si handy">🏠</div>
-      <h3>General Handyman Services</h3>
-      <p>From minor repairs to home improvements — drywall patches, door hardware, fixtures, and general upkeep. One call handles it all.</p>
+      <div class="si handy">🛠️</div>
+      <h3>Home Services</h3>
+      <p>General repairs and maintenance to keep your property in top shape year-round.</p>
+      <div class="svc-note">Quality Guaranteed</div>
+    </div>
+    <div class="sc2 cool">
+      <div class="si cool">🌬️</div>
+      <h3>Duct Work</h3>
+      <p>Duct cleaning and repair to improve air quality and system efficiency throughout your home.</p>
+      <div class="svc-note">Breathe Easier</div>
+    </div>
+    <div class="sc2 warm">
+      <div class="si warm">🌡️</div>
+      <h3>Thermostats</h3>
+      <p>Installation of smart thermostats and traditional controls for better energy management.</p>
+      <div class="svc-note">Save on Energy</div>
     </div>
   </div>
 </section>
 
-
 <!-- REVIEWS -->
 <section id="reviews">
-  <div class="rl">
+  <div class="ice-overlay"></div>
+  <div class="ice-crystal" style="left: 5%; animation-delay: 0s;">❄</div>
+  <div class="ice-crystal" style="left: 25%; animation-delay: 1.5s;">❄</div>
+  <div class="ice-crystal" style="left: 50%; animation-delay: 0.8s;">❄</div>
+  <div class="ice-crystal" style="left: 75%; animation-delay: 2.2s;">❄</div>
+  <div class="ice-crystal" style="left: 90%; animation-delay: 1.2s;">❄</div>
 
+  <div class="rl">
     <div class="rv-left">
       <div>
         <div class="sl" style="color:var(--blue-l);text-align:center">Customer Reviews</div>
@@ -658,7 +731,7 @@
         <img src="images/colb-mascot.jpg" alt="Fullwood's Reliable Service mascot — 5-star rated" width="768" height="768" loading="lazy">
       </div>
       <a href="contact.html?tab=review" class="rv-cta">
-        ⭐ Leave Us a Review
+        ⭐ Leave a Review
       </a>
     </div>
 
@@ -691,6 +764,47 @@
   </div>
 </section>
 
+<!-- GALLERY SECTION -->
+<section id="gallery">
+  <div class="heat-overlay"></div>
+  <div class="shdr">
+    <div class="sl">Our Work</div>
+    <h2 class="sh2">Before &amp; After</h2>
+    <p class="sdesc">See the difference professional service makes. Here are some of our recent projects for clients in the area.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <div class="gallery-img-wrap">
+        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ec3?auto=format&fit=crop&w=800&q=80" alt="HVAC Unit Before and After">
+        <div class="gallery-label">AC Replacement</div>
+      </div>
+      <div class="gallery-info">
+        <h4>Old Unit to High-Efficiency</h4>
+        <p>Replaced a 15-year-old failing unit with a modern, energy-efficient system that cut the client's bill by 30%.</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-img-wrap">
+        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Electrical Panel Before and After">
+        <div class="gallery-label">Electrical Upgrade</div>
+      </div>
+      <div class="gallery-info">
+        <h4>Breaker Box Modernization</h4>
+        <p>Cleaned up a messy, outdated electrical panel to ensure safety and compliance with modern standards.</p>
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-img-wrap">
+        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80" alt="Duct Work Before and After">
+        <div class="gallery-label">Duct Repair</div>
+      </div>
+      <div class="gallery-info">
+        <h4>Duct Sealing &amp; Insulation</h4>
+        <p>Fixed leaking ducts in an attic space, significantly improving airflow to the master bedroom.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CONTACT CTA -->
 <section id="contact-cta">
@@ -723,7 +837,6 @@
         </a>
       </div>
     </div>
-
     <!-- NEW EMERGENCY BOX -->
 <div class="cta-emergency">
   <div class="cta-em-eyebrow">🚨 EMERGENCY 🚨</div>
@@ -740,7 +853,6 @@
         <span style="font-size:0.7rem; opacity:0.7;">*Applies to all after-hours emergency dispatches.</span>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -814,4 +926,48 @@
   let targetPct = 50, currentPct = 50;
 
   function placeSnowflakes() {
-    const flakes = sf.querySelectorAll
+    const flakes = sf.querySelectorAll('.snowflake');
+    flakes.forEach((flake) => {
+      const rand = parseFloat(flake.dataset.rand || Math.random().toFixed(4));
+      flake.style.left = `${Math.max(2, (currentPct * 0.92) * rand)}%`;
+    });
+  }
+
+  hero.addEventListener('mousemove', (e) => {
+    const rect = hero.getBoundingClientRect();
+    targetPct = Math.max(24, Math.min(76, ((e.clientX - rect.left) / rect.width) * 100));
+  });
+  hero.addEventListener('touchmove', (e) => {
+    const touch = e.touches[0];
+    if (!touch) return;
+    const rect = hero.getBoundingClientRect();
+    targetPct = Math.max(24, Math.min(76, ((touch.clientX - rect.left) / rect.width) * 100));
+  }, { passive: true });
+  hero.addEventListener('mouseleave', () => { targetPct = currentPct; });
+  hero.addEventListener('touchend', () => { targetPct = currentPct; }, { passive: true });
+
+  function animateDivider() {
+    currentPct += (targetPct - currentPct) * 0.16;
+    const pct = currentPct.toFixed(2);
+    warmBg.style.clipPath = `inset(0 0 0 ${pct}%)`;
+    dividerLine.style.left = `${pct}%`;
+    dividerBadge.style.left = `${pct}%`;
+    placeSnowflakes();
+    requestAnimationFrame(animateDivider);
+  }
+  animateDivider();
+
+  // ── Snowflakes ──
+  for (let i = 0; i < 18; i++) {
+    const el = document.createElement('div');
+    el.className = 'snowflake';
+    el.textContent = '❄';
+    const rand = Math.random();
+    el.dataset.rand = rand.toFixed(4);
+    el.style.cssText = `left:${Math.max(2, (currentPct * 0.92) * rand)}%;font-size:${10+Math.random()*14}px;animation-duration:${5+Math.random()*5}s;animation-delay:${Math.random()*6}s;`;
+    sf.appendChild(el);
+  }
+  placeSnowflakes();
+</script>
+</body>
+</html>

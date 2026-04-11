@@ -203,20 +203,119 @@
     .trust-text strong{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1.15rem;letter-spacing:.03em;color:#fff}
     .trust-text span{font-size:.78rem;color:var(--muted-l)}
 
-    /* CONTACT CTA (replaces #contact) */
-    #contact-cta{padding:6rem 2.5rem;background:var(--frost);position:relative;overflow:hidden}
-    #contact-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 40% at 80% 100%,rgba(14,165,233,.05),transparent);pointer-events:none}
-    .cta-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
-    .cta-eyebrow{font-family:'DM Sans',sans-serif;font-size:clamp(0.85rem, 2vw, 1.1rem);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:.6rem}
-    .cta-left h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.8rem,5vw,4.2rem);text-transform:uppercase;line-height:.95;letter-spacing:.02em;color:var(--obs);margin-bottom:1.2rem}
-    .cta-left h2 span{color:var(--blue)}
-    .cta-left p{color:var(--muted);font-size:.95rem;line-height:1.75;margin-bottom:2rem}
+    /* CONTACT CTA */
+    #contact-cta{
+      padding:6rem 2.5rem;
+      background:#07080f;
+      position:relative;
+      overflow:hidden;
+    }
+    /* Dual heat+cold base gradient */
+    #contact-cta::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(ellipse 55% 70% at 0%   50%, rgba(14,165,233,.18),  transparent 55%),
+        radial-gradient(ellipse 55% 70% at 100% 50%, rgba(239,68,68,.18),   transparent 55%),
+        radial-gradient(ellipse 60% 40% at 50%  0%,  rgba(56,189,248,.06),  transparent 50%),
+        radial-gradient(ellipse 60% 40% at 50% 100%, rgba(245,158,11,.08),  transparent 50%),
+        linear-gradient(135deg, #07080f 0%, #0a0f1a 50%, #0f0a07 100%);
+      pointer-events:none;
+      z-index:0;
+    }
+    /* Diagonal shimmer lines — half cold, half warm */
+    #contact-cta::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        repeating-linear-gradient(110deg, transparent 0px, transparent 50px, rgba(56,189,248,.015) 50px, rgba(56,189,248,.015) 51px),
+        repeating-linear-gradient(70deg,  transparent 0px, transparent 50px, rgba(245,158,11,.012) 50px, rgba(245,158,11,.012) 51px);
+      pointer-events:none;
+      z-index:0;
+    }
+    /* Animated fx layer */
+    .cta-fx-layer{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      overflow:hidden;
+    }
+    /* Cold side mist blobs */
+    .cta-cold-blob{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(65px);
+      pointer-events:none;
+      animation: cta-cold-pulse ease-in-out infinite;
+    }
+    @keyframes cta-cold-pulse{
+      0%,100%{transform:translate(0,0) scale(1);   opacity:var(--cb,0.15);}
+      50%{transform:translate(20px,-15px) scale(1.1); opacity:calc(var(--cb,0.15)*1.7);}
+    }
+    /* Hot side ember blobs */
+    .cta-hot-blob{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(65px);
+      pointer-events:none;
+      animation: cta-hot-pulse ease-in-out infinite;
+    }
+    @keyframes cta-hot-pulse{
+      0%,100%{transform:translate(0,0) scale(1);   opacity:var(--hb,0.15);}
+      50%{transform:translate(-20px,15px) scale(1.12); opacity:calc(var(--hb,0.15)*1.6);}
+    }
+    /* Vertical divider glow between cold & hot */
+    .cta-divider-glow{
+      position:absolute;
+      top:0;
+      left:50%;
+      transform:translateX(-50%);
+      width:2px;
+      height:100%;
+      background:linear-gradient(to bottom, transparent 5%, rgba(255,255,255,.08) 30%, rgba(255,255,255,.12) 50%, rgba(255,255,255,.08) 70%, transparent 95%);
+      pointer-events:none;
+      z-index:3;
+    }
+    /* Frost flakes on left side */
+    .cta-flake{
+      position:absolute;
+      color:rgba(147,210,255,0.45);
+      pointer-events:none;
+      animation: cta-flake-drift ease-in-out infinite;
+      z-index:3;
+      text-shadow:0 0 8px rgba(147,210,255,.7);
+    }
+    @keyframes cta-flake-drift{
+      0%,100%{transform:translateY(0) rotate(0deg);   opacity:0.3;}
+      50%{transform:translateY(12px) rotate(20deg); opacity:0.6;}
+    }
+    /* Rising sparks on right side */
+    .cta-spark{
+      position:absolute;
+      border-radius:50%;
+      pointer-events:none;
+      animation: cta-spark-rise ease-in-out infinite;
+      z-index:3;
+    }
+    @keyframes cta-spark-rise{
+      0%  {transform:translateY(0) scale(1);   opacity:0;}
+      15% {opacity:0.9;}
+      100%{transform:translateY(-80px) scale(0.3); opacity:0;}
+    }
+    .cta-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:5}
+    .cta-eyebrow{font-family:'DM Sans',sans-serif;font-size:clamp(0.85rem, 2vw, 1.1rem);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-l);margin-bottom:.6rem}
+    .cta-left h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:clamp(2.8rem,5vw,4.2rem);text-transform:uppercase;line-height:.95;letter-spacing:.02em;color:#fff;margin-bottom:1.2rem}
+    .cta-left h2 span{color:var(--blue-l)}
+    .cta-left p{color:rgba(255,255,255,.55);font-size:.95rem;line-height:1.75;margin-bottom:2rem}
     .contact-links{display:flex;flex-direction:column;gap:.9rem}
-    .contact-link-item{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:#fff;border:1.5px solid rgba(0,0,0,.07);border-radius:14px;text-decoration:none;color:var(--obs);transition:all .25s ease}
-    .contact-link-item:hover{background:#f0f9ff;border-color:rgba(14,165,233,.35);transform:translateX(4px)}
-    .contact-link-icon{font-size:1.2rem;width:42px;height:42px;background:rgba(14,165,233,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-    .contact-link-body strong{display:block;font-size:.85rem;font-weight:700;color:var(--obs)}
-    .contact-link-body span{font-size:.77rem;color:var(--muted)}
+    .contact-link-item{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.4rem;background:rgba(255,255,255,.06);border:1.5px solid rgba(56,189,248,.18);border-radius:14px;text-decoration:none;color:#fff;transition:all .25s ease;backdrop-filter:blur(8px);}
+    .contact-link-item:hover{background:rgba(14,165,233,.15);border-color:rgba(56,189,248,.5);transform:translateX(4px);box-shadow:0 8px 28px rgba(14,165,233,.2);}
+    .contact-link-icon{font-size:1.2rem;width:42px;height:42px;background:rgba(14,165,233,.18);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(56,189,248,.25);}
+    .contact-link-body strong{display:block;font-size:.85rem;font-weight:700;color:#fff}
+    .contact-link-body span{font-size:.77rem;color:rgba(255,255,255,.45)}
     
     /* --- NEW ENHANCED EMERGENCY BOX --- */
     .cta-emergency {
@@ -302,31 +401,138 @@
     @media(max-width:900px){.cta-inner{grid-template-columns:1fr}}
 
     /* REVIEWS */
-    #reviews{background:var(--obs2);padding:6rem 2.5rem;position:relative;overflow:hidden}
-    #reviews::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 15% 50%,rgba(14,165,233,.09),transparent),radial-gradient(ellipse 40% 50% at 88% 20%,rgba(245,158,11,.07),transparent);pointer-events:none}
-    
-    /* Ice Effects for Review Section */
+    #reviews{
+      background: #060e1a;
+      padding:6rem 2.5rem;
+      position:relative;
+      overflow:hidden;
+    }
+    /* Deep ice/aurora base gradient */
+    #reviews::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(ellipse 70% 60% at 10% 40%, rgba(14,165,233,.18), transparent 60%),
+        radial-gradient(ellipse 50% 50% at 90% 70%, rgba(56,189,248,.12), transparent 55%),
+        radial-gradient(ellipse 80% 40% at 50% 0%,  rgba(147,210,255,.08), transparent 50%),
+        linear-gradient(180deg, #060e1a 0%, #071828 50%, #060e1a 100%);
+      pointer-events:none;
+      z-index:0;
+    }
+    /* Frost shimmer overlay */
+    #reviews::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        repeating-linear-gradient(105deg, transparent 0px, transparent 38px, rgba(147,210,255,.025) 38px, rgba(147,210,255,.025) 39px),
+        repeating-linear-gradient(75deg,  transparent 0px, transparent 52px, rgba(186,230,253,.018) 52px, rgba(186,230,253,.018) 53px);
+      pointer-events:none;
+      z-index:0;
+    }
+
+    /* Animated frost/ice particle layer */
+    .reviews-fx-layer{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      overflow:hidden;
+    }
+    /* Drifting cold mist blobs */
+    .rv-mist{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(60px);
+      pointer-events:none;
+      animation: rv-mist-drift ease-in-out infinite;
+    }
+    @keyframes rv-mist-drift{
+      0%,100%{transform:translate(0,0) scale(1);opacity:var(--mo,0.18);}
+      33%{transform:translate(30px,-20px) scale(1.12);opacity:calc(var(--mo,0.18)*1.5);}
+      66%{transform:translate(-20px,15px) scale(0.92);opacity:calc(var(--mo,0.18)*0.7);}
+    }
+    /* Frost spike icicles along top */
+    .rv-icicle-bar{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:90px;
+      pointer-events:none;
+      z-index:2;
+    }
+    /* Frost edge bottom */
+    .rv-frost-bottom{
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      height:80px;
+      background:linear-gradient(to top, rgba(147,210,255,.06), transparent);
+      pointer-events:none;
+      z-index:2;
+    }
+    /* Floating ice crystals */
+    .ice-crystal {
+      position: absolute;
+      color: rgba(186, 230, 253, 0.35);
+      font-size: 1.6rem;
+      pointer-events: none;
+      animation: ice-float 7s ease-in-out infinite;
+      z-index:3;
+      text-shadow: 0 0 12px rgba(147,210,255,0.6), 0 0 28px rgba(56,189,248,0.4);
+    }
+    @keyframes ice-float {
+      0%  { transform: translateY(0)    rotate(0deg)   scale(1);    opacity:0.3; }
+      25% { transform: translateY(10px) rotate(8deg)   scale(1.08); opacity:0.55; }
+      50% { transform: translateY(18px) rotate(-5deg)  scale(0.95); opacity:0.4; }
+      75% { transform: translateY(8px)  rotate(12deg)  scale(1.04); opacity:0.6; }
+      100%{ transform: translateY(0)    rotate(0deg)   scale(1);    opacity:0.3; }
+    }
+    /* Falling frost particles */
+    .rv-flake{
+      position:absolute;
+      top:-5%;
+      color:rgba(147,210,255,0.5);
+      pointer-events:none;
+      animation: rv-flake-fall linear infinite;
+      z-index:3;
+      text-shadow: 0 0 8px rgba(147,210,255,0.8);
+    }
+    @keyframes rv-flake-fall{
+      0%  {transform:translateY(-20px) rotate(0deg);   opacity:0;}
+      8%  {opacity:0.7;}
+      90% {opacity:0.4;}
+      100%{transform:translateY(110vh) rotate(540deg); opacity:0;}
+    }
+    /* Glowing aurora band */
+    .rv-aurora{
+      position:absolute;
+      left:-10%;
+      width:120%;
+      height:180px;
+      border-radius:50%;
+      pointer-events:none;
+      z-index:1;
+      filter:blur(40px);
+      animation: rv-aurora-wave ease-in-out infinite;
+    }
+    @keyframes rv-aurora-wave{
+      0%,100%{transform:scaleX(1) translateY(0);   opacity:var(--ao,0.12);}
+      50%{transform:scaleX(1.06) translateY(-12px); opacity:calc(var(--ao,0.12)*1.8);}
+    }
+    /* Ice overlay (top glow) */
     .ice-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 150px;
-      background: linear-gradient(to bottom, rgba(186, 230, 253, 0.15), transparent);
+      height: 200px;
+      background: linear-gradient(to bottom, rgba(147,230,255,0.22), rgba(56,189,248,0.06) 60%, transparent);
       pointer-events: none;
       z-index: 2;
-    }
-    .ice-crystal {
-      position: absolute;
-      top: 10px;
-      color: rgba(186, 230, 253, 0.2);
-      font-size: 2rem;
-      pointer-events: none;
-      animation: ice-float 6s ease-in-out infinite;
-    }
-    @keyframes ice-float {
-      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
-      50% { transform: translateY(15px) rotate(15deg); opacity: 0.4; }
     }
 
     .rl{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:3.5rem;align-items:center;position:relative;z-index:1;}
@@ -388,28 +594,256 @@
       box-shadow: 0 15px 35px rgba(14, 165, 233, 0.6);
     }
 
-    /* GALLERY SECTION */
-    #gallery { padding: 6rem 2.5rem; background: var(--white); position: relative; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 3rem auto 0; }
-    .gallery-item { border-radius: var(--r-lg); overflow: hidden; background: var(--frost); box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s; }
-    .gallery-item:hover { transform: translateY(-8px); }
-    .gallery-img-wrap { position: relative; aspect-ratio: 4/3; overflow: hidden; }
-    .gallery-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
-    .gallery-label { position: absolute; bottom: 1rem; left: 1rem; background: rgba(11,18,33,0.8); color: #fff; padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
-    .gallery-info { padding: 1.5rem; }
-    .gallery-info h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.25rem; font-weight: 800; text-transform: uppercase; margin-bottom: 0.5rem; }
-    .gallery-info p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
-
-    /* Heat Effects for Next Section */
+    /* GALLERY / BEFORE-AFTER SECTION */
+    #gallery{
+      padding:6rem 2.5rem;
+      background:#0f0700;
+      position:relative;
+      overflow:hidden;
+    }
+    /* Fire/heat base gradient */
+    #gallery::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 100%, rgba(245,158,11,.22), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 15% 60%,  rgba(239,68,68,.16),  transparent 55%),
+        radial-gradient(ellipse 45% 35% at 85% 30%,  rgba(251,191,36,.14), transparent 50%),
+        linear-gradient(180deg, #0f0700 0%, #1a0c00 55%, #0f0700 100%);
+      pointer-events:none;
+      z-index:0;
+    }
+    /* Heat shimmer diagonal lines */
+    #gallery::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+        repeating-linear-gradient(80deg, transparent 0px, transparent 44px, rgba(245,158,11,.018) 44px, rgba(245,158,11,.018) 45px),
+        repeating-linear-gradient(100deg,transparent 0px, transparent 60px, rgba(239,68,68,.012) 60px, rgba(239,68,68,.012) 61px);
+      pointer-events:none;
+      z-index:0;
+    }
+    /* Ember/heat particle layer */
+    .gallery-fx-layer{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+      overflow:hidden;
+    }
+    /* Glowing heat blobs */
+    .gl-ember-blob{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(55px);
+      pointer-events:none;
+      animation: gl-blob-pulse ease-in-out infinite;
+    }
+    @keyframes gl-blob-pulse{
+      0%,100%{transform:translate(0,0) scale(1);   opacity:var(--be,0.2);}
+      40%{transform:translate(-25px,-18px) scale(1.15); opacity:calc(var(--be,0.2)*1.6);}
+      70%{transform:translate(18px,12px) scale(0.88);  opacity:calc(var(--be,0.2)*0.8);}
+    }
+    /* Rising ember sparks */
+    .gl-spark{
+      position:absolute;
+      bottom:-5%;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      pointer-events:none;
+      animation: gl-spark-rise ease-in-out infinite;
+      z-index:3;
+    }
+    @keyframes gl-spark-rise{
+      0%  {transform:translateY(0)    scale(1);   opacity:0;}
+      10% {opacity:1;}
+      50% {transform:translateY(-45vh) scale(0.7); opacity:0.8;}
+      100%{transform:translateY(-90vh) scale(0.3); opacity:0;}
+    }
+    /* Wavy heat shimmer lines */
+    .gl-wave{
+      position:absolute;
+      left:0;
+      width:100%;
+      pointer-events:none;
+      z-index:2;
+      animation: gl-wave-shimmer ease-in-out infinite;
+    }
+    @keyframes gl-wave-shimmer{
+      0%,100%{opacity:0;transform:scaleX(0.95) translateY(0);}
+      50%{opacity:1;transform:scaleX(1.03) translateY(-4px);}
+    }
+    /* Heat overlay top glow */
     .heat-overlay {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 150px;
-      background: linear-gradient(to bottom, rgba(245, 158, 11, 0.1), transparent);
+      height: 200px;
+      background: linear-gradient(to bottom, rgba(245,100,0,0.18), rgba(245,158,11,0.06) 60%, transparent);
       pointer-events: none;
       z-index: 2;
+    }
+    /* Bottom fire glow */
+    .gl-fire-bottom{
+      position:absolute;
+      bottom:0;
+      left:0;
+      width:100%;
+      height:100px;
+      background:linear-gradient(to top, rgba(239,68,68,.12), rgba(245,158,11,.06) 50%, transparent);
+      pointer-events:none;
+      z-index:2;
+    }
+
+    /* ── BEFORE & AFTER CAROUSEL ── */
+    .ba-carousel-wrap{
+      position:relative;
+      max-width:1100px;
+      margin:3rem auto 0;
+      z-index:5;
+    }
+    .ba-slide{
+      display:none;
+      grid-template-columns:1fr 1fr;
+      gap:1.5rem;
+      animation: ba-fade-in 0.45s ease;
+    }
+    .ba-slide.active{ display:grid; }
+    @keyframes ba-fade-in{
+      from{opacity:0;transform:translateY(10px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+    .ba-card{
+      border-radius:var(--r-lg);
+      overflow:hidden;
+      position:relative;
+      background:#1a0c00;
+      border:1px solid rgba(245,158,11,.18);
+      box-shadow:0 16px 48px rgba(0,0,0,.55), 0 0 40px rgba(245,158,11,.08);
+      transition:transform .35s ease, box-shadow .35s ease;
+    }
+    .ba-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 24px 64px rgba(0,0,0,.65), 0 0 60px rgba(245,158,11,.16);
+    }
+    .ba-card-img{
+      position:relative;
+      aspect-ratio:4/3;
+      overflow:hidden;
+    }
+    .ba-card-img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform .5s ease;
+    }
+    .ba-card:hover .ba-card-img img{ transform:scale(1.04); }
+    .ba-badge{
+      position:absolute;
+      top:.85rem;
+      left:.85rem;
+      padding:.35rem 1rem;
+      border-radius:100px;
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:800;
+      font-size:.82rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      z-index:2;
+    }
+    .ba-badge.before{
+      background:rgba(239,68,68,.85);
+      color:#fff;
+      box-shadow:0 4px 14px rgba(239,68,68,.4);
+    }
+    .ba-badge.after{
+      background:rgba(14,165,233,.85);
+      color:#fff;
+      box-shadow:0 4px 14px rgba(14,165,233,.4);
+    }
+    .ba-card-body{
+      padding:1.25rem 1.5rem;
+    }
+    .ba-card-body h4{
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:800;
+      font-size:1.2rem;
+      text-transform:uppercase;
+      letter-spacing:.03em;
+      color:#fff;
+      margin-bottom:.4rem;
+    }
+    .ba-card-body p{
+      font-size:.85rem;
+      color:rgba(255,255,255,.5);
+      line-height:1.6;
+    }
+    /* Nav controls */
+    .ba-controls{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:1.5rem;
+      margin-top:2.5rem;
+    }
+    .ba-btn{
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      border:2px solid rgba(245,158,11,.4);
+      background:rgba(245,158,11,.1);
+      color:rgba(245,158,11,.9);
+      font-size:1.4rem;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition:all .25s ease;
+      backdrop-filter:blur(8px);
+    }
+    .ba-btn:hover{
+      background:rgba(245,158,11,.25);
+      border-color:rgba(245,158,11,.8);
+      color:#fff;
+      transform:scale(1.1);
+      box-shadow:0 0 24px rgba(245,158,11,.35);
+    }
+    .ba-dots{
+      display:flex;
+      gap:.6rem;
+      align-items:center;
+    }
+    .ba-dot{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      background:rgba(245,158,11,.25);
+      border:1px solid rgba(245,158,11,.35);
+      cursor:pointer;
+      transition:all .25s ease;
+    }
+    .ba-dot.active{
+      background:rgba(245,158,11,.9);
+      box-shadow:0 0 10px rgba(245,158,11,.6);
+      transform:scale(1.2);
+    }
+    .ba-counter{
+      font-family:'Barlow Condensed',sans-serif;
+      font-weight:700;
+      font-size:1rem;
+      color:rgba(245,158,11,.7);
+      letter-spacing:.08em;
+      min-width:48px;
+      text-align:center;
+    }
+    @media(max-width:768px){
+      .ba-slide{ grid-template-columns:1fr; }
+      .ba-card-img{ aspect-ratio:16/9; }
     }
 
     /* FOOTER */
@@ -713,12 +1147,97 @@
 
 <!-- REVIEWS -->
 <section id="reviews">
+  <!-- Ice/frost visual effects layer -->
   <div class="ice-overlay"></div>
-  <div class="ice-crystal" style="left: 5%; animation-delay: 0s;">❄</div>
-  <div class="ice-crystal" style="left: 25%; animation-delay: 1.5s;">❄</div>
-  <div class="ice-crystal" style="left: 50%; animation-delay: 0.8s;">❄</div>
-  <div class="ice-crystal" style="left: 75%; animation-delay: 2.2s;">❄</div>
-  <div class="ice-crystal" style="left: 90%; animation-delay: 1.2s;">❄</div>
+  <div class="rv-frost-bottom"></div>
+
+  <!-- Aurora bands -->
+  <div class="rv-aurora" style="top:10%;background:rgba(14,165,233,0.18);--ao:0.14;animation-duration:8s;animation-delay:0s;"></div>
+  <div class="rv-aurora" style="top:55%;background:rgba(56,189,248,0.12);--ao:0.10;animation-duration:11s;animation-delay:2.5s;"></div>
+  <div class="rv-aurora" style="bottom:5%;background:rgba(147,210,255,0.08);--ao:0.08;animation-duration:9s;animation-delay:1.2s;"></div>
+
+  <!-- Drifting cold mist blobs -->
+  <div class="rv-mist" style="left:5%;top:20%;width:320px;height:320px;background:rgba(14,165,233,0.12);--mo:0.12;animation-duration:10s;animation-delay:0s;"></div>
+  <div class="rv-mist" style="left:60%;top:10%;width:280px;height:280px;background:rgba(56,189,248,0.10);--mo:0.10;animation-duration:13s;animation-delay:1.5s;"></div>
+  <div class="rv-mist" style="left:30%;top:60%;width:360px;height:360px;background:rgba(147,210,255,0.08);--mo:0.08;animation-duration:15s;animation-delay:3s;"></div>
+  <div class="rv-mist" style="left:80%;top:50%;width:240px;height:240px;background:rgba(14,165,233,0.09);--mo:0.09;animation-duration:12s;animation-delay:0.8s;"></div>
+
+  <!-- Icicle SVG bar across top -->
+  <div class="rv-icicle-bar">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none" width="100%" height="90" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="icicle-grad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="rgba(147,210,255,0.35)"/>
+          <stop offset="100%" stop-color="rgba(56,189,248,0.05)"/>
+        </linearGradient>
+      </defs>
+      <!-- Icicle spikes -->
+      <polygon points="0,0 30,0 15,55" fill="url(#icicle-grad)"/>
+      <polygon points="22,0 58,0 40,72" fill="url(#icicle-grad)" opacity="0.7"/>
+      <polygon points="50,0 80,0 65,48" fill="url(#icicle-grad)" opacity="0.85"/>
+      <polygon points="72,0 105,0 88,65" fill="url(#icicle-grad)"/>
+      <polygon points="98,0 128,0 113,42" fill="url(#icicle-grad)" opacity="0.6"/>
+      <polygon points="120,0 155,0 137,58" fill="url(#icicle-grad)" opacity="0.9"/>
+      <polygon points="148,0 178,0 163,50" fill="url(#icicle-grad)" opacity="0.75"/>
+      <polygon points="170,0 205,0 187,70" fill="url(#icicle-grad)"/>
+      <polygon points="198,0 228,0 213,44" fill="url(#icicle-grad)" opacity="0.65"/>
+      <polygon points="222,0 258,0 240,62" fill="url(#icicle-grad)" opacity="0.8"/>
+      <polygon points="250,0 285,0 267,52" fill="url(#icicle-grad)"/>
+      <polygon points="278,0 308,0 293,40" fill="url(#icicle-grad)" opacity="0.7"/>
+      <polygon points="300,0 338,0 319,68" fill="url(#icicle-grad)" opacity="0.85"/>
+      <polygon points="330,0 362,0 346,46" fill="url(#icicle-grad)" opacity="0.6"/>
+      <polygon points="355,0 390,0 372,60" fill="url(#icicle-grad)"/>
+      <polygon points="382,0 415,0 398,50" fill="url(#icicle-grad)" opacity="0.75"/>
+      <polygon points="408,0 442,0 425,72" fill="url(#icicle-grad)" opacity="0.9"/>
+      <polygon points="435,0 465,0 450,42" fill="url(#icicle-grad)" opacity="0.65"/>
+      <polygon points="458,0 495,0 476,58" fill="url(#icicle-grad)"/>
+      <polygon points="488,0 520,0 504,48" fill="url(#icicle-grad)" opacity="0.8"/>
+      <polygon points="512,0 548,0 530,66" fill="url(#icicle-grad)" opacity="0.7"/>
+      <polygon points="540,0 572,0 556,44" fill="url(#icicle-grad)"/>
+      <polygon points="565,0 600,0 582,56" fill="url(#icicle-grad)" opacity="0.85"/>
+      <polygon points="592,0 625,0 608,40" fill="url(#icicle-grad)" opacity="0.6"/>
+      <polygon points="618,0 655,0 636,70" fill="url(#icicle-grad)"/>
+      <polygon points="648,0 680,0 664,52" fill="url(#icicle-grad)" opacity="0.75"/>
+      <polygon points="672,0 708,0 690,46" fill="url(#icicle-grad)" opacity="0.9"/>
+      <polygon points="700,0 733,0 716,62" fill="url(#icicle-grad)" opacity="0.7"/>
+      <polygon points="725,0 760,0 742,50" fill="url(#icicle-grad)"/>
+      <polygon points="752,0 785,0 768,68" fill="url(#icicle-grad)" opacity="0.65"/>
+      <polygon points="778,0 812,0 795,44" fill="url(#icicle-grad)" opacity="0.8"/>
+      <polygon points="805,0 840,0 822,58" fill="url(#icicle-grad)"/>
+      <polygon points="832,0 865,0 848,40" fill="url(#icicle-grad)" opacity="0.7"/>
+      <polygon points="858,0 895,0 876,72" fill="url(#icicle-grad)" opacity="0.85"/>
+      <polygon points="888,0 920,0 904,48" fill="url(#icicle-grad)" opacity="0.6"/>
+      <polygon points="912,0 948,0 930,60" fill="url(#icicle-grad)"/>
+      <polygon points="940,0 975,0 957,50" fill="url(#icicle-grad)" opacity="0.75"/>
+      <polygon points="968,0 1002,0 985,66" fill="url(#icicle-grad)" opacity="0.9"/>
+      <polygon points="995,0 1028,0 1011,42" fill="url(#icicle-grad)" opacity="0.65"/>
+      <polygon points="1020,0 1058,0 1039,56" fill="url(#icicle-grad)"/>
+      <polygon points="1050,0 1082,0 1066,44" fill="url(#icicle-grad)" opacity="0.8"/>
+      <polygon points="1075,0 1110,0 1092,68" fill="url(#icicle-grad)" opacity="0.7"/>
+      <polygon points="1102,0 1135,0 1118,50" fill="url(#icicle-grad)"/>
+      <polygon points="1128,0 1165,0 1146,62" fill="url(#icicle-grad)" opacity="0.85"/>
+      <polygon points="1158,0 1190,0 1174,46" fill="url(#icicle-grad)" opacity="0.6"/>
+      <polygon points="1182,0 1218,0 1200,58" fill="url(#icicle-grad)"/>
+      <polygon points="1210,0 1245,0 1227,40" fill="url(#icicle-grad)" opacity="0.75"/>
+      <polygon points="1238,0 1272,0 1255,70" fill="url(#icicle-grad)" opacity="0.9"/>
+      <polygon points="1265,0 1298,0 1281,48" fill="url(#icicle-grad)" opacity="0.65"/>
+      <polygon points="1290,0 1328,0 1309,60" fill="url(#icicle-grad)"/>
+      <polygon points="1320,0 1352,0 1336,52" fill="url(#icicle-grad)" opacity="0.8"/>
+      <polygon points="1345,0 1380,0 1362,44" fill="url(#icicle-grad)" opacity="0.7"/>
+      <polygon points="1372,0 1410,0 1391,66" fill="url(#icicle-grad)"/>
+      <polygon points="1400,0 1440,0 1420,50" fill="url(#icicle-grad)" opacity="0.85"/>
+    </svg>
+  </div>
+
+  <!-- Floating ice crystals -->
+  <div class="ice-crystal" style="left:5%;top:18%;font-size:1.8rem;animation-delay:0s;animation-duration:7s;">❄</div>
+  <div class="ice-crystal" style="left:18%;top:65%;font-size:1.2rem;animation-delay:1.5s;animation-duration:9s;">❄</div>
+  <div class="ice-crystal" style="left:32%;top:30%;font-size:2rem;animation-delay:0.8s;animation-duration:8s;">❄</div>
+  <div class="ice-crystal" style="left:48%;top:75%;font-size:1.4rem;animation-delay:2.2s;animation-duration:10s;">❄</div>
+  <div class="ice-crystal" style="left:62%;top:22%;font-size:1.6rem;animation-delay:1.0s;animation-duration:7.5s;">❄</div>
+  <div class="ice-crystal" style="left:75%;top:55%;font-size:1.1rem;animation-delay:3.0s;animation-duration:11s;">❄</div>
+  <div class="ice-crystal" style="left:88%;top:35%;font-size:1.9rem;animation-delay:0.4s;animation-duration:8.5s;">❄</div>
+  <div class="ice-crystal" style="left:94%;top:70%;font-size:1.3rem;animation-delay:1.8s;animation-duration:9.5s;">❄</div>
 
   <div class="rl">
     <div class="rv-left">
@@ -764,50 +1283,173 @@
   </div>
 </section>
 
-<!-- GALLERY SECTION -->
+<!-- GALLERY / BEFORE & AFTER SECTION -->
 <section id="gallery">
+  <!-- Fire/heat visual effects layer -->
   <div class="heat-overlay"></div>
-  <div class="shdr">
-    <div class="sl">Our Work</div>
-    <h2 class="sh2">Before &amp; After</h2>
-    <p class="sdesc">See the difference professional service makes. Here are some of our recent projects for clients in the area.</p>
+  <div class="gl-fire-bottom"></div>
+
+  <!-- Ember glow blobs -->
+  <div class="gl-ember-blob" style="left:5%;top:15%;width:350px;height:350px;background:rgba(245,158,11,0.18);--be:0.18;animation-duration:9s;animation-delay:0s;"></div>
+  <div class="gl-ember-blob" style="left:55%;top:5%;width:300px;height:300px;background:rgba(239,68,68,0.14);--be:0.14;animation-duration:12s;animation-delay:1.5s;"></div>
+  <div class="gl-ember-blob" style="left:25%;top:60%;width:380px;height:380px;background:rgba(251,191,36,0.10);--be:0.10;animation-duration:14s;animation-delay:2.5s;"></div>
+  <div class="gl-ember-blob" style="left:78%;top:45%;width:260px;height:260px;background:rgba(245,158,11,0.12);--be:0.12;animation-duration:11s;animation-delay:0.7s;"></div>
+
+  <!-- Heat shimmer waves -->
+  <div class="gl-wave" style="top:25%;animation-duration:4s;animation-delay:0s;">
+    <svg viewBox="0 0 1440 24" preserveAspectRatio="none" width="100%" height="24"><path d="M0,12 Q120,0 240,12 Q360,24 480,12 Q600,0 720,12 Q840,24 960,12 Q1080,0 1200,12 Q1320,24 1440,12" stroke="rgba(245,158,11,0.18)" stroke-width="2" fill="none"/></svg>
   </div>
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <div class="gallery-img-wrap">
-        <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ec3?auto=format&fit=crop&w=800&q=80" alt="HVAC Unit Before and After">
-        <div class="gallery-label">AC Replacement</div>
-      </div>
-      <div class="gallery-info">
-        <h4>Old Unit to High-Efficiency</h4>
-        <p>Replaced a 15-year-old failing unit with a modern, energy-efficient system that cut the client's bill by 30%.</p>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <div class="gallery-img-wrap">
-        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Electrical Panel Before and After">
-        <div class="gallery-label">Electrical Upgrade</div>
-      </div>
-      <div class="gallery-info">
-        <h4>Breaker Box Modernization</h4>
-        <p>Cleaned up a messy, outdated electrical panel to ensure safety and compliance with modern standards.</p>
-      </div>
-    </div>
-    <div class="gallery-item">
-      <div class="gallery-img-wrap">
-        <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80" alt="Duct Work Before and After">
-        <div class="gallery-label">Duct Repair</div>
-      </div>
-      <div class="gallery-info">
-        <h4>Duct Sealing &amp; Insulation</h4>
-        <p>Fixed leaking ducts in an attic space, significantly improving airflow to the master bedroom.</p>
-      </div>
-    </div>
+  <div class="gl-wave" style="top:50%;animation-duration:5.5s;animation-delay:0.8s;">
+    <svg viewBox="0 0 1440 24" preserveAspectRatio="none" width="100%" height="24"><path d="M0,12 Q90,0 180,12 Q270,24 360,12 Q450,0 540,12 Q630,24 720,12 Q810,0 900,12 Q990,24 1080,12 Q1170,0 1260,12 Q1350,24 1440,12" stroke="rgba(239,68,68,0.14)" stroke-width="2" fill="none"/></svg>
   </div>
+  <div class="gl-wave" style="top:75%;animation-duration:3.8s;animation-delay:1.5s;">
+    <svg viewBox="0 0 1440 24" preserveAspectRatio="none" width="100%" height="24"><path d="M0,12 Q150,0 300,12 Q450,24 600,12 Q750,0 900,12 Q1050,24 1200,12 Q1350,0 1440,12" stroke="rgba(251,191,36,0.12)" stroke-width="1.5" fill="none"/></svg>
+  </div>
+
+  <!-- Rising ember sparks -->
+  <div class="gl-spark" style="left:8%;background:rgba(251,191,36,0.9);box-shadow:0 0 6px rgba(251,191,36,0.8);animation-duration:3.2s;animation-delay:0s;"></div>
+  <div class="gl-spark" style="left:15%;background:rgba(245,158,11,0.85);box-shadow:0 0 5px rgba(245,158,11,0.7);animation-duration:4.5s;animation-delay:0.6s;"></div>
+  <div class="gl-spark" style="left:24%;background:rgba(239,68,68,0.9);box-shadow:0 0 6px rgba(239,68,68,0.8);animation-duration:3.8s;animation-delay:1.2s;"></div>
+  <div class="gl-spark" style="left:38%;background:rgba(251,191,36,0.8);box-shadow:0 0 5px rgba(251,191,36,0.7);animation-duration:5s;animation-delay:0.3s;"></div>
+  <div class="gl-spark" style="left:52%;background:rgba(245,158,11,0.9);box-shadow:0 0 7px rgba(245,158,11,0.8);animation-duration:3.5s;animation-delay:1.8s;"></div>
+  <div class="gl-spark" style="left:65%;background:rgba(239,68,68,0.85);box-shadow:0 0 5px rgba(239,68,68,0.7);animation-duration:4.2s;animation-delay:0.9s;"></div>
+  <div class="gl-spark" style="left:78%;background:rgba(251,191,36,0.9);box-shadow:0 0 6px rgba(251,191,36,0.8);animation-duration:3.0s;animation-delay:2.1s;"></div>
+  <div class="gl-spark" style="left:88%;background:rgba(245,158,11,0.8);box-shadow:0 0 5px rgba(245,158,11,0.7);animation-duration:4.8s;animation-delay:0.4s;"></div>
+  <div class="gl-spark" style="left:94%;background:rgba(239,68,68,0.9);box-shadow:0 0 6px rgba(239,68,68,0.8);animation-duration:3.6s;animation-delay:1.5s;"></div>
+
+  <!-- Section header -->
+  <div class="shdr" style="position:relative;z-index:5;">
+    <div class="sl" style="color:var(--amber-l);">Our Work</div>
+    <h2 class="sh2" style="color:#fff;">Before &amp; After</h2>
+    <p class="sdesc" style="color:rgba(255,255,255,.5);">See the difference professional service makes. Real results from real projects across South Louisiana.</p>
+  </div>
+
+  <!-- BEFORE & AFTER CAROUSEL -->
+  <div class="ba-carousel-wrap">
+
+    <!-- Slide 1: AC Unit Replacement -->
+    <div class="ba-slide active" id="ba-slide-1">
+      <div class="ba-card">
+        <div class="ba-card-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" alt="Old rusted AC unit before replacement" loading="lazy">
+          <div class="ba-badge before">Before</div>
+        </div>
+        <div class="ba-card-body">
+          <h4>Worn-Out AC Unit</h4>
+          <p>15-year-old system running inefficiently, causing high energy bills and inconsistent cooling throughout the home.</p>
+        </div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-card-img">
+          <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ec3?auto=format&fit=crop&w=800&q=80" alt="New high-efficiency AC unit after installation" loading="lazy">
+          <div class="ba-badge after">After</div>
+        </div>
+        <div class="ba-card-body">
+          <h4>High-Efficiency Replacement</h4>
+          <p>Brand-new unit installed cleanly and correctly — client reported a 30% drop in their monthly energy bill.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Electrical Panel -->
+    <div class="ba-slide" id="ba-slide-2">
+      <div class="ba-card">
+        <div class="ba-card-img">
+          <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80" alt="Outdated electrical breaker panel before upgrade" loading="lazy">
+          <div class="ba-badge before">Before</div>
+        </div>
+        <div class="ba-card-body">
+          <h4>Outdated Breaker Panel</h4>
+          <p>Overloaded panel with mixed breakers, exposed wiring, and no room for expansion — a safety hazard waiting to happen.</p>
+        </div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-card-img">
+          <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?auto=format&fit=crop&w=800&q=80" alt="Clean modern electrical panel after upgrade" loading="lazy">
+          <div class="ba-badge after">After</div>
+        </div>
+        <div class="ba-card-body">
+          <h4>Modern Panel Upgrade</h4>
+          <p>Full panel replacement with proper labeling, clean wiring, and room to grow — safe, compliant, and future-ready.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Duct Work -->
+    <div class="ba-slide" id="ba-slide-3">
+      <div class="ba-card">
+        <div class="ba-card-img">
+          <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80" alt="Damaged leaking ductwork before repair" loading="lazy">
+          <div class="ba-badge before">Before</div>
+        </div>
+        <div class="ba-card-body">
+          <h4>Leaking Ductwork</h4>
+          <p>Disconnected and deteriorating ducts in the attic were dumping conditioned air into unconditioned space, wasting money.</p>
+        </div>
+      </div>
+      <div class="ba-card">
+        <div class="ba-card-img">
+          <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=800&q=80" alt="Sealed and insulated ductwork after repair" loading="lazy">
+          <div class="ba-badge after">After</div>
+        </div>
+        <div class="ba-card-body">
+          <h4>Sealed &amp; Insulated Ducts</h4>
+          <p>Fully sealed, re-routed, and insulated duct system — noticeably improved airflow to every room in the house.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel controls -->
+    <div class="ba-controls">
+      <button class="ba-btn" id="ba-prev" aria-label="Previous set" onclick="baNav(-1)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <div class="ba-dots">
+        <div class="ba-dot active" onclick="baGo(0)" aria-label="Set 1"></div>
+        <div class="ba-dot" onclick="baGo(1)" aria-label="Set 2"></div>
+        <div class="ba-dot" onclick="baGo(2)" aria-label="Set 3"></div>
+      </div>
+      <span class="ba-counter" id="ba-counter">1 / 3</span>
+      <button class="ba-btn" id="ba-next" aria-label="Next set" onclick="baNav(1)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+  </div><!-- /.ba-carousel-wrap -->
 </section>
 
 <!-- CONTACT CTA -->
 <section id="contact-cta">
+
+  <!-- Dual heat+cold visual effects layer -->
+  <div class="cta-fx-layer">
+    <!-- Cold side blobs (left) -->
+    <div class="cta-cold-blob" style="left:-5%;top:10%;width:400px;height:400px;background:rgba(14,165,233,0.2);--cb:0.2;animation-duration:10s;animation-delay:0s;"></div>
+    <div class="cta-cold-blob" style="left:5%;top:55%;width:300px;height:300px;background:rgba(56,189,248,0.14);--cb:0.14;animation-duration:13s;animation-delay:1.5s;"></div>
+    <div class="cta-cold-blob" style="left:15%;top:30%;width:250px;height:250px;background:rgba(147,210,255,0.10);--cb:0.10;animation-duration:11s;animation-delay:3s;"></div>
+    <!-- Hot side blobs (right) -->
+    <div class="cta-hot-blob" style="right:-5%;top:15%;width:400px;height:400px;background:rgba(239,68,68,0.2);--hb:0.2;animation-duration:9s;animation-delay:0.5s;"></div>
+    <div class="cta-hot-blob" style="right:5%;top:60%;width:320px;height:320px;background:rgba(245,158,11,0.15);--hb:0.15;animation-duration:12s;animation-delay:2s;"></div>
+    <div class="cta-hot-blob" style="right:18%;top:25%;width:260px;height:260px;background:rgba(251,191,36,0.10);--hb:0.10;animation-duration:14s;animation-delay:0.8s;"></div>
+  </div>
+
+  <!-- Vertical divider glow -->
+  <div class="cta-divider-glow"></div>
+
+  <!-- Frost flakes on left side -->
+  <div class="cta-flake" style="left:3%;top:20%;font-size:1.4rem;animation-duration:7s;animation-delay:0s;">❄</div>
+  <div class="cta-flake" style="left:8%;top:55%;font-size:1rem;animation-duration:9s;animation-delay:1.5s;">❄</div>
+  <div class="cta-flake" style="left:14%;top:35%;font-size:1.6rem;animation-duration:8s;animation-delay:0.7s;">❄</div>
+  <div class="cta-flake" style="left:20%;top:70%;font-size:1.2rem;animation-duration:10s;animation-delay:2.2s;">❄</div>
+  <div class="cta-flake" style="left:28%;top:15%;font-size:0.9rem;animation-duration:11s;animation-delay:1s;">❄</div>
+
+  <!-- Rising sparks on right side -->
+  <div class="cta-spark" style="right:5%;bottom:20%;width:5px;height:5px;background:rgba(251,191,36,0.9);box-shadow:0 0 6px rgba(251,191,36,0.8);animation-duration:2.8s;animation-delay:0s;"></div>
+  <div class="cta-spark" style="right:12%;bottom:35%;width:4px;height:4px;background:rgba(245,158,11,0.85);box-shadow:0 0 5px rgba(245,158,11,0.7);animation-duration:3.5s;animation-delay:0.7s;"></div>
+  <div class="cta-spark" style="right:20%;bottom:15%;width:6px;height:6px;background:rgba(239,68,68,0.9);box-shadow:0 0 7px rgba(239,68,68,0.8);animation-duration:2.5s;animation-delay:1.3s;"></div>
+  <div class="cta-spark" style="right:28%;bottom:45%;width:4px;height:4px;background:rgba(251,191,36,0.8);box-shadow:0 0 5px rgba(251,191,36,0.7);animation-duration:4s;animation-delay:0.4s;"></div>
+  <div class="cta-spark" style="right:8%;bottom:60%;width:5px;height:5px;background:rgba(245,158,11,0.9);box-shadow:0 0 6px rgba(245,158,11,0.8);animation-duration:3.2s;animation-delay:1.8s;"></div>
+
   <div class="cta-inner">
     <div class="cta-left">
       <div class="cta-eyebrow">Get in Touch</div>
@@ -956,6 +1598,47 @@
     requestAnimationFrame(animateDivider);
   }
   animateDivider();
+
+  // ── Before & After Carousel ──
+  let baCurrent = 0;
+  const baTotal = 3;
+  const baSlides = document.querySelectorAll('.ba-slide');
+  const baDots   = document.querySelectorAll('.ba-dot');
+  const baCounterEl = document.getElementById('ba-counter');
+
+  function baShow(index) {
+    baSlides.forEach((s, i) => s.classList.toggle('active', i === index));
+    baDots.forEach((d, i)  => d.classList.toggle('active', i === index));
+    if (baCounterEl) baCounterEl.textContent = `${index + 1} / ${baTotal}`;
+    baCurrent = index;
+  }
+
+  function baNav(dir) {
+    baShow((baCurrent + dir + baTotal) % baTotal);
+  }
+
+  function baGo(index) {
+    baShow(index);
+  }
+
+  // ── Reviews section falling frost particles ──
+  const reviewsSection = document.getElementById('reviews');
+  if (reviewsSection) {
+    for (let i = 0; i < 22; i++) {
+      const flake = document.createElement('div');
+      flake.className = 'rv-flake';
+      flake.textContent = ['❄','❅','❆','*'][Math.floor(Math.random()*4)];
+      const sz = 8 + Math.random() * 12;
+      flake.style.cssText = [
+        `left:${Math.random()*100}%`,
+        `font-size:${sz}px`,
+        `animation-duration:${7 + Math.random()*8}s`,
+        `animation-delay:${Math.random()*10}s`,
+        `opacity:${0.3 + Math.random()*0.4}`
+      ].join(';');
+      reviewsSection.appendChild(flake);
+    }
+  }
 
   // ── Snowflakes ──
   for (let i = 0; i < 18; i++) {
